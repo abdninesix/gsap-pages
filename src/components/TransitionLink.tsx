@@ -7,9 +7,11 @@ import React from 'react'
 interface Props {
     href: string,
     label: string,
+    className?: string
+    children?: React.ReactNode
 }
 
-const TransitionLink = ({href, label}: Props) => {
+const TransitionLink = ({href, label, className}: Props) => {
 
     const pathname = usePathname()
     const router = useRouter()
@@ -20,7 +22,7 @@ const TransitionLink = ({href, label}: Props) => {
         }
     }
   return (
-    <button onClick={handleClick} className='text-xl hover:text-neutral-950'>{label}</button>
+    <button onClick={handleClick} className={className}>{label}</button>
   )
 }
 

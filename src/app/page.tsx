@@ -1,11 +1,146 @@
-import React from 'react'
+"use client";
+
+import { useLayoutEffect, useRef } from "react";
+import Image from "next/image";
+import Link from "next/link";
+import gsap from "gsap";
+// import LaptopContainer from "@/components/laptop/LaptopContainer";
 
 const Homepage = () => {
-  return (
-    <div>
-      Homepage
-    </div>
-  )
-}
+  const containerRef = useRef<HTMLDivElement>(null);
 
-export default Homepage
+  const handleRightClick = (event: React.MouseEvent) => {
+    event.preventDefault();
+  };
+
+  useLayoutEffect(() => {
+    const tl = gsap.timeline();
+
+    tl.fromTo(
+      containerRef.current,
+      { y: "-200vh" },
+      { y: "0%", duration: 1, ease: "power2.out" }
+    )
+      .fromTo(
+        ".intro-text",
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
+        "+=0.25"
+      )
+      .fromTo(
+        ".hero-image",
+        { x: -50, opacity: 0 },
+        { x: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+        "+=0.25"
+      )
+      .fromTo(
+        ".text-block",
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
+        "+=0.25"
+      )
+      .fromTo(
+        ".button-block",
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
+        "+=0.25"
+      );
+  }, []);
+
+  return (
+    <div ref={containerRef} className="flex flex-col md:justify-center gap-4 md:gap-8 lg:gap-16 h-full overflow-hidden">
+      {/* Intro Text */}
+      <span className="intro-text flex justify-center text-4xl mt-4 md:mt-0 md:text-5xl">
+        بسم الله الرحمن الرحيم
+      </span>
+
+      <div className="items-center flex flex-col gap-4 md:gap-10 lg:flex-row">
+        {/* IMAGE CONTAINER */}
+        <div
+          onContextMenu={handleRightClick}
+          className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-radial from-mytheme to-slate-800 rounded-full hover:rounded-t-full hover:rounded-b-none select-none duration-200"
+        >
+          <div className="group-active:opacity-0 absolute top-[35%] ml-[31.5%] flex gap-1 lg:gap-3 w-fit -rotate-[12deg] z-10 duration-500">
+            <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
+            <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
+          </div>
+          <Image
+            src="/p3.png"
+            alt="hero"
+            width={500}
+            height={500}
+            priority
+            className="group brightness-0 group-active:brightness-150 duration-500 bg-black"
+          />
+        </div>
+
+        {/* OPTIONAL LAPTOP (commented for now) */}
+        {/* 
+        <div 
+          onContextMenu={handleRightClick} 
+          className="group relative w-full h-56 md:h-full lg:w-72 select-none laptop-container"
+        >
+          <LaptopContainer />
+        </div>
+        */}
+
+        {/* TEXT & BUTTON CONTAINER */}
+        <div className="h-auto lg:h-fit flex flex-col gap-5 lg:gap-6 justify-center text-center lg:text-left">
+          {/* Main Text */}
+          <div className="text-block flex flex-col gap-4 lg:gap-6">
+            <h1 className="text-4xl md:text-6xl font-bold">
+              Meet <span className="text-mytheme">Abdullah</span>
+            </h1>
+            <h1 className="relative text-2xl md:text-4xl font-bold flex flex-wrap justify-center lg:justify-start duration-200">
+              <span className="p-1 rounded-lg bg-gray-200">
+                <span className="text-green-700">M</span>
+                <span className="text-gray-800">E</span>
+                <span className="text-cyan-600">R</span>
+                <span className="text-green-500">N</span>
+                <span className="text-gray-800">&nbsp;Stack</span>
+              </span>
+              &nbsp;+&nbsp;
+              <span className="p-1 rounded-lg bg-gray-200 dark:text-gray-800">
+                NEXT.js
+              </span>
+              &nbsp;
+              <span className="p-1">Developer</span>
+            </h1>
+
+            <p className="text-justify md:text-xl">
+              As a seasoned developer, I specialize in creating sophisticated,
+              high-performance web applications using React.js/Express.js and
+              Next.js. I focus on delivering seamless, intuitive experiences
+              that captivate users and stand the test of time. Let&apos;s build
+              something remarkable together.
+            </p>
+          </div>
+
+          {/* Buttons */}
+          <div className="button-block flex justify-center lg:justify-start gap-3 lg:gap-4">
+            <Link
+              href="/About"
+              className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2"
+            >
+              About me
+            </Link>
+            <Link
+              href="/Portfolio"
+              className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2"
+            >
+              My work
+            </Link>
+            <Link
+              href="/Contact"
+              className="ring-1 ring-black dark:ring-white hover:ring-2 font-semibold rounded-md p-2"
+            >
+              Work with me
+            </Link>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Homepage;
