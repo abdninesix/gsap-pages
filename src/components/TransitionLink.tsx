@@ -9,7 +9,7 @@ interface Props {
     label: string,
 }
 
-const TransitionNavLink = ({href, label}: Props) => {
+const TransitionLink = ({href, label}: Props) => {
 
     const pathname = usePathname()
     const router = useRouter()
@@ -24,4 +24,4 @@ const TransitionNavLink = ({href, label}: Props) => {
   )
 }
 
-export default TransitionNavLink
+export default TransitionLink
