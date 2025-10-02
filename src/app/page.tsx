@@ -2,10 +2,8 @@
 
 import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import gsap from "gsap";
 import TransitionLink from "@/components/TransitionLink";
-// import LaptopContainer from "@/components/laptop/LaptopContainer";
 
 const Homepage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -52,12 +50,12 @@ const Homepage = () => {
     <div ref={containerRef} className="flex flex-col md:justify-center gap-4 md:gap-8 lg:gap-16 h-full overflow-hidden">
       {/* Intro Text */}
       <span className="intro-text text-center text-4xl mt-4 md:mt-0 md:text-5xl">
-        بسم الله الرحمن الرحيم
+        بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
       </span>
 
       <div className="items-center flex flex-col gap-4 md:gap-10 lg:flex-row">
         {/* IMAGE CONTAINER */}
-        <div onContextMenu={handleRightClick} className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-to-r from-mytheme/25 to-mytheme rounded-full hover:rounded-t-full hover:rounded-b-none select-none duration-200">
+        <div onContextMenu={handleRightClick} className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-to-r from-mytheme/0 to-mytheme rounded-full hover:rounded-t-full hover:rounded-b-none select-none duration-200">
           <div className="group-active:opacity-0 absolute top-[35%] ml-[31.5%] flex gap-1 lg:gap-3 w-fit -rotate-[12deg] z-10 duration-500">
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
@@ -75,27 +73,27 @@ const Homepage = () => {
         {/* TEXT & BUTTON CONTAINER */}
         <div className="h-auto lg:h-fit flex flex-col gap-5 lg:gap-6 justify-center text-center lg:text-left">
           {/* Main Text */}
-          <div className="text-block flex flex-col gap-4 lg:gap-6">
+          <div className="text-block flex flex-col gap-4 lg:gap-8">
             <h1 className="text-4xl md:text-6xl font-semibold">
-              Meet <span className="text-mytheme">Abdullah</span>
+              meet&nbsp;<span className="text-mytheme">Abdullah</span>
             </h1>
-            <h1 className="relative text-2xl md:text-4xl font-semibold flex flex-wrap justify-center lg:justify-start duration-200">
-              <span className="p-1 rounded-lg border">
+            <h1 className="relative text-2xl md:text-4xl font-medium flex flex-wrap justify-center lg:justify-start">
+              <span>
                 <span className="text-green-700">M</span>
-                <span className="text-gray-800">E</span>
+                <span className="text-gray-500">E</span>
                 <span className="text-cyan-600">R</span>
                 <span className="text-green-500">N</span>
-                <span className="text-gray-800">&nbsp;Stack</span>
+                <span>&nbsp;Stack</span>
               </span>
               &nbsp;+&nbsp;
-              <span className="p-1 rounded-lg border dark:text-gray-800">
+              <span>
                 NEXT.js
               </span>
               &nbsp;
               <span className="p-1">Developer</span>
             </h1>
 
-            <p className="text-justify md:text-xl">
+            <p className="text-justify md:text-lg">
               As a seasoned developer, I specialize in creating sophisticated,
               high-performance web applications using React.js/Express.js and
               Next.js. I focus on delivering seamless, intuitive experiences
@@ -120,7 +118,7 @@ const Homepage = () => {
             </TransitionLink>
             <TransitionLink
               href="/contact"
-              className="ring-1 ring-black dark:ring-white hover:ring-2 font-semibold rounded-md p-2"
+              className="ring-1 hover:ring-2 font-semibold rounded-md p-2"
             >
               Work with me
             </TransitionLink>

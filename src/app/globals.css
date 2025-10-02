@@ -3,23 +3,24 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
 }
 
 .dark {
   --background: #000000;
   --foreground: #ffffff;
+  --color-mytheme: #393E46;
 }
 
 @theme {
-  --color-mytheme: #8dabff;
+  --color-mytheme: #727D73;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.4s ease, color 0.01s ease;
 }
 
 @layer utilities {
@@ -29,6 +30,35 @@ body {
 }
 
 
-.custom{
-color: #8dabff;
+.custom {
+  color: #517fff;
+}
+
+
+/* Stars classes */
+
+/* Twinkle effect */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+/* Fade in when dark theme is toggled */
+@keyframes fadeInStar {
+  from { opacity: 0; }
+  to { opacity: 0.8; }
+}
+
+.star {
+  border-radius: 50%;
+}
+
+/* Two animations:
+   1. fadeInStar (one time)
+   2. twinkle (infinite) */
+.fade-in {
+  animation-name: fadeInStar, twinkle;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1, infinite;
+  animation-timing-function: ease-out, ease-in-out;
 }
