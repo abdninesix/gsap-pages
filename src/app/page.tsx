@@ -4,9 +4,11 @@ import { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import TransitionLink from "@/components/TransitionLink";
+import { SplitText } from "gsap/SplitText";
 
 const Homepage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
+  const nameRef = useRef<HTMLSpanElement>(null);
 
   const handleRightClick = (event: React.MouseEvent) => {
     event.preventDefault();
@@ -44,6 +46,24 @@ const Homepage = () => {
         { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
         "+=0.25"
       );
+
+    if (nameRef.current) {
+      const split = new SplitText(nameRef.current, { type: "chars" });
+
+      tl.from(split.chars, {
+        y: -700,
+        scale: 10,
+        opacity: 25,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "back.in",
+      }, "+=0.25");
+
+      // cleanup
+      return () => {
+        split.revert();
+      };
+    }
   }, []);
 
   return (
@@ -74,10 +94,10 @@ const Homepage = () => {
         <div className="h-auto lg:h-fit flex flex-col gap-5 lg:gap-6 justify-center text-center lg:text-left">
           {/* Main Text */}
           <div className="text-block flex flex-col gap-4 lg:gap-8">
-            <h1 className="text-4xl md:text-6xl font-semibold">
+            <span ref={nameRef} className="text-4xl md:text-6xl font-semibold">
               meet&nbsp;<span className="text-mytheme">Abdullah</span>
-            </h1>
-            <h1 className="relative text-2xl md:text-4xl font-medium flex flex-wrap justify-center lg:justify-start">
+            </span>
+            <h2 className="relative text-2xl md:text-4xl font-medium flex flex-wrap justify-center lg:justify-start">
               <span>
                 <span className="text-green-700">M</span>
                 <span className="text-gray-500">E</span>
@@ -91,9 +111,9 @@ const Homepage = () => {
               </span>
               &nbsp;
               <span className="p-1">Developer</span>
-            </h1>
+            </h2>
 
-            <p className="text-justify md:text-lg">
+            <p className="text-justify md:text-md">
               As a seasoned developer, I specialize in creating sophisticated,
               high-performance web applications using React.js/Express.js and
               Next.js. I focus on delivering seamless, intuitive experiences
