@@ -93,7 +93,7 @@ const Homepage = () => {
         {/* TEXT & BUTTON CONTAINER */}
         <div className="h-auto lg:h-fit flex flex-col gap-5 lg:gap-6 justify-center text-center lg:text-left">
           {/* Main Text */}
-          <div className="text-block flex flex-col gap-4 lg:gap-8">
+          <div className="text-block flex flex-col gap-4">
             <span ref={nameRef} className="text-4xl md:text-6xl font-semibold">
               meet&nbsp;<span className="text-mytheme">Abdullah</span>
             </span>
@@ -123,22 +123,22 @@ const Homepage = () => {
           </div>
 
           {/* Buttons */}
-          <div className="button-block flex justify-center lg:justify-start gap-3 lg:gap-4">
+          <div className="button-block flex justify-center lg:justify-start gap-3 lg:gap-4 text-sm">
             <TransitionLink
               href="/about"
-              className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2"
+              className="bg-mytheme hover:bg-black dark:hover:bg-white dark:hover:text-black text-white p-2"
             >
               About me
             </TransitionLink>
             <TransitionLink
               href="/projects"
-              className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2"
+              className="bg-mytheme hover:bg-black dark:hover:bg-white dark:hover:text-black text-white p-2"
             >
               My work
             </TransitionLink>
             <TransitionLink
               href="/contact"
-              className="ring-1 hover:ring-2 font-semibold rounded-md p-2"
+              className="ring hover:ring-2 p-2"
             >
               Work with me
             </TransitionLink>

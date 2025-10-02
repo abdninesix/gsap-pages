@@ -8,9 +8,9 @@ const ThemeButton = () => {
   const [theme, toggleTheme] = useTheme();
 
   return (
-    <div className={`rounded-full cursor-pointer flex items-center duration-400
-      ${theme === "dark" ? "rotate-[270deg] translate-x-2 text-yellow-100"
-        : "rotate-0 -translate-x-2 text-yellow-400"}`}
+    <div className={`cursor-pointer flex duration-400
+      ${theme === "dark" ? "rotate-[270deg] translate-x-1 text-yellow-100"
+        : "rotate-0 -translate-x-1 text-yellow-400"}`}
       onClick={toggleTheme}>
       {theme === "dark" ? <PiMoonStarsFill className="size-6" /> : <PiSunHorizonFill className="size-6" />}
     </div>

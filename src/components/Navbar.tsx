@@ -15,11 +15,8 @@ const links = [
   { url: "/contact", title: "Contact" },
 ];
 
-
 const Navbar = () => {
-
-  const pathName = usePathname()
-
+  const pathName = usePathname();
   const [open, setOpen] = useState(false);
 
   // refs for menu button lines
@@ -32,53 +29,93 @@ const Navbar = () => {
   // refs for each menu item
   const itemRefs = useRef<HTMLDivElement[]>([]);
 
+  // ====== MOBILE MENU ANIMATIONS ======
   useEffect(() => {
     if (open) {
-      // animate button lines
       gsap.to(topRef.current, { rotate: 45, x: 10, duration: 0.3 });
       gsap.to(centerRef.current, { opacity: 0, duration: 0.3 });
       gsap.to(bottomRef.current, { rotate: -45, x: 10, duration: 0.3 });
 
-      // show menu
       gsap.fromTo(
         menuRef.current,
         { x: 50, y: -50 },
         { x: 0, y: 0, duration: 0.6, ease: "bounce" }
       );
-      // stagger menu items
+
       gsap.fromTo(
         itemRefs.current,
         { x: 50, y: -50, opacity: 0 },
         { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "back.inOut", stagger: 0.2, delay: 0.6 },
       );
     } else {
-      // reset button lines
       gsap.to(topRef.current, { rotate: 0, x: 0, duration: 0.3 });
       gsap.to(centerRef.current, { opacity: 1, duration: 0.3 });
       gsap.to(bottomRef.current, { rotate: 0, x: 0, duration: 0.3 });
 
-      // hide menu
       if (menuRef.current) {
         gsap.to(menuRef.current, { opacity: 0, duration: 0.3 });
       }
     }
   }, [open]);
 
+  // ====== MAGNETIC HOVER EFFECT ======
+  useEffect(() => {
+    const items = document.querySelectorAll<HTMLElement>(".nav-magnetic");
+    const listeners: { item: HTMLElement; move: (e: MouseEvent) => void; leave: () => void }[] = [];
+
+    items.forEach((item) => {
+
+      // GSAP quickTo for smooth performance
+      const xTo = gsap.quickTo(item, "x", { duration: 0.3, ease: "power3.out" });
+      const yTo = gsap.quickTo(item, "y", { duration: 0.3, ease: "power3.out" });
+
+      const move = (e: MouseEvent) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        xTo(x * 0.3);
+        yTo(y * 0.3);
+      };
+
+      const leave = () => {
+        gsap.to(item, {
+          x: 0,
+          y: 0,
+          duration: 0.5,
+          ease: "elastic.out(1, 0.4)",
+        });
+      };
+
+      item.addEventListener("mousemove", move);
+      item.addEventListener("mouseleave", leave);
+
+      listeners.push({ item, move, leave });
+    });
+
+    // cleanup
+    return () => {
+      listeners.forEach(({ item, move, leave }) => {
+        item.removeEventListener("mousemove", move);
+        item.removeEventListener("mouseleave", leave);
+      });
+    };
+  }, []);
+
   return (
-    <div className="h-[4rem] flex items-center justify-between select-none">
+    <div className="h-[4rem] flex items-center justify-between select-none text-lg">
       {/* LOGO */}
-      <TransitionLink href="/" className="text-3xl z-30 hover:scale-105">
-        A<span className="text-xl">BS</span>
+      <TransitionLink href="/" className="text-3xl z-30 nav-magnetic">
+        A<span className="text-lg">BS</span>
       </TransitionLink>
 
       {/* DESKTOP MENU */}
-      <div className="flex gap-5">
-        <ThemeButton />
-        <div className="hidden md:flex gap-5 w-fit">
+      <div className="flex gap-4">
+        <div className="nav-magnetic p-2"><ThemeButton /></div>
+        <div className="hidden md:flex gap-4 h-full">
           {links.map((link) => (
-            <TransitionLink key={link.url} className='relative text-base rounded-md p-1 group' href={link.url}>
+            <TransitionLink key={link.url} className='relative p-1 group nav-magnetic' href={link.url}>
               {link.title}
-              <div className={`duration-500 absolute bottom-0 right-0 left-0 w-0 h-[0.15rem] group-hover:w-full bg-black dark:bg-white ${pathName === link.url && "bg-black dark:bg-white w-full"}`} />
+              <div className={`duration-200 absolute bottom-[0.2rem] left-1/2 -translate-x-1/2 w-0 h-[0.15rem] bg-black dark:bg-white ${pathName === link.url && "bg-black dark:bg-white w-full"}`} />
             </TransitionLink>
           ))}
         </div>
@@ -86,8 +123,8 @@ const Navbar = () => {
 
       {/* DESKTOP SOCIALS */}
       <div className="hidden md:flex gap-4 md:justify-end w-fit rounded-lg">
-        <Link className="hover:scale-105" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
-        <Link className="hover:scale-105" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
+        <Link className="nav-magnetic" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
+        <Link className="nav-magnetic" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
       </div>
 
       {/* MOBILE MENU TOGGLE BUTTON */}
