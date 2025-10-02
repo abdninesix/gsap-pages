@@ -104,27 +104,27 @@ const Navbar = () => {
   return (
     <div className="h-[4rem] flex items-center justify-between select-none text-lg">
       {/* LOGO */}
-      <TransitionLink href="/" className="text-3xl z-30 nav-magnetic">
+      <TransitionLink href="/" className="text-3xl pr-10 z-30 nav-magnetic">
         A<span className="text-lg">BS</span>
       </TransitionLink>
 
       {/* DESKTOP MENU */}
       <div className="flex gap-4">
         <div className="nav-magnetic p-2"><ThemeButton /></div>
-        <div className="hidden md:flex gap-4 h-full">
+        <div className="hidden md:flex h-full">
           {links.map((link) => (
-            <TransitionLink key={link.url} className='relative p-1 group nav-magnetic' href={link.url}>
-              {link.title}
-              <div className={`duration-200 absolute bottom-[0.2rem] left-1/2 -translate-x-1/2 w-0 h-[0.15rem] bg-black dark:bg-white ${pathName === link.url && "bg-black dark:bg-white w-full"}`} />
+            <TransitionLink key={link.url} className='relative px-4 py-2 group nav-magnetic' href={link.url}>
+              {link.title.toUpperCase()}
+              <div className={`duration-200 absolute bottom-[0.2rem] left-1/2 -translate-x-1/2 w-0 h-[0.15rem] bg-black dark:bg-white ${pathName === link.url && "bg-black dark:bg-white w-1/2"}`} />
             </TransitionLink>
           ))}
         </div>
       </div>
 
       {/* DESKTOP SOCIALS */}
-      <div className="hidden md:flex gap-4 md:justify-end w-fit rounded-lg">
-        <Link className="nav-magnetic" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
-        <Link className="nav-magnetic" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
+      <div className="hidden md:flex md:justify-end w-fit rounded-lg">
+        <Link className="nav-magnetic pl-4" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
+        <Link className="nav-magnetic pl-4" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
       </div>
 
       {/* MOBILE MENU TOGGLE BUTTON */}

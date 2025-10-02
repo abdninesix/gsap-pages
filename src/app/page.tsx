@@ -76,7 +76,7 @@ const Homepage = () => {
 
       <div className="items-center flex flex-col gap-4 md:gap-10 lg:flex-row">
         {/* IMAGE CONTAINER */}
-        <div onContextMenu={handleRightClick} className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-to-r from-mytheme/0 to-mytheme rounded-full hover:rounded-t-full hover:rounded-b-none select-none duration-200">
+        <div onContextMenu={handleRightClick} className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-to-r from-mytheme/0 to-mytheme rounded-full active:rounded-t-full active:rounded-b-none select-none duration-200">
           <div className="group-active:opacity-0 absolute top-[35%] ml-[31.5%] flex gap-1 lg:gap-3 w-fit -rotate-[12deg] z-10 duration-500">
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
@@ -115,11 +115,7 @@ const Homepage = () => {
             </h2>
 
             <p className="text-justify md:text-md">
-              As a seasoned developer, I specialize in creating sophisticated,
-              high-performance web applications using React.js/Express.js and
-              Next.js. I focus on delivering seamless, intuitive experiences
-              that captivate users and stand the test of time. Let&apos;s build
-              something remarkable together.
+              Crafting web experiences that leave a lasting impression. With MERN stack and Next.js, I build sleek, powerful fullstack apps that are as intuitive as they are robust.
             </p>
           </div>
 
