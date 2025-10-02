@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { usePathname } from "next/navigation";
 import TransitionLink from "./TransitionLink";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
-// import ThemeButton from "./ThemeButton";
+import ThemeButton from "./ThemeButton";
 
 const links = [
   { url: "/", title: "Home" },
@@ -63,52 +63,41 @@ const Navbar = () => {
   }, [open]);
 
   return (
-    <div className="h-[4rem] flex items-center justify-between text-xl">
+    <div className="h-[4rem] flex items-center justify-between text-xl select-none">
       {/* LOGO */}
-      <div className="z-30">
-        <TransitionLink  onComplete={() => setOpen(false)} href="/" className="text-3xl">
-          A<span className="text-2xl">BS</span>
-        </TransitionLink>
-      </div>
+      <TransitionLink href="/" className="text-3xl z-30 hover:scale-105">
+        A<span className="text-xl">BS</span>
+      </TransitionLink>
 
       {/* DESKTOP MENU */}
       <div className="hidden md:flex gap-5 w-fit">
-        {/* <ThemeButton /> */}
+        <ThemeButton />
         {links.map((link) => (
-          <TransitionLink  onComplete={() => setOpen(false)} key={link.url} className='relative text-lg rounded-md p-1 group' href={link.url}>
+          <TransitionLink key={link.url} className='relative text-lg rounded-md p-1 group' href={link.url}>
             {link.title}
-            <div className={`duration-100 absolute bottom-0 right-0 left-0 bg-mytheme w-0 h-1 group-hover:w-full group-hover:bg-mytheme ${pathName === link.url && "bg-mytheme w-full"}`} />
+            <div className={`duration-500 absolute bottom-0 right-0 left-0 bg-mytheme w-0 h-1 group-hover:w-full group-hover:bg-mytheme ${pathName === link.url && "bg-mytheme w-full"}`} />
           </TransitionLink>
         ))}
       </div>
 
       {/* DESKTOP SOCIALS */}
-        <div className="hidden md:flex gap-4 md:justify-end w-fit rounded-lg">
-          <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaGithub className="size-8" /></Link>
-          <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaLinkedin className="size-8" /></Link>
-        </div>
+      <div className="hidden md:flex gap-4 md:justify-end w-fit rounded-lg">
+        <Link className="hover:scale-105" href="https://github.com/abdninesix"><FaGithub className="size-8" /></Link>
+        <Link className="hover:scale-105" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-8" /></Link>
+      </div>
 
       {/* MOBILE MENU TOGGLE BUTTON */}
       <div className="flex z-30 md:hidden">
-        {/* <ThemeButton /> */}
+        <ThemeButton />
       </div>
       <div className="md:hidden">
         <button
           className="w-10 h-8 flex flex-col justify-between z-30 relative"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <div
-            ref={topRef}
-            className="w-10 h-1 bg-black dark:bg-white rounded origin-left"
-          ></div>
-          <div
-            ref={centerRef}
-            className="w-10 h-1 bg-black dark:bg-white rounded"
-          ></div>
-          <div
-            ref={bottomRef}
-            className="w-10 h-1 bg-black dark:bg-white rounded origin-left"
-          ></div>
+          <div ref={topRef} className="w-10 h-1 bg-black dark:bg-white rounded origin-left" />
+          <div ref={centerRef} className="w-10 h-1 bg-black dark:bg-white rounded" />
+          <div ref={bottomRef} className="w-10 h-1 bg-black dark:bg-white rounded origin-left" />
         </button>
       </div>
 
@@ -125,12 +114,12 @@ const Navbar = () => {
                 if (el) itemRefs.current[index] = el;
               }}
             >
-              <TransitionLink className="focus:underline"  onComplete={() => setOpen(false)} href={link.url}>{link.title}</TransitionLink>
+              <TransitionLink className="focus:underline" onComplete={() => setOpen(false)} href={link.url}>{link.title}</TransitionLink>
             </div>
           ))}
           <div className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit rounded-lg">
-            <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaGithub className="size-8" /></Link>
-            <Link className="text-gray-800 dark:text-gray-200 hover:scale-105" href=""><FaLinkedin className="size-8" /></Link>
+            <Link className="hover:scale-105" href="https://github.com/abdninesix"><FaGithub className="size-8" /></Link>
+            <Link className="hover:scale-105" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-8" /></Link>
           </div>
         </div>
       )}

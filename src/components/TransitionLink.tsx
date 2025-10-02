@@ -8,7 +8,7 @@ interface Props {
   href: string,
   className?: string
   children?: React.ReactNode
-  onComplete: () => void;
+  onComplete?: () => void;
 }
 
 const TransitionLink = ({ href, children, className, onComplete }: Props) => {
@@ -23,7 +23,7 @@ const TransitionLink = ({ href, children, className, onComplete }: Props) => {
     }
   }
   return (
-    <button onClick={handleClick} className={className}>{children}</button>
+    <button onClick={handleClick} className={`cursor-pointer ${className}`}>{children}</button>
   )
 }
 
