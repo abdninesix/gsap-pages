@@ -122,9 +122,9 @@ const Navbar = () => {
       </div>
 
       {/* DESKTOP SOCIALS */}
-      <div className="hidden md:flex md:justify-end w-fit rounded-lg">
-        <Link className="nav-magnetic pl-4" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
-        <Link className="nav-magnetic pl-4" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
+      <div className="hidden md:flex md:justify-end gap-2 w-fit rounded-lg">
+        <Link className="nav-magnetic pl-4 border" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
+        <Link className="nav-magnetic pl-4 border" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
       </div>
 
       {/* MOBILE MENU TOGGLE BUTTON */}
@@ -156,8 +156,8 @@ const Navbar = () => {
             </div>
           ))}
           <div className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit rounded-lg">
-            <Link className="hover:scale-105" href="https://github.com/abdninesix"><FaGithub className="size-8" /></Link>
-            <Link className="hover:scale-105" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-8" /></Link>
+            <Link className="hover:scale-105" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-8" /></Link>
+            <Link className="hover:scale-105" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-8" /></Link>
           </div>
         </div>
       )}
