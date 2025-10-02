@@ -5,24 +5,25 @@ import { usePathname, useRouter } from 'next/navigation'
 import React from 'react'
 
 interface Props {
-    href: string,
-    label: string,
-    className?: string
-    children?: React.ReactNode
+  href: string,
+  className?: string
+  children?: React.ReactNode
+  onComplete: () => void;
 }
 
-const TransitionLink = ({href, label, className}: Props) => {
+const TransitionLink = ({ href, children, className, onComplete }: Props) => {
 
-    const pathname = usePathname()
-    const router = useRouter()
+  const pathname = usePathname()
+  const router = useRouter()
 
-    const handleClick = () => {
-        if (pathname !== href) {
-            animatePageOut(href, router)
-        }
+  const handleClick = async () => {
+    if (pathname !== href) {
+      await animatePageOut(href, router)
+      if (onComplete) onComplete();
     }
+  }
   return (
-    <button onClick={handleClick} className={className}>{label}</button>
+    <button onClick={handleClick} className={className}>{children}</button>
   )
 }
 

@@ -43,14 +43,13 @@ const Navbar = () => {
       gsap.fromTo(
         menuRef.current,
         { x: 50, y: -50 },
-        { x: 0, y: 0, duration: 0.4, ease: "power2.out" }
+        { x: 0, y: 0, duration: 0.6, ease: "bounce" }
       );
-
       // stagger menu items
       gsap.fromTo(
         itemRefs.current,
         { x: 50, y: -50, opacity: 0 },
-        { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "power2.out", stagger: 0.2 }
+        { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "back.inOut", stagger: 0.2, delay: 0.6 },
       );
     } else {
       // reset button lines
@@ -67,16 +66,17 @@ const Navbar = () => {
     <div className="h-[4rem] flex items-center justify-between text-xl">
       {/* LOGO */}
       <div className="z-30">
-        <Link href="/" className="text-3xl">
+        <TransitionLink  onComplete={() => setOpen(false)} href="/" className="text-3xl">
           A<span className="text-2xl">BS</span>
-        </Link>
+        </TransitionLink>
       </div>
 
       {/* DESKTOP MENU */}
       <div className="hidden md:flex gap-5 w-fit">
         {/* <ThemeButton /> */}
         {links.map((link) => (
-          <TransitionLink key={link.url} className='relative text-lg rounded-md p-1 group' href={link.url} label={link.title}>
+          <TransitionLink  onComplete={() => setOpen(false)} key={link.url} className='relative text-lg rounded-md p-1 group' href={link.url}>
+            {link.title}
             <div className={`duration-100 absolute bottom-0 right-0 left-0 bg-mytheme w-0 h-1 group-hover:w-full group-hover:bg-mytheme ${pathName === link.url && "bg-mytheme w-full"}`} />
           </TransitionLink>
         ))}
@@ -84,8 +84,8 @@ const Navbar = () => {
 
       {/* DESKTOP SOCIALS */}
         <div className="hidden md:flex gap-4 md:justify-end w-fit rounded-lg">
-          <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaGithub className="size-9" /></Link>
-          <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaLinkedin className="size-9" /></Link>
+          <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaGithub className="size-8" /></Link>
+          <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaLinkedin className="size-8" /></Link>
         </div>
 
       {/* MOBILE MENU TOGGLE BUTTON */}
@@ -125,12 +125,12 @@ const Navbar = () => {
                 if (el) itemRefs.current[index] = el;
               }}
             >
-              <TransitionLink className="focus:underline" href={link.url} label={link.title} />
+              <TransitionLink className="focus:underline"  onComplete={() => setOpen(false)} href={link.url}>{link.title}</TransitionLink>
             </div>
           ))}
           <div className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit rounded-lg">
-            <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaGithub className="size-9" /></Link>
-            <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaLinkedin className="size-9" /></Link>
+            <Link className="text-gray-900 dark:text-gray-200 hover:scale-105" href=""><FaGithub className="size-8" /></Link>
+            <Link className="text-gray-800 dark:text-gray-200 hover:scale-105" href=""><FaLinkedin className="size-8" /></Link>
           </div>
         </div>
       )}

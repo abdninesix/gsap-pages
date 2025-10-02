@@ -29,7 +29,7 @@ const Homepage = () => {
       )
       .fromTo(
         ".hero-image",
-        { x: -50, opacity: 0 },
+        { x: -10, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
         "+=0.25"
       )
@@ -56,10 +56,7 @@ const Homepage = () => {
 
       <div className="items-center flex flex-col gap-4 md:gap-10 lg:flex-row">
         {/* IMAGE CONTAINER */}
-        <div
-          onContextMenu={handleRightClick}
-          className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-radial from-mytheme to-slate-800 rounded-full hover:rounded-t-full hover:rounded-b-none select-none duration-200"
-        >
+        <div onContextMenu={handleRightClick} className="hero-image group relative flex-none overflow-hidden size-52 lg:size-80 bg-gradient-to-r from-mytheme to-slate-800 rounded-full hover:rounded-t-full hover:rounded-b-none select-none duration-200">
           <div className="group-active:opacity-0 absolute top-[35%] ml-[31.5%] flex gap-1 lg:gap-3 w-fit -rotate-[12deg] z-10 duration-500">
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
@@ -70,7 +67,7 @@ const Homepage = () => {
             width={500}
             height={500}
             priority
-            className="group brightness-0 group-active:brightness-150 duration-500 bg-black"
+            className="group brightness-0 group-active:brightness-150 duration-500"
           />
         </div>
 
