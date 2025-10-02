@@ -122,9 +122,9 @@ const Navbar = () => {
       </div>
 
       {/* DESKTOP SOCIALS */}
-      <div className="hidden md:flex md:justify-end gap-2 w-fit rounded-lg">
-        <Link className="nav-magnetic pl-4 border" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
-        <Link className="nav-magnetic pl-4 border" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
+      <div className="hidden md:flex md:justify-end gap-2">
+        <Link className="nav-magnetic pl-2" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
+        <Link className="nav-magnetic pl-2" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
       </div>
 
       {/* MOBILE MENU TOGGLE BUTTON */}
@@ -133,9 +133,9 @@ const Navbar = () => {
           className="w-10 h-6 flex flex-col items-center justify-between z-30 relative"
           onClick={() => setOpen((prev) => !prev)}
         >
-          <div ref={topRef} className="w-7 h-1 bg-black dark:bg-white rounded origin-left" />
-          <div ref={centerRef} className="w-7 h-1 bg-black dark:bg-white rounded" />
-          <div ref={bottomRef} className="w-7 h-1 bg-black dark:bg-white rounded origin-left" />
+          <div ref={topRef} className="w-7 h-1 bg-black dark:bg-white origin-left" />
+          <div ref={centerRef} className="w-7 h-1 bg-black dark:bg-white" />
+          <div ref={bottomRef} className="w-7 h-1 bg-black dark:bg-white origin-left" />
         </button>
       </div>
 
