@@ -13,7 +13,7 @@
 }
 
 @theme {
-  --color-mytheme: #727D73;
+  --color-mytheme: #707070;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 }
 
 .custom {
-  color: #eeeeee;
+  color: #707070;
 }
 
 
