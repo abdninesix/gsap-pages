@@ -82,7 +82,7 @@ const Homepage = () => {
             <div className="h-3 w-5 lg:h-5 lg:w-7 rounded-b-full bg-mytheme" />
           </div>
           <Image
-            src="/p3.png"
+            src="/hero.png"
             alt="hero"
             width={500}
             height={500}
