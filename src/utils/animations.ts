@@ -15,7 +15,7 @@ export const animatePageIn = () => {
     }).to([bannerOne, bannerTwo, bannerThree, bannerFour], {
         yPercent: 100,
         stagger: 0.25,
-        ease: "power2.inOut",
+        ease: "bounce",
     })
   }
 }
@@ -40,7 +40,7 @@ export const animatePageOut = (href: string, router: AppRouterInstance): Promise
       tl.set(banners, { yPercent: -100 }).to(banners, {
         yPercent: 0,
         stagger: 0.25,
-        ease: "power2.inOut",
+        ease: "bounce",
       });
     } else {
       // if banners not found, just navigate immediately

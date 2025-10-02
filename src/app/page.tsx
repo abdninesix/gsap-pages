@@ -17,33 +17,34 @@ const Homepage = () => {
   useLayoutEffect(() => {
     const tl = gsap.timeline();
 
-    tl.fromTo(
-      containerRef.current,
-      { y: "-200vh" },
-      { y: "0%", duration: 1, ease: "power2.out" }
-    )
+    tl
+      .fromTo(
+        containerRef.current,
+        { y: "-200vh" },
+        { y: "0%", duration: 1, ease: "power2.out" }
+      )
       .fromTo(
         ".intro-text",
         { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
+        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
         "+=0.25"
       )
       .fromTo(
         ".hero-image",
         { x: -10, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, ease: "power2.inOut" },
+        { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
         "+=0.25"
       )
       .fromTo(
         ".text-block",
         { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
+        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
         "+=0.25"
       )
       .fromTo(
         ".button-block",
         { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "power2.inOut" },
+        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
         "+=0.25"
       );
 
