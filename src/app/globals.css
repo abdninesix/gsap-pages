@@ -9,7 +9,7 @@
 .dark {
   --background: #000000;
   --foreground: #ffffff;
-  --color-mytheme: #aeaeae;
+  --color-mytheme: #808080;
 }
 
 @theme {
@@ -24,7 +24,7 @@ body {
 }
 
 .custom {
-  color: #aeaeae;
+  color: #808080;
 }
 
 

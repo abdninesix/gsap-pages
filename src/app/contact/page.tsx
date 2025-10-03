@@ -57,9 +57,6 @@ const Contactpage = () => {
   };
 
   useLayoutEffect(() => {
-    // Register the SplitText plugin
-    gsap.registerPlugin(SplitText);
-
     const tl = gsap.timeline();
 
     // Page entrance animation
@@ -101,12 +98,12 @@ const Contactpage = () => {
     <div ref={containerRef} className="h-full scrollbar-none">
       <div className="h-full overflow-hidden flex flex-col items-center justify-center gap-8 lg:gap-28 lg:flex-row">
 
-        <div className="lg:w-1/2 flex lg:flex-col gap-10 items-center justify-center">
-          <h1 ref={textRef} className="flex flex-wrap text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;<p>collaborate</p></h1>
-          <div><FaHandshakeAngle className="size-20 lg:size-72" /></div>
+        <div className="lg:w-1/2 flex lg:flex-col items-center gap-5">
+          <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;<span>collaborate</span></span>
+          <div><FaHandshakeAngle className="size-16 lg:size-72" /></div>
         </div>
 
-        <form onSubmit={sendEmail} ref={formRef} className="px-4 py-10 h-fit w-full lg:w-1/2 lg:h-[550px] lg:mt-5 bg-mytheme/25 dark:bg-white flex flex-col gap-4 justify-center">
+        <form onSubmit={sendEmail} ref={formRef} className="px-4 py-10 w-full lg:w-1/2 bg-mytheme/25 dark:bg-white/90 flex flex-col gap-10 justify-center transition-all">
           <div className="relative w-full">
             <textarea
               id="user_message"
@@ -115,20 +112,20 @@ const Contactpage = () => {
               placeholder=" "
               aria-invalid={!!errors.user_message}
               className={`peer block w-full resize-none border-2 bg-white p-2 placeholder-transparent focus:outline-none text-black
-      ${errors.user_message ? "border-red-500 focus:border-red-600" : "border-gray-400 focus:border-black"}`} />
+      ${errors.user_message ? "border-red-500 focus:border-red-600" : "border-mytheme focus:border-black"}`} />
             <label
               htmlFor="user_message"
               className={`absolute left-2 -top-2 bg-white px-1 rounded-t-lg transition-all
-      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
+      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-mytheme
       peer-focus:-top-6 peer-focus:text-base 
       ${errors.user_message ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black"}
       peer-focus:border-2 peer-focus:border-b-0`}>
               Your message
             </label>
-            {errors.user_message && (<span className=" text-sm text-red-500 flex items-center justify-center"><MdErrorOutline />{errors.user_message}</span>)}
+            {errors.user_message && (<span className="text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-5" />{errors.user_message}</span>)}
           </div>
 
-          <div className="relative w-full mt-6">
+          <div className="relative w-full">
             <input
               id="user_email"
               name="user_email"
@@ -136,28 +133,24 @@ const Contactpage = () => {
               placeholder=" "
               aria-invalid={!!errors.user_email}
               className={`peer block w-full border-2 bg-white p-2 placeholder-transparent focus:outline-none text-black
-      ${errors.user_email ? "border-red-500 focus:border-red-600" : "border-gray-400 focus:border-black"}`}
+      ${errors.user_email ? "border-red-500 focus:border-red-600" : "border-mytheme focus:border-black"}`}
             />
             <label
               htmlFor="user_email"
               className={`absolute left-2 -top-2 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
-      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
-      peer-focus:-top-7 peer-focus:text-lg 
+      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-mytheme
+      peer-focus:-top-6 peer-focus:text-base 
       ${errors.user_email ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black"}
       peer-focus:border-2 peer-focus:border-b-0`}
             >
               Your email
             </label>
-            {errors.user_email && (
-              <span className="text-sm text-red-500 flex items-center justify-center">
-                <MdErrorOutline /> {errors.user_email}
-              </span>
-            )}
+            {errors.user_email && (<span className="text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-5" />{errors.user_email}</span>)}
           </div>
 
-          <button className="w-fit cursor-pointer bg-mytheme hover:bg-black hover:text-white p-2">Send</button>
-          {success && (<span className=" text-sm text-green-500 flex items-center justify-center gap-1"><RiThumbUpLine />Your message has been delivered.</span>)}
-          {error && (<span className=" text-sm text-red-500 flex items-center justify-center gap-1"><MdErrorOutline />Something went wrong. Please try again.</span>)}
+          <button className="w-fit cursor-pointer ring hover:bg-black text-black hover:text-white p-2">Send</button>
+          {success && (<span className=" text-sm text-green-500 flex items-center justify-center gap-1"><RiThumbUpLine className="size-5" />Your message has been delivered.</span>)}
+          {error && (<span className=" text-sm text-red-500 flex items-center justify-center gap-1"><MdErrorOutline className="size-5" />Something went wrong. Please try again.</span>)}
         </form>
 
       </div>

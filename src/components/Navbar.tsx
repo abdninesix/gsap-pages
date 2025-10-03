@@ -104,7 +104,7 @@ const Navbar = () => {
   return (
     <div className="h-[4rem] flex items-center justify-between select-none text-lg">
       {/* LOGO */}
-      <TransitionLink href="/" className="text-3xl pr-10 z-30 nav-magnetic">
+      <TransitionLink href="/" className="text-3xl md:pr-10 z-30 nav-magnetic">
         A<span className="text-lg">BS</span>
       </TransitionLink>
 

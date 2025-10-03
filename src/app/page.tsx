@@ -24,15 +24,15 @@ const Homepage = () => {
         { y: "0%", duration: 1, ease: "power2.out" }
       )
       .fromTo(
-        ".intro-text",
-        { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-        "+=0.25"
-      )
-      .fromTo(
         ".hero-image",
         { x: -10, opacity: 0 },
         { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
+        "+=0.25"
+      )
+      .fromTo(
+        ".intro-text",
+        { y: -50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
         "+=0.25"
       )
       .fromTo(
@@ -48,7 +48,6 @@ const Homepage = () => {
         "+=0.25"
       );
 
-    if (nameRef.current) {
       const split = new SplitText(nameRef.current, { type: "chars" });
 
       tl.from(split.chars, {
@@ -64,7 +63,6 @@ const Homepage = () => {
       return () => {
         split.revert();
       };
-    }
   }, []);
 
   return (
@@ -123,19 +121,19 @@ const Homepage = () => {
           <div className="button-block flex justify-center lg:justify-start gap-3 lg:gap-4 text-sm">
             <TransitionLink
               href="/about"
-              className="bg-mytheme hover:bg-black dark:hover:bg-white dark:hover:text-black text-white p-2"
+              className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2"
             >
               About me
             </TransitionLink>
             <TransitionLink
               href="/projects"
-              className="bg-mytheme hover:bg-black dark:hover:bg-white dark:hover:text-black text-white p-2"
+              className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2"
             >
               My work
             </TransitionLink>
             <TransitionLink
               href="/contact"
-              className="ring hover:ring-2 p-2"
+              className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2"
             >
               Work with me
             </TransitionLink>
