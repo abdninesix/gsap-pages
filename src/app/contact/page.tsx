@@ -98,7 +98,7 @@ const Contactpage = () => {
     <div ref={containerRef} className="h-full scrollbar-none">
       <div className="h-full overflow-hidden flex flex-col items-center justify-center gap-8 lg:gap-28 lg:flex-row">
 
-        <div className="lg:w-1/2 flex lg:flex-col items-center gap-5">
+        <div className="w-full lg:w-1/2 flex lg:flex-col items-center justify-between">
           <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;<span>collaborate</span></span>
           <div><FaHandshakeAngle className="size-16 lg:size-72" /></div>
         </div>
