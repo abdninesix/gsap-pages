@@ -119,7 +119,7 @@ const Homepage = () => {
                   NEXT.js
                 </span>
                 &nbsp;
-                <span className="p-1">Developer</span>
+                <span>Developer</span>
               </h2>
               <p className="hero-paragraph text-justify md:text-md">
                 Crafting web experiences that leave a lasting impression. With MERN stack and Next.js, I build sleek, powerful fullstack apps that are as intuitive as they are robust.
@@ -127,7 +127,7 @@ const Homepage = () => {
             </div>
 
             {/* Buttons */}
-            <div className="button-block flex justify-center lg:justify-start gap-3 lg:gap-4 text-sm">
+            <div className="button-block flex justify-center lg:justify-start gap-4 text-sm">
               <TransitionLink
                 href="/about"
                 className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2"

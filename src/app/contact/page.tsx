@@ -153,7 +153,7 @@ const Contactpage = () => {
             {errors.user_email && (<span className="text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-5" />{errors.user_email}</span>)}
           </div>
 
-          <button className="w-fit cursor-pointer ring hover:bg-black text-black hover:text-white p-2">Send</button>
+          <button className="w-fit cursor-pointer ring hover:bg-black text-black hover:text-white text-sm p-2">Send</button>
           {success && (<span className=" text-sm text-green-500 flex items-center justify-center gap-1"><RiThumbUpLine className="size-5" />Your message has been delivered.</span>)}
           {error && (<span className=" text-sm text-red-500 flex items-center justify-center gap-1"><MdErrorOutline className="size-5" />Something went wrong. Please try again.</span>)}
         </form>
