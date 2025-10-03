@@ -100,8 +100,8 @@ const Contactpage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="h-full scrollbar-none">
-      <div className="h-full overflow-hidden flex flex-col items-center justify-center gap-8 lg:gap-28 lg:flex-row">
+    <div ref={containerRef} className="h-full overflow-hidden">
+      <div className="h-full flex flex-col items-center justify-center gap-8 lg:gap-28 lg:flex-row">
 
         <div className="w-full lg:w-1/2 flex lg:flex-col items-center justify-between">
           <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;<span>collaborate</span></span>
