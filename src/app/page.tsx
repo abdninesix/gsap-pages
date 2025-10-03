@@ -24,7 +24,6 @@ const Homepage = () => {
       { y: "0%", duration: 1, ease: "power2.out" }
     );
 
-    // 2. The SplitText animation now plays right after the page is revealed.
     if (nameRef.current) {
       const split = new SplitText(nameRef.current, { type: "chars" });
 
@@ -33,7 +32,7 @@ const Homepage = () => {
           ".intro-text",
           { y: -50, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-          "+=0.25" // Overlap with the end of the name animation for a smoother feel
+          "+=0.25"
         )
         .from(split.chars, {
           y: -700,
@@ -77,9 +76,9 @@ const Homepage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="flex flex-col md:justify-center gap-4 md:gap-8 lg:gap-16 h-full overflow-hidden">
+    <div ref={containerRef} className="flex flex-col justify-center gap-4 md:gap-8 lg:gap-16 h-full overflow-hidden">
       {/* Intro Text */}
-      <span className="intro-text text-center text-4xl mt-4 md:mt-0 md:text-5xl">
+      <span className="intro-text text-center text-4xl md:mt-0 md:text-5xl">
         بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
       </span>
 

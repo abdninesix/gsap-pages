@@ -60,33 +60,37 @@ const Contactpage = () => {
     gsap.registerPlugin(SplitText);
     const tl = gsap.timeline();
 
-    // Page entrance animation
     tl.fromTo(
       containerRef.current,
       { y: "-200vh" },
       { y: "0%", duration: 1, ease: "power2.out" }
     );
 
-    // Form fade-in animation
-    tl.fromTo(
-      formRef.current,
-      { opacity: 0, y: 50 },
-      { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" },
-      "+=0.25" // Start after the page slides in
-    );
-
-    // SplitText character animation
     if (textRef.current) {
       const split = new SplitText(textRef.current, { type: "chars" });
 
-      tl.from(split.chars, {
-        y: -700,
-        scale: 10,
-        opacity: 0,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "back.in",
-      }, "-=0.25"); // Overlap with the start of the form animation for a smoother sequence
+      tl
+        .from(split.chars, {
+          y: -700,
+          scale: 10,
+          opacity: 0,
+          stagger: 0.1,
+          duration: 0.5,
+          ease: "back.in",
+        }, "+=0.25"
+        )
+        .fromTo(
+          ".handshake",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+          "+=0.25"
+        )
+        .fromTo(
+          formRef.current,
+          { opacity: 0, y: 50 },
+          { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" },
+          "+=0.25"
+        );
 
       // Cleanup function to revert the SplitText
       return () => {
@@ -101,7 +105,7 @@ const Contactpage = () => {
 
         <div className="w-full lg:w-1/2 flex lg:flex-col items-center justify-between">
           <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;<span>collaborate</span></span>
-          <div><FaHandshakeAngle className="size-16 lg:size-72" /></div>
+          <div className="handshake"><FaHandshakeAngle className="size-16 lg:size-72" /></div>
         </div>
 
         <form onSubmit={sendEmail} ref={formRef} className="px-4 py-10 w-full lg:w-1/2 bg-mytheme/25 dark:bg-white/90 flex flex-col gap-10 justify-center transition-all">
