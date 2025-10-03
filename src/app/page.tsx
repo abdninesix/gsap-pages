@@ -15,54 +15,65 @@ const Homepage = () => {
   };
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(SplitText);
     const tl = gsap.timeline();
 
-    tl
-      .fromTo(
-        containerRef.current,
-        { y: "-200vh" },
-        { y: "0%", duration: 1, ease: "power2.out" }
-      )
-      .fromTo(
-        ".hero-image",
-        { x: -10, opacity: 0 },
-        { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
-        "+=0.25"
-      )
-      .fromTo(
-        ".intro-text",
-        { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-        "+=0.25"
-      )
-      .fromTo(
-        ".text-block",
-        { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-        "+=0.25"
-      )
-      .fromTo(
-        ".button-block",
-        { y: -50, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-        "+=0.25"
-      );
+    tl.fromTo(
+      containerRef.current,
+      { y: "-200vh" },
+      { y: "0%", duration: 1, ease: "power2.out" }
+    );
 
+    // 2. The SplitText animation now plays right after the page is revealed.
+    if (nameRef.current) {
       const split = new SplitText(nameRef.current, { type: "chars" });
 
-      tl.from(split.chars, {
-        y: -700,
-        scale: 10,
-        opacity: 25,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "back.in",
-      }, "+=0.25");
+      tl
+        .fromTo(
+          ".intro-text",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+          "+=0.25" // Overlap with the end of the name animation for a smoother feel
+        )
+        .from(split.chars, {
+          y: -700,
+          scale: 10,
+          opacity: 25,
+          stagger: 0.1,
+          duration: 0.5,
+          ease: "back.in",
+        }, "+=0.25"
+        )
+        .fromTo(
+          ".hero-image",
+          { x: -10, opacity: 0 },
+          { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
+          "+=0.25"
+        )
+        .fromTo(
+          ".hero-subtitle",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+          "+=0.25"
+        )
+        .fromTo(
+          ".hero-paragraph",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+          "+=0.25" // Start 0.1s after the previous animation begins
+        )
+        .fromTo(
+          ".button-block",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+          "+=0.25"
+        );
 
-      // cleanup
+      // Cleanup
       return () => {
         split.revert();
       };
+    }
   }, []);
 
   return (
@@ -91,12 +102,11 @@ const Homepage = () => {
 
         {/* TEXT & BUTTON CONTAINER */}
         <div className="h-auto lg:h-fit flex flex-col gap-5 lg:gap-6 justify-center text-center lg:text-left">
-          {/* Main Text */}
-          <div className="text-block flex flex-col gap-4">
+          <div className="flex flex-col gap-4">
             <span ref={nameRef} className="text-4xl md:text-6xl font-semibold">
               meet&nbsp;<span className="text-mytheme">Abdullah</span>
             </span>
-            <h2 className="relative text-2xl md:text-4xl font-medium flex flex-wrap justify-center lg:justify-start">
+            <h2 className="hero-subtitle relative text-2xl md:text-4xl font-medium flex flex-wrap justify-center lg:justify-start">
               <span>
                 <span className="text-green-700">M</span>
                 <span className="text-gray-500">E</span>
@@ -111,8 +121,7 @@ const Homepage = () => {
               &nbsp;
               <span className="p-1">Developer</span>
             </h2>
-
-            <p className="text-justify md:text-md">
+            <p className="hero-paragraph text-justify md:text-md">
               Crafting web experiences that leave a lasting impression. With MERN stack and Next.js, I build sleek, powerful fullstack apps that are as intuitive as they are robust.
             </p>
           </div>

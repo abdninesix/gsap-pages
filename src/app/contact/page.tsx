@@ -57,6 +57,7 @@ const Contactpage = () => {
   };
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(SplitText);
     const tl = gsap.timeline();
 
     // Page entrance animation
