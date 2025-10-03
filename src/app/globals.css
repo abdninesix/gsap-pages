@@ -9,11 +9,11 @@
 .dark {
   --background: #000000;
   --foreground: #ffffff;
-  --color-mytheme: #444444;
+  --color-mytheme: #aeaeae;
 }
 
 @theme {
-  --color-mytheme: #808080;
+  --color-mytheme: #bcbcbc;
 }
 
 body {
@@ -24,7 +24,7 @@ body {
 }
 
 .custom {
-  color: #808080;
+  color: #aeaeae;
 }
 
 
