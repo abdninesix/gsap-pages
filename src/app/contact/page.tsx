@@ -71,8 +71,8 @@ const Contactpage = () => {
 
       tl
         .from(split.chars, {
-          y: -700,
-          scale: 10,
+          y: 1000,
+          scale: 20,
           opacity: 0,
           stagger: 0.1,
           duration: 0.5,
@@ -88,7 +88,7 @@ const Contactpage = () => {
         .fromTo(
           formRef.current,
           { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" },
+          { opacity: 1, y: 0, duration: 0.5, ease: "expo.in" },
           "+=0.25"
         );
 

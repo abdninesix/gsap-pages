@@ -35,9 +35,9 @@ const Homepage = () => {
           "+=0.25"
         )
         .from(split.chars, {
-          y: -700,
-          scale: 10,
-          opacity: 25,
+          y: 1000,
+          scale: 20,
+          opacity: 0,
           stagger: 0.1,
           duration: 0.5,
           ease: "back.in",
