@@ -1,6 +1,5 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-@plugin 'tailwind-scrollbar';
 
 :root {
   --background: #ffffff;
@@ -79,4 +78,13 @@ body {
     animation-timing-function: ease-out, ease-in-out;
   }
 
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
