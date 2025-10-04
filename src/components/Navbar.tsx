@@ -24,10 +24,9 @@ const Navbar = () => {
   const centerRef = useRef<HTMLDivElement>(null);
   const bottomRef = useRef<HTMLDivElement>(null);
 
-  // ref for mobile menu container
   const menuRef = useRef<HTMLDivElement>(null);
-  // refs for each menu item
   const itemRefs = useRef<HTMLDivElement[]>([]);
+  const socialsRef = useRef<HTMLDivElement>(null);
 
   // ====== MOBILE MENU ANIMATIONS ======
   useEffect(() => {
@@ -45,7 +44,13 @@ const Navbar = () => {
       gsap.fromTo(
         itemRefs.current,
         { x: 50, y: -50, opacity: 0 },
-        { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "back.inOut", stagger: 0.2, delay: 0.6 },
+        { x: 0, y: 0, opacity: 1, duration: 0.4, ease: "back.inOut", stagger: 0.2, delay: 0.5 },
+      );
+
+      gsap.fromTo(
+        socialsRef.current,
+        { y: 50, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.4, ease: "back.inOut", stagger: 0.2, delay: 1.5 },
       );
     } else {
       gsap.to(topRef.current, { rotate: 0, x: 0, duration: 0.3 });
@@ -143,7 +148,7 @@ const Navbar = () => {
       {open && (
         <div
           ref={menuRef}
-          className="absolute overflow-hidden rounded-lg top-0 right-0 w-screen h-screen bg-mytheme dark:bg-gray-900 flex flex-col items-center justify-center gap-10 text-4xl font-medium z-20"
+          className="absolute overflow-hidden top-0 -right-5 w-screen h-screen bg-mytheme dark:bg-gray-900 flex flex-col items-center justify-center gap-10 text-4xl font-medium z-20"
         >
           {links.map((link, index) => (
             <div
@@ -155,7 +160,7 @@ const Navbar = () => {
               <TransitionLink className="focus:underline" onComplete={() => setOpen(false)} href={link.url}>{link.title}</TransitionLink>
             </div>
           ))}
-          <div className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit rounded-lg">
+          <div ref={socialsRef} className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit rounded-lg">
             <Link className="hover:scale-105" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-8" /></Link>
             <Link className="hover:scale-105" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-8" /></Link>
           </div>
