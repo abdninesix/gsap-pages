@@ -64,7 +64,7 @@ const AboutPage = () => {
 
       // 2. Animate each content section as it scrolls into view
       const sections = gsap.utils.toArray('.scroll-reveal-section');
-      sections.forEach((section: any) => {
+      sections.forEach((section: Element) => {
         // Animate the title of the section
         gsap.from(section.querySelector('.section-title'), {
           x: -300,
