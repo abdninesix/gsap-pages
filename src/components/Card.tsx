@@ -51,7 +51,7 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
 
     return (
         <div
-            className="flex flex-col max-w-[25rem] gap-3 p-3 rounded-2xl bg-gray-300 dark:bg-slate-950 shadow-lg duration-200"
+            className="flex flex-col max-w-[25rem] gap-3 p-3 bg-mytheme shadow-lg duration-200"
         >
             <Image
                 src={image}
@@ -70,7 +70,7 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2 h-fit w-fit"
+                    className="mt-3 ring hover:bg-black dark:hover:text-black text-white p-2 h-fit w-fit"
                 >
                     Demo
                 </Link>

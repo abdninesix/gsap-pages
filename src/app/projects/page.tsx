@@ -5,43 +5,64 @@ import Link from "next/link";
 import gsap from "gsap";
 import { projects } from "@/components/Slides";
 import Card from "@/components/Card";
+import { PiMouseScroll } from "react-icons/pi";
+import { SplitText } from "gsap/SplitText";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Projectspage = () => {
 
   const [openCard, setOpenCard] = useState<number | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
 
   useLayoutEffect(() => {
-    const tl = gsap.timeline();
+    gsap.registerPlugin(ScrollTrigger, SplitText);
 
-    // 1. Page entrance animation
-    tl.fromTo(
-      containerRef.current,
-      { y: "-200vh" },
-      { y: "0%", duration: 1, ease: "power2.out" }
-    )
-    // 2. Animate the main title
-    .fromTo(
-      ".portfolio-title",
-      { y: -50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" },
-      "+=0.25" // Starts after the page slides in
-    )
-    // 3. Animate the project cards with a stagger effect
-    .fromTo(
-      ".project-card",
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, stagger: 0.1, duration: 0.5, ease: "power2.out" },
-      "-=0.25" // Overlaps slightly with the title animation
-    );
+    const ctx = gsap.context(() => {
+
+      const tl = gsap.timeline();
+
+      tl.fromTo(
+        containerRef.current,
+        { y: "-200vh" },
+        { y: "0%", duration: 1, ease: "power2.out" }
+      );
+
+      if (titleRef.current) {
+        const split = new SplitText(titleRef.current, { type: "chars, words" });
+        tl.from(split.chars, {
+          opacity: 0,
+          y: 80,
+          scale: 1.5,
+          stagger: 0.05,
+          duration: 0.5,
+          ease: "back.out",
+        }, "+=0.25"); // Start after the page slides in
+      }
+      gsap.from(".project-card", {
+        opacity: 0,
+        y: 100,
+        duration: 0.5,
+        ease: "power2.out",
+        stagger: 0.2, // Animate cards one after another
+        scrollTrigger: {
+          trigger: ".grid-container", // The element that triggers the animation
+          start: "top 80%", // Start animation when top of trigger hits 80% of viewport height
+          toggleActions: "play none none none", // Play the animation once and don't replay
+        }
+      });
+
+    }, containerRef);
+
+    return () => ctx.revert(); //Cleanup
 
   }, []);
 
   return (
     <div ref={containerRef} className="h-full">
-      <div className="h-full overflow-y-scroll scrollbar scrollbar-track-transparent scrollbar-thumb-mytheme p-4 sm:px-8 md:px-12 lg:px-20 xl:px-40">
+      <div className="h-full">
 
-        <div className="portfolio-title h-[calc(100vh-6rem)] flex flex-col items-center justify-center text-6xl md:text-8xl text-center">My work</div>
+        <span ref={titleRef} className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4 text-6xl md:text-8xl">My work<PiMouseScroll className="animate-bounce size-12" /></span>
 
         <div className="grid gap-5 justify-items-center items-start grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {projects.flat().map((project, index) => (
