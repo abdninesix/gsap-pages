@@ -69,8 +69,8 @@ const AboutPage = () => {
         gsap.from(section.querySelector('.section-title'), {
           x: -300,
           opacity: 0,
-          duration: 0.8,
-          ease: 'power2.out',
+          duration: 0.3,
+          ease: 'elastic.out',
           scrollTrigger: {
             scroller: scrollWrapperRef.current, // Specify our scrolling container
             trigger: section,
@@ -83,11 +83,11 @@ const AboutPage = () => {
         gsap.from(section.querySelector('.section-content'), {
           x: -300,
           opacity: 0,
-          duration: 0.8,
+          duration: 0.3,
           delay: 0.2, // Animate slightly after the title
-          ease: 'power2.out',
+          ease: 'elastic.out',
           scrollTrigger: {
-            scroller: scrollWrapperRef.current,
+            scroller: containerRef.current,
             trigger: section,
             start: "top 60%",
             toggleActions: "play none none none",
@@ -101,7 +101,7 @@ const AboutPage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="h-full">
+    <div ref={containerRef} className="h-full overflow-y-scroll scrollbar-none">
 
       {/* TITLE SECTION */}
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
@@ -113,10 +113,10 @@ const AboutPage = () => {
         {/*TEXT CONTAINER*/}
         <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-3/5">
           {/*BIO*/}
-          <div className="flex flex-col gap-8 justify-center">
-            <h1 className="font-bold text-4xl">BIOGRAPHY</h1>
-            <p className="md:text-xl">In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
-            <p className="md:text-xl">Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
+          <div className="scroll-reveal-section flex flex-col gap-8 justify-center">
+            <h1 className="section-title font-bold text-4xl">BIOGRAPHY</h1>
+            <p className="section-content md:text-xl">In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
+            <p className="section-content md:text-xl">Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
             <PiMouseScroll className="scroll-icon animate-bounce size-8" />
           </div>
 

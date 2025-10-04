@@ -77,9 +77,9 @@ const Projectspage = () => {
         <PiMouseScroll className="scroll-icon animate-bounce size-8" />
       </div>
 
-      <div className="grid-container grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {projects.flat().map((project, index) => (
-          <div key={project.alt} className="project-card"> {/* Initial opacity-0 helps prevent flash of unstyled content */}
+          <div key={project.alt} className="project-card">
             <Card
               image={project.src}
               alt={project.alt}

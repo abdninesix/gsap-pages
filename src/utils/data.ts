@@ -81,5 +81,56 @@ export const projects = [
 ];
 
 export const skills = [
-    "HTML5", "CSS3", "Javascript", "Typescript", "Python", "React.js", "Bootstrap", "Next.js", "TailwindCSS", "Framer-motion", "GSAP", "Figma", "Node.js", "Express.js", "MongoDB", "Prisma", "Laravel", "PostgreSQL", "A.I Integration", "Stripe Integration", "Shadcn/UI", "Imagekit.io", "Uploadthing"
+    // Frontend Stack
+    "HTML",
+    "CSS3",
+    "React.js (Vite)",
+    "Next.js",
+
+    // UI/UX Libraries
+    "Tailwind CSS",
+    "Shadcn/UI",
+    "Framer Motion",
+    "GSAP",
+    "React Three Fibre",
+
+    // Backend Stack
+    "Node.js",
+    "Express.js",
+    "Next.js",
+    "Laravel (Soft Skill)",
+
+    // Database Tools
+    "MongoDB",
+    "Prisma ORM",
+    "SQLite",
+    "MySQL",
+    "PostgreSQL",
+
+    // Services and Tools
+    "React Query",
+    "Imagekit.io",
+    "Socket.io",
+    "Stripe",
+    "Clerk",
+
+    // A.I & Automation Tools
+    "ChatGPT",
+    "Cursor AI",
+    "OpenAI Integration",
+    "Gemini Integration",
+
+    // Languages
+    "JavaScript",
+    "TypeScript",
+    "Python (Soft Skill)",
+    "PHP (Soft Skill)",
+
+    // Deployments
+    "Vercel",
+    "Netlify",
+    "Render",
+    "Hostinger",
+    "AWS",
 ];
+
