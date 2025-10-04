@@ -50,42 +50,31 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
     }, [isOpen]);
 
     return (
-        <div
-            className="flex flex-col max-w-[25rem] gap-3 p-3 bg-mytheme shadow-lg duration-200"
-        >
+        <div className="flex flex-col max-w-[25rem] gap-3 p-3 bg-mytheme/50 shadow-lg duration-200">
             <Image
                 src={image}
                 alt={alt}
                 width={800}
                 height={450}
                 priority
-                className="rounded-xl object-cover w-full h-fit"
+                className="object-cover w-full h-fit"
             />
             <div className='flex justify-between'>
                 <div className='flex flex-col gap-2'>
                     <h2 className="text-2xl font-semibold">{title}</h2>
-                    <span className='px-1 w-fit bg-white text-black font-semibold rounded-md text-xs'>{cat}</span>
+                    <span className='px-1 w-fit bg-white text-black font-semibold text-xs'>{cat}</span>
                 </div>
                 <Link
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mt-3 ring hover:bg-black dark:hover:text-black text-white p-2 h-fit w-fit"
+                    className="mt-3 text-sm ring hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black p-2 size-fit"
                 >
                     Demo
                 </Link>
             </div>
-            {/* The paragraph is now always in the DOM. Its visibility is controlled by its height. */}
-            <p
-                ref={descRef}
-                className="text-sm text-gray-700 dark:text-gray-300 overflow-hidden"
-            >
-                {desc}
-            </p>
-            <button
-                onClick={onToggle}
-                className="text-xs font-semibold text-blue-500 hover:underline w-fit"
-            >
+            <p ref={descRef} className="text-sm text-gray-700 dark:text-gray-300 overflow-hidden">{desc}</p>
+            <button onClick={onToggle} className="w-fit text-xs hover:underline cursor-pointer">
                 {isOpen ? 'Hide' : 'Read more'}
             </button>
         </div>

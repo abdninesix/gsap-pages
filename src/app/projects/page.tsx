@@ -8,6 +8,7 @@ import Card from "@/components/Card";
 import { PiMouseScroll } from "react-icons/pi";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { MdErrorOutline } from "react-icons/md";
 
 const Projectspage = () => {
 
@@ -30,14 +31,16 @@ const Projectspage = () => {
 
       if (titleRef.current) {
         const split = new SplitText(titleRef.current, { type: "chars, words" });
+
         tl.from(split.chars, {
-          opacity: 0,
-          y: 80,
-          scale: 1.5,
-          stagger: 0.05,
+          y: -1000,
+          scale: 10,
+          opacity: 25,
+          stagger: 0.1,
           duration: 0.5,
-          ease: "back.out",
-        }, "+=0.25"); // Start after the page slides in
+          ease: "back.in",
+        }, "+=0.25"
+        )
       }
       gsap.from(".project-card", {
         opacity: 0,
@@ -47,7 +50,7 @@ const Projectspage = () => {
         stagger: 0.2, // Animate cards one after another
         scrollTrigger: {
           trigger: ".grid-container", // The element that triggers the animation
-          start: "top 80%", // Start animation when top of trigger hits 80% of viewport height
+          start: "top 30%", // Start animation when top of trigger hits 80% of viewport height
           toggleActions: "play none none none", // Play the animation once and don't replay
         }
       });
@@ -60,46 +63,44 @@ const Projectspage = () => {
 
   return (
     <div ref={containerRef} className="h-full">
-      <div className="h-full">
 
-        <span ref={titleRef} className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4 text-6xl md:text-8xl">My work<PiMouseScroll className="animate-bounce size-12" /></span>
-
-        <div className="grid gap-5 justify-items-center items-start grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.flat().map((project, index) => (
-            // Added a class here for GSAP to target
-            <div key={project.alt} className="project-card w-full">
-              <Card
-                image={project.src}
-                alt={project.alt}
-                title={project.title}
-                cat={project.cat}
-                desc={project.desc}
-                link={project.link}
-                isOpen={openCard === index}
-                onToggle={() => setOpenCard(openCard === index ? null : index)}
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="w-full mt-10 flex flex-col items-center justify-center">
-          <div className="w-fit p-2 flex flex-col items-start">
-            <div className="flex gap-2">
-              <svg className="w-5 h-5 mt-0.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M12 2a10 10 0 100 20 10 10 0 000-20z" />
-              </svg>
-              <p className="font-semibold">Work In Progress</p>
-            </div>
-            <p className="text-sm">Some features in my showcased projects are still under development and may not function as expected. I&apos;m actively working to improve them. Thank you for your understanding!</p>
-          </div>
-        </div>
-
-        <div className="h-screen flex flex-col gap-5 items-center justify-center text-center">
-          <h1 className="text-4xl">Want to start your projects?</h1>
-          <Link href="/Contact" className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2">Let&apos;s work</Link>
-        </div>
-
+      <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
+        <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
+        <PiMouseScroll className="animate-bounce size-12" />
       </div>
+
+      <div className="grid-container grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        {projects.flat().map((project, index) => (
+          // Added a class here for GSAP to target
+          <div key={project.alt} className="project-card w-full">
+            <Card
+              image={project.src}
+              alt={project.alt}
+              title={project.title}
+              cat={project.cat}
+              desc={project.desc}
+              link={project.link}
+              isOpen={openCard === index}
+              onToggle={() => setOpenCard(openCard === index ? null : index)}
+            />
+          </div>
+        ))}
+      </div>
+
+      <div className="w-full mt-10 flex flex-col items-start">
+        <div className="flex gap-2 items-center">
+          <MdErrorOutline className="size-5" />
+          <p className="font-semibold">Work In Progress</p>
+        </div>
+        <p className="text-sm">Some features in my showcased projects are still under development and may not function as expected. I&apos;m actively working to improve them. Thank you for your understanding!</p>
+      </div>
+
+      <div className="h-screen flex flex-col gap-5 items-center justify-center">
+        <h1 className="text-4xl">Want to start your projects?</h1>
+        <Link href="/Contact" className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2">Let&apos;s work</Link>
+      </div>
+
+
 
     </div>
   )
