@@ -9,6 +9,7 @@ import { PiMouseScroll } from "react-icons/pi";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdErrorOutline } from "react-icons/md";
+import TransitionLink from "@/components/TransitionLink";
 
 const Projectspage = () => {
 
@@ -41,6 +42,12 @@ const Projectspage = () => {
           ease: "back.in",
         }, "+=0.25"
         )
+          .fromTo(
+            ".scroll-icon",
+            { y: -50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+            "+=0.25"
+          )
       }
       gsap.from(".project-card", {
         opacity: 0,
@@ -66,7 +73,7 @@ const Projectspage = () => {
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
-        <PiMouseScroll className="animate-bounce size-12" />
+        <PiMouseScroll className="scroll-icon animate-bounce size-12" />
       </div>
 
       <div className="grid-container grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
@@ -96,8 +103,8 @@ const Projectspage = () => {
       </div>
 
       <div className="h-screen flex flex-col gap-5 items-center justify-center">
-        <h1 className="text-4xl">Want to start your projects?</h1>
-        <Link href="/Contact" className="bg-mytheme hover:bg-black dark:hover:bg-gray-200 dark:hover:text-black text-white rounded-md p-2">Let&apos;s work</Link>
+        <h1 className="text-4xl md:text-6xl font-semibold">Want to start your projects?</h1>
+        <TransitionLink href="/contact" className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2">Let&apos;s work</TransitionLink>
       </div>
 
 
