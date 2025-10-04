@@ -148,7 +148,7 @@ const Navbar = () => {
       {open && (
         <div
           ref={menuRef}
-          className="absolute overflow-hidden top-0 -right-5 w-screen h-screen bg-mytheme dark:bg-gray-900 flex flex-col items-center justify-center gap-10 text-4xl font-medium z-20"
+          className="absolute overflow-hidden top-0 right-0 w-screen h-screen bg-mytheme dark:bg-gray-900 flex flex-col items-center justify-center gap-10 text-4xl font-medium z-20"
         >
           {links.map((link, index) => (
             <div
