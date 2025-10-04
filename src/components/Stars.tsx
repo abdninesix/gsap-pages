@@ -27,7 +27,7 @@ const Stars = ({ count }: { count: number }) => {
     }, []); // runs only on client
 
     return (
-        <div className="absolute inset-0 pointer-events-none z-[-1] hidden dark:block">
+        <div className="absolute inset-0 pointer-events-none -z-20 hidden dark:block">
             {stars.map((star) => (
                 <div
                     key={star.id}

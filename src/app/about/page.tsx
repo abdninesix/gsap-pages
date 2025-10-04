@@ -1,8 +1,12 @@
+import TestCube from '@/components/TestCube'
+import ThreeScene from '@/components/ThreeScene'
 import React from 'react'
 
 const Aboutpage = () => {
   return (
-    <div>Coming soon</div>
+    <div>
+      {/* <TestCube /> */}
+    </div>
   )
 }
 

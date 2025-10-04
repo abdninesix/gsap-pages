@@ -127,7 +127,7 @@ const Navbar = () => {
       </div>
 
       {/* DESKTOP SOCIALS */}
-      <div className="hidden md:flex md:justify-end gap-2">
+      <div className="hidden md:flex md:justify-end gap-2 z-0">
         <Link className="nav-magnetic pl-2" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-6" /></Link>
         <Link className="nav-magnetic pl-2" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-6" /></Link>
       </div>
@@ -148,7 +148,7 @@ const Navbar = () => {
       {open && (
         <div
           ref={menuRef}
-          className="absolute overflow-hidden top-0 right-0 w-screen h-screen bg-mytheme dark:bg-gray-900 flex flex-col items-center justify-center gap-10 text-4xl font-medium z-20"
+          className="absolute overflow-hidden top-0 right-0 w-screen h-screen bg-mytheme flex flex-col items-center justify-center gap-10 text-4xl font-medium z-20"
         >
           {links.map((link, index) => (
             <div
