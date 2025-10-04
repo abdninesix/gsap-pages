@@ -56,8 +56,9 @@ const Projectspage = () => {
         ease: "power2.out",
         stagger: 0.2, // Animate cards one after another
         scrollTrigger: {
+          scroller: containerRef.current, 
           trigger: ".grid-container", // The element that triggers the animation
-          start: "top 30%", // Start animation when top of trigger hits 80% of viewport height
+          start: "top 80%", // Start animation when top of trigger hits 80% of viewport height
           toggleActions: "play none none none", // Play the animation once and don't replay
         }
       });
@@ -69,7 +70,7 @@ const Projectspage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="h-full">
+    <div ref={containerRef} className="h-full overflow-y-scroll scrollbar-none">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
