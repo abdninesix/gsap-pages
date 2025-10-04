@@ -121,7 +121,7 @@ const Homepage = () => {
                 &nbsp;
                 <span>Developer</span>
               </h2>
-              <p className="hero-paragraph md:text-md">
+              <p className="hero-paragraph text-start md:text-md">
                 Crafting web experiences that leave a lasting impression. With MERN stack and Next.js, I build sleek, powerful fullstack apps that are as intuitive as they are robust.
               </p>
             </div>
