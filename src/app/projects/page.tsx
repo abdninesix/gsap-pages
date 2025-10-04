@@ -50,16 +50,11 @@ const Projectspage = () => {
         );
       }
 
-      // --- START OF FIX ---
-
-      // Set the initial state of the cards BEFORE the batch is created.
-      // Using autoAlpha is better for performance (it also handles visibility).
-      gsap.set(".project-card", { autoAlpha: 0, x: -100, rotate: 10 });
+      gsap.set(".project-card", { autoAlpha: 0, x: -100, rotate: -15 });
 
       ScrollTrigger.batch(".project-card", {
         scroller: containerRef.current,
         start: "top 85%",
-        // This is the most robust way to handle batch animations
         onEnter: batch => gsap.to(batch, {
           autoAlpha: 1,
           x: 0,
@@ -70,11 +65,9 @@ const Projectspage = () => {
         }),
       });
 
-      // --- END OF FIX ---
-
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => ctx.revert(); // Cleanup
   }, []);
 
   return (
