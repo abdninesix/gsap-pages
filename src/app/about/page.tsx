@@ -64,23 +64,24 @@ const AboutPage = () => {
 
       // 2. Animate each content section as it scrolls into view
       const sections = gsap.utils.toArray('.scroll-reveal-section');
-      sections.forEach((section: Element) => {
+      sections.forEach((section) => {
+        const el = section as HTMLElement;
         // Animate the title of the section
-        gsap.from(section.querySelector('.section-title'), {
+        gsap.from(el.querySelector('.section-title'), {
           x: -300,
           opacity: 0,
           duration: 0.8,
           ease: 'power2.out',
           scrollTrigger: {
             scroller: scrollWrapperRef.current, // Specify our scrolling container
-            trigger: section,
+            trigger: el,
             start: "top 60%",
             toggleActions: "play none none none",
           }
         });
 
         // Animate the content of the section
-        gsap.from(section.querySelector('.section-content'), {
+        gsap.from(el.querySelector('.section-content'), {
           x: -300,
           opacity: 0,
           duration: 0.8,
@@ -88,7 +89,7 @@ const AboutPage = () => {
           ease: 'power2.out',
           scrollTrigger: {
             scroller: scrollWrapperRef.current,
-            trigger: section,
+            trigger: el,
             start: "top 60%",
             toggleActions: "play none none none",
           }
