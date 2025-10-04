@@ -50,7 +50,7 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
     }, [isOpen]);
 
     return (
-        <div className="flex flex-col max-w-[25rem] gap-3 p-3 bg-mytheme/50 shadow-lg duration-200">
+        <div className="flex flex-col max-w-[25rem] gap-3 p-3 bg-mytheme shadow-lg duration-200">
             <Image
                 src={image}
                 alt={alt}

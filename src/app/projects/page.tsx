@@ -21,7 +21,6 @@ const Projectspage = () => {
     gsap.registerPlugin(ScrollTrigger, SplitText);
 
     const ctx = gsap.context(() => {
-
       const tl = gsap.timeline();
 
       tl.fromTo(
@@ -33,44 +32,47 @@ const Projectspage = () => {
       if (titleRef.current) {
         const split = new SplitText(titleRef.current, { type: "chars, words" });
 
-        tl.from(split.chars, {
-          y: -1000,
-          scale: 10,
-          opacity: 25,
-          stagger: 0.1,
-          duration: 0.5,
-          ease: "back.in",
-        }, "+=0.25"
-        )
-          .fromTo(
-            ".scroll-icon",
-            { y: -50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-            "+=0.25"
-          )
+        tl.from(
+          split.chars,
+          {
+            y: -1000,
+            scale: 10,
+            opacity: 25,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "back.in",
+          },
+          "+=0.25"
+        ).fromTo(
+          ".scroll-icon",
+          { y: -50, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+          "+=0.25"
+        );
       }
+
+      // Animate cards into view
       gsap.from(".project-card", {
         opacity: 0,
         y: 100,
         duration: 0.5,
         ease: "power2.out",
-        stagger: 0.2, // Animate cards one after another
+        stagger: 0.2,
         scrollTrigger: {
-          scroller: containerRef.current, 
-          trigger: ".grid-container", // The element that triggers the animation
-          start: "top 80%", // Start animation when top of trigger hits 80% of viewport height
-          toggleActions: "play none none none", // Play the animation once and don't replay
-        }
+          scroller: containerRef.current,
+          trigger: ".grid-container",
+          start: "top 80%",
+          toggleActions: "play none none none",
+        },
       });
-
     }, containerRef);
 
-    return () => ctx.revert(); //Cleanup
-
+    return () => ctx.revert();
   }, []);
 
+
   return (
-    <div ref={containerRef} className="h-full overflow-y-scroll scrollbar-none">
+    <div ref={containerRef} className="h-full overflow-y-scroll scrollbar scrollbar-track-transparent scrollbar-thumb-mytheme/50">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
