@@ -77,7 +77,7 @@ const Homepage = () => {
 
   return (
     <div ref={containerRef} className="h-full overflow-hidden">
-      <div className="flex flex-col gap-4 md:gap-8 lg:gap-16 mt-12 lg:mt-28">
+      <div className="flex flex-col gap-6 lg:gap-16 mt-12 lg:mt-28">
         {/* Intro Text */}
         <span className="intro-text text-center text-4xl md:text-5xl">
           بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم
