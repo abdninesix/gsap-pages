@@ -7,6 +7,7 @@ import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
+import ModelViewer from "@/components/ModelViewer";
 
 const Line = () => {
     return (
@@ -190,15 +191,14 @@ const Projectspage = () => {
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
                         <h1 className="font-bold text-3xl">CERTIFICATION</h1>
-                        <div className="flex flex-wrap gap-4 mb-20">
-                            Coming soon
+                        <div className="flex flex-wrap gap-4 mb-20 size-screen border">
                         </div>
                     </div>
                 </div>
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container w-1/2 h-full hidden lg:flex items-center justify-center sticky top-10 bg-mytheme/50">
-                    Content coming soon
+                <div className="sticky-container w-1/2 h-[80vh] hidden lg:flex items-center justify-center sticky top-10">
+                    <ModelViewer modelPath="/retroPC.glb" />
                 </div>
 
             </div>
