@@ -109,7 +109,7 @@ const AboutPage = () => {
         <PiMouseScroll className="scroll-icon animate-bounce size-8" />
       </div>
 
-      <div ref={scrollWrapperRef} className="h-full overflow-x-hidden lg:flex gap-10">
+      <div ref={scrollWrapperRef} className="h-full overflow-x-hidden lg:flex gap-4">
         {/*TEXT CONTAINER*/}
         <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-3/5">
           {/*BIO*/}
@@ -125,7 +125,7 @@ const AboutPage = () => {
             <h1 className="section-title font-bold text-4xl">SKILLS</h1>
             <div className="section-content flex flex-wrap gap-4">
               {skills.map((skill, index) => (
-                <div key={index} className="p-2 rounded text-sm bg-gray-800 dark:bg-gray-200 text-white dark:text-black">{skill}</div>))}
+                <div key={index} className="p-2 text-sm bg-gray-800 dark:bg-gray-200 text-white dark:text-black">{skill}</div>))}
             </div>
             <PiMouseScroll className="scroll-icon animate-bounce size-8" />
           </div>
@@ -198,8 +198,8 @@ const AboutPage = () => {
         </div>
 
         {/*IMAGE CONTAINER*/}
-        <div className="laptop-container hidden lg:flex sticky top-0 bg-mytheme w-2/5">
-
+        <div className="laptop-container hidden lg:flex items-center justify-center sticky top-0 bg-mytheme/50 w-2/5">
+          Content coming soon
         </div>
       </div>
     </div>
