@@ -101,8 +101,8 @@ const Homepage = () => {
           </div>
 
           {/* TEXT & BUTTON CONTAINER */}
-          <div className="h-auto lg:h-fit flex flex-col gap-5 lg:gap-6 justify-center text-center lg:text-left">
-            <div className="flex flex-col gap-4">
+          <div className="h-auto lg:h-fit flex flex-col gap-6 justify-center text-center lg:text-left">
+            <div className="flex flex-col gap-6">
               <span ref={nameRef} className="text-4xl md:text-6xl font-semibold">
                 meet&nbsp;<span className="text-mytheme">Abdullah</span>
               </span>
@@ -121,7 +121,7 @@ const Homepage = () => {
                 &nbsp;
                 <span>Developer</span>
               </h2>
-              <p className="hero-paragraph text-justify md:text-md">
+              <p className="hero-paragraph md:text-md">
                 Crafting web experiences that leave a lasting impression. With MERN stack and Next.js, I build sleek, powerful fullstack apps that are as intuitive as they are robust.
               </p>
             </div>
