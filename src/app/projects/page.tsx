@@ -31,7 +31,6 @@ const Projectspage = () => {
 
       if (titleRef.current) {
         const split = new SplitText(titleRef.current, { type: "chars, words" });
-
         tl.from(
           split.chars,
           {
@@ -51,28 +50,35 @@ const Projectspage = () => {
         );
       }
 
-      // Animate cards into view
-      gsap.from(".project-card", {
-        opacity: 0,
-        y: 100,
-        duration: 0.5,
-        ease: "power2.out",
-        stagger: 0.2,
-        scrollTrigger: {
-          scroller: containerRef.current,
-          trigger: ".grid-container",
-          start: "top 80%",
-          toggleActions: "play none none none",
-        },
+      // --- START OF FIX ---
+
+      // Set the initial state of the cards BEFORE the batch is created.
+      // Using autoAlpha is better for performance (it also handles visibility).
+      gsap.set(".project-card", { autoAlpha: 0, x: -100, rotate: 10 });
+
+      ScrollTrigger.batch(".project-card", {
+        scroller: containerRef.current,
+        start: "top 85%",
+        // This is the most robust way to handle batch animations
+        onEnter: batch => gsap.to(batch, {
+          autoAlpha: 1,
+          x: 0,
+          rotate: 0,
+          stagger: 0.1,
+          ease: "expo.in",
+          overwrite: true // Prevent conflicts
+        }),
       });
+
+      // --- END OF FIX ---
+
     }, containerRef);
 
     return () => ctx.revert();
   }, []);
 
-
   return (
-    <div ref={containerRef} className="h-full overflow-y-scroll scrollbar scrollbar-track-transparent scrollbar-thumb-mytheme/50">
+    <div ref={containerRef} className="h-full overflow-y-scroll scrollbar-none">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
@@ -81,8 +87,7 @@ const Projectspage = () => {
 
       <div className="grid-container grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {projects.flat().map((project, index) => (
-          // Added a class here for GSAP to target
-          <div key={project.alt} className="project-card w-full">
+          <div key={project.alt} className="project-card"> {/* Initial opacity-0 helps prevent flash of unstyled content */}
             <Card
               image={project.src}
               alt={project.alt}
@@ -109,9 +114,6 @@ const Projectspage = () => {
         <h1 className="text-4xl md:text-6xl font-semibold">Want to start your projects?</h1>
         <TransitionLink href="/contact" className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2">Let&apos;s work</TransitionLink>
       </div>
-
-
-
     </div>
   )
 }

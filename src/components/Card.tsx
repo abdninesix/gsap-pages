@@ -50,7 +50,7 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
     }, [isOpen]);
 
     return (
-        <div className="flex flex-col max-w-[25rem] gap-3 p-3 bg-mytheme shadow-lg duration-200">
+        <div className="flex flex-col gap-3 p-3 bg-mytheme/20 duration-200">
             <Image
                 src={image}
                 alt={alt}
@@ -62,7 +62,7 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
             <div className='flex justify-between'>
                 <div className='flex flex-col gap-2'>
                     <h2 className="text-2xl font-semibold">{title}</h2>
-                    <span className='px-1 w-fit bg-white text-black font-semibold text-xs'>{cat}</span>
+                    <span className='px-1 w-fit bg-black text-white dark:bg-white dark:text-black font-semibold text-xs'>{cat}</span>
                 </div>
                 <Link
                     href={link}
