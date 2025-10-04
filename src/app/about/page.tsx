@@ -59,14 +59,14 @@ const Projectspage = () => {
             }
 
             const timeout = setTimeout(() => {
-                gsap.from(".laptop-container", {
+                gsap.from(".sticky-container", {
                     opacity: 0,
-                    y: 100,
-                    ease: "power2.out",
+                    x: 100,
+                    ease: "expo.out",
                     scrollTrigger: {
-                        trigger: ".laptop-container",
-                        start: "top bottom",
-                        end: "top center",
+                        trigger: ".sticky-container",
+                        start: "top center",
+                        end: "top 20%",
                         scrub: true,
                     },
                 });
@@ -139,7 +139,8 @@ const Projectspage = () => {
             </div>
 
             <div className="flex gap-6">
-                {/*TEXT CONTAINER*/}
+
+                {/*INFO CONTAINER*/}
                 <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-3/5">
                     {/*BIO*/}
                     <div className="flex flex-col gap-8 justify-center">
@@ -166,10 +167,7 @@ const Projectspage = () => {
                             {experiences.map((exp, index) => {
                                 const isLeft = index % 2 === 0; // alternate sides
                                 return (
-                                    <div
-                                        key={index}
-                                        className="flex justify-between h-fit timeline-card"
-                                    >
+                                    <div key={index} className="flex justify-between h-fit timeline-card" >
                                         {isLeft ? (
                                             <>
                                                 <div className="w-5/12 relative"></div>
@@ -192,16 +190,17 @@ const Projectspage = () => {
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
                         <h1 className="font-bold text-3xl">CERTIFICATION</h1>
-                        <div className="flex flex-wrap gap-4 mb-20 shadow-lg">
+                        <div className="flex flex-wrap gap-4 mb-20">
                             Coming soon
                         </div>
                     </div>
                 </div>
 
-                {/*IMAGE CONTAINER*/}
-                <div className="laptop-container w-1/2 h-full hidden lg:flex items-center justify-center sticky top-10 bg-mytheme/50">
+                {/*STICKY CONTENT CONTAINER*/}
+                <div className="sticky-container w-1/2 h-full hidden lg:flex items-center justify-center sticky top-10 bg-mytheme/50">
                     Content coming soon
                 </div>
+
             </div>
         </div >
     )

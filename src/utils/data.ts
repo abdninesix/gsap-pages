@@ -136,27 +136,21 @@ export const skills = [
 
 export const experiences = [
   {
-    title: "Laravel Web",
-    description:
-      "I&apos;m a Next.js developer, proficient in building high-performance, server-rendered web applications. With a good foundation in the MERN stack—MongoDB, Express, React, and Node.js. I&apos;m eager to craft seamless, user-friendly digital experiences. Every line of code I write aims to elevate the web.",
-    date: "2025-Present",
-  },
-  {
     title: "Next.js Web",
     description:
-      "I&apos;m a Next.js developer, proficient in building high-performance, server-rendered web applications. With a good foundation in the MERN stack—MongoDB, Express, React, and Node.js. I&apos;m eager to craft seamless, user-friendly digital experiences. Every line of code I write aims to elevate the web.",
+      "I am a Next.js developer, proficient in building high-performance, server-rendered web applications. With a good foundation in the MERN Stack. I am eager to craft seamless, user-friendly digital experiences. Every line of code I write aims to elevate the web.",
     date: "2023-Present",
   },
   {
     title: "MERN Stack Web",
     description:
-      "I&apos;m a MERN stack developer, wielding MongoDB, Express, React, and Node.js like a pro. My passion lies in creating seamless, user-friendly applications that deliver powerful digital experiences. Every project is a chance to make the web a better place, one line of code at a time.",
+      "I am a MERN stack developer, wielding MongoDB, Express, React, and Node.js like a pro. My passion lies in creating seamless, user-friendly applications that deliver powerful digital experiences. Every project is a chance to make the web a better place, one line of code at a time.",
     date: "2023-Present",
   },
   {
     title: "UX/UI design",
     description:
-      "I&apos;m a frontend dev, crafting responsive, visually appealing interfaces with HTML, CSS, and JavaScript. Every project is a chance to enhance the digital experience and make the web more enjoyable for all.",
+      "I am a frontend dev, crafting responsive, visually appealing interfaces with HTML, CSS, and JavaScript. Every project is a chance to enhance the digital experience and make the web more enjoyable for all.",
     date: "2020-Present",
   },
   {
