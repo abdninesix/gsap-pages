@@ -36,15 +36,15 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
             // Animate from 0 to its natural height
             gsap.to(descRef.current, {
                 height: 'auto',
-                duration: 0.3,
-                ease: 'power2.out',
+                duration: 0.25,
+                ease: 'expo.in',
             });
         } else {
             // Animate from its natural height back to 0
             gsap.to(descRef.current, {
                 height: 0,
-                duration: 0.3,
-                ease: 'power2.in',
+                duration: 0.25,
+                ease: 'expo.in',
             });
         }
     }, [isOpen]);

@@ -134,3 +134,43 @@ export const skills = [
     "AWS",
 ];
 
+export const experiences = [
+  {
+    title: "Laravel Web",
+    description:
+      "I&apos;m a Next.js developer, proficient in building high-performance, server-rendered web applications. With a good foundation in the MERN stack—MongoDB, Express, React, and Node.js. I&apos;m eager to craft seamless, user-friendly digital experiences. Every line of code I write aims to elevate the web.",
+    date: "2025-Present",
+  },
+  {
+    title: "Next.js Web",
+    description:
+      "I&apos;m a Next.js developer, proficient in building high-performance, server-rendered web applications. With a good foundation in the MERN stack—MongoDB, Express, React, and Node.js. I&apos;m eager to craft seamless, user-friendly digital experiences. Every line of code I write aims to elevate the web.",
+    date: "2023-Present",
+  },
+  {
+    title: "MERN Stack Web",
+    description:
+      "I&apos;m a MERN stack developer, wielding MongoDB, Express, React, and Node.js like a pro. My passion lies in creating seamless, user-friendly applications that deliver powerful digital experiences. Every project is a chance to make the web a better place, one line of code at a time.",
+    date: "2023-Present",
+  },
+  {
+    title: "UX/UI design",
+    description:
+      "I&apos;m a frontend dev, crafting responsive, visually appealing interfaces with HTML, CSS, and JavaScript. Every project is a chance to enhance the digital experience and make the web more enjoyable for all.",
+    date: "2020-Present",
+  },
+  {
+    title: "Android Studio",
+    description:
+      "Seasoned Android Studio Java developer with a knack for building user-friendly mobile applications. Expert in Java programming and Android SDK, focused on creating seamless, high-performance apps tailored to user needs.",
+    date: "2021-2022",
+  },
+  {
+    title: "Visual Studio",
+    description:
+      "Experienced Visual Studio C# developer skilled in crafting robust applications using the .NET framework. Adept at problem-solving, writing clean code, and continuously updating projects to keep up with technological advancements.",
+    date: "2020-2021",
+  },
+];
+
+
