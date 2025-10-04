@@ -65,8 +65,8 @@ const Projectspage = () => {
                     ease: "expo.out",
                     scrollTrigger: {
                         trigger: ".sticky-container",
-                        start: "top center",
-                        end: "top 20%",
+                        start: "top 80%",
+                        end: "top center",
                         scrub: true,
                     },
                 });
