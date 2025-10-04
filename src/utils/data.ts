@@ -41,7 +41,7 @@ export const projects = [
             desc: "A sleek and beautiful game website enhanced with smooth GSAP animations for interactive transitions and dynamic gameplay experiences. Designed for performance and visual appeal, every element is brought to life with fluid motion.",
             cat: "Frontend",
             link: "https://gsap-based-by-abdullah.vercel.app/"
-        },     
+        },
         {
             src: "/projects/threads.png", alt: "threads",
             title: "Threads Clone",
@@ -78,4 +78,8 @@ export const projects = [
             link: "https://ai-calculator-by-abdullah.vercel.app/"
         },
     ],
+];
+
+export const skills = [
+    "HTML5", "CSS3", "Javascript", "Typescript", "Python", "React.js", "Bootstrap", "Next.js", "TailwindCSS", "Framer-motion", "GSAP", "Figma", "Node.js", "Express.js", "MongoDB", "Prisma", "Laravel", "PostgreSQL", "A.I Integration", "Stripe Integration", "Shadcn/UI", "Imagekit.io", "Uploadthing"
 ];

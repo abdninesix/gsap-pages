@@ -1,15 +1,14 @@
 "use client"
 
 import { useLayoutEffect, useRef, useState } from "react";
-import Link from "next/link";
 import gsap from "gsap";
-import { projects } from "@/components/Slides";
 import Card from "@/components/Card";
 import { PiMouseScroll } from "react-icons/pi";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdErrorOutline } from "react-icons/md";
 import TransitionLink from "@/components/TransitionLink";
+import { projects } from "@/utils/data";
 
 const Projectspage = () => {
 

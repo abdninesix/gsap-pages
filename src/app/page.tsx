@@ -132,7 +132,7 @@ const Homepage = () => {
                 href="/about"
                 className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2"
               >
-                About me
+                Learn more
               </TransitionLink>
               <TransitionLink
                 href="/projects"
