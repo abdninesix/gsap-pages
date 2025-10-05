@@ -34,7 +34,7 @@ const Projectspage = () => {
 
             introTl.fromTo(
                 containerRef.current,
-                { y: "-200vh" },
+                { y: "0%" },
                 { y: "0%", duration: 1, ease: "power2.out" }
             );
 
@@ -91,7 +91,7 @@ const Projectspage = () => {
                         ease: "none",
                         scrollTrigger: {
                             trigger: lineContainer,
-                            start: "top 60%",
+                            start: "top 50%",
                             end: "top 20%",
                             scrub: true,
                         },
@@ -101,7 +101,7 @@ const Projectspage = () => {
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: lineContainer,
-                            start: "top 75%",
+                            start: "top 50%",
                             end: "bottom 65%",
                             toggleActions: "play none none reverse",
                         },
@@ -197,8 +197,8 @@ const Projectspage = () => {
                 </div>
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container w-1/2 h-[80vh] hidden lg:flex items-center justify-center sticky top-10">
-                    <ModelViewer modelPath="/retroPC.glb" />
+                <div className="sticky-container w-1/2 h-[80vh] hidden lg:flex items-center justify-center sticky top-0">
+                    <ModelViewer modelPath="/people.glb" />
                 </div>
 
             </div>
