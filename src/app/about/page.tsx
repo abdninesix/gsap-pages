@@ -29,37 +29,25 @@ const Aboutpage = () => {
         gsap.registerPlugin(ScrollTrigger, SplitText);
 
         const ctx = gsap.context(() => {
-            /** --- HERO INTRO --- **/
-            const introTl = gsap.timeline();
 
-            introTl.fromTo(
-                containerRef.current,
-                { y: "0%" },
-                { y: "0%", duration: 1, ease: "power2.out" }
-            );
+            /** --- 1️⃣ HERO INTRO ANIMATION --- **/
+            const introTl = gsap.timeline({ defaults: { ease: "expo.out", duration: 0.8 } });
 
             if (titleRef.current) {
                 const split = new SplitText(titleRef.current, { type: "chars, words" });
-
-                introTl
-                    .from(split.chars, {
-                        y: 1000,
-                        scale: 20,
-                        opacity: 0,
-                        stagger: 0.1,
-                        duration: 0.5,
-                        ease: "back.in",
-                    }, "+=0.25"
-                    )
-                    .fromTo(
-                        ".scroll-icon",
-                        { y: -40, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.5, ease: "expo.out" },
-                        "+=0.3"
-                    );
+                introTl.from(split.chars, {
+                    y: 1000,
+                    scale: 20,
+                    opacity: 0,
+                    stagger: 0.1,
+                    ease: "back.in",
+                })
+                    .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
             }
 
-            const timeout = setTimeout(() => {
+            /** --- 2️⃣ SCROLLTRIGGERED ANIMATIONS --- **/
+            const scrollAnimations = () => {
+                /** Sticky model viewer fade-in **/
                 gsap.from(".sticky-container", {
                     autoAlpha: 0,
                     x: 100,
@@ -72,32 +60,32 @@ const Aboutpage = () => {
                     },
                 });
 
-                /** --- TIMELINE ANIMATIONS --- **/
-                gsap.set(".line", { scaleY: 0, transformOrigin: "top" });
-                gsap.set(".line-dot", { scale: 0, opacity: 0 });
-                gsap.set(".timeline-card", { autoAlpha: 0, x: -80, y: 80 });
-
+                /** Line growth + timeline card animations **/
                 const lines = gsap.utils.toArray<HTMLElement>(".line-container");
 
-                lines.forEach((lineContainer, index) => {
+                lines.forEach((lineContainer) => {
                     const line = lineContainer.querySelector(".line");
                     const dot = lineContainer.querySelector(".line-dot");
                     const card = lineContainer.closest(".timeline-card");
-
                     if (!line || !dot || !card) return;
 
-                    gsap.to(line, {
-                        scaleY: 1,
-                        ease: "none",
-                        scrollTrigger: {
-                            trigger: lineContainer,
-                            start: "top 90%",
-                            end: "top 50%",
-                            scrub: true,
-                        },
-                    });
+                    // Line grow
+                    gsap.fromTo(
+                        line,
+                        { scaleY: 0, transformOrigin: "top" },
+                        {
+                            scaleY: 1,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: lineContainer,
+                                start: "top 90%",
+                                end: "top 50%",
+                                scrub: true,
+                            },
+                        }
+                    );
 
-                    // Reveal dot and card
+                    // Dot and card reveal
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: lineContainer,
@@ -106,67 +94,39 @@ const Aboutpage = () => {
                         },
                     });
 
-                    tl.to(dot, {
-                        scale: 1,
-                        opacity: 1,
-                        duration: 0.4,
-                        ease: "bounce.in",
-                    }).to(card, {
-                        autoAlpha: 1,
-                        x: 0,
-                        y: 0,
-                        duration: 0.25,
-                        ease: "expo.out",
-                    }, "-=0.25"
-                    );
-                });
-            }, 1000);
-
-            // --- HEADING + CONTENT SLIDE-IN ANIMATIONS (SEQUENTIAL) ---
-            const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
-
-            headings.forEach((heading) => {
-                const content = heading.nextElementSibling?.classList.contains("content-animate")
-                    ? heading.nextElementSibling
-                    : null;
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: "top 75%",
-                        toggleActions: "play none none none",
-                    },
+                    tl.from(dot, { scale: 0, opacity: 0, duration: 0.4, ease: "bounce.out" })
+                        .from(card, { autoAlpha: 0, scale: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
                 });
 
-                // Animate heading first
-                tl.from(heading, {
-                    x: -1000,
-                    opacity: 0,
-                    ease: "elastic",
-                    duration: 1,
-                });
+                /** Headings + content slide-in **/
+                const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
 
-                // Then animate content (if exists)
-                if (content) {
-                    tl.from(
-                        content,
-                        {
-                            x: -1000,
-                            opacity: 0,
-                            ease: "elastic",
-                            duration: 1,
-                            stagger: 0.15,
+                headings.forEach((heading) => {
+                    const content = heading.nextElementSibling?.classList.contains("content-animate")
+                        ? heading.nextElementSibling
+                        : null;
+
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: heading,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse",
                         },
-                        "-=0.25" // overlap for smooth flow
-                    );
-                }
-            });
+                    });
 
-            return () => clearTimeout(timeout); // Cleanup
+                    tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
+                        .from(content, { x: -120, opacity: 0, ease: "elastic", duration: 1 }, "-=0.4");
+                });
+            };
+
+            // Run scroll animations slightly after intro
+            setTimeout(scrollAnimations, 800);
+
         }, containerRef);
 
         return () => ctx.revert();
     }, []);
+
 
 
 
