@@ -92,7 +92,7 @@ export const skills = [
     "Shadcn/UI",
     "Framer Motion",
     "GSAP",
-    "React Three Fibre",
+    "Three.js",
 
     // Backend Stack
     "Node.js",
