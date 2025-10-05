@@ -206,7 +206,7 @@ const Aboutpage = () => {
                 </div>
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container w-1/2 h-[80vh] hidden lg:flex items-center justify-center sticky top-0">
+                <div className="sticky-container w-1/2 h-[100vh] hidden lg:flex items-center justify-center sticky top-0">
                     <ModelViewer modelPath="/people.glb" />
                 </div>
 

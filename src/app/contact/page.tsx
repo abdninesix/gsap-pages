@@ -120,14 +120,14 @@ const Contactpage = () => {
       ${errors.user_message ? "border-red-500 focus:border-red-600" : "border-mytheme focus:border-black"}`} />
             <label
               htmlFor="user_message"
-              className={`absolute left-2 -top-2 bg-white px-1 rounded-t-lg transition-all
+              className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all
       peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-mytheme
       peer-focus:-top-6 peer-focus:text-base 
-      ${errors.user_message ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black"}
+      ${errors.user_message ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
       peer-focus:border-2 peer-focus:border-b-0`}>
-              Your message
+              Your project requirements
             </label>
-            {errors.user_message && (<span className="text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-5" />{errors.user_message}</span>)}
+            {errors.user_message && (<span className="absolute -top-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_message}</span>)}
           </div>
 
           <div className="relative w-full">
@@ -142,20 +142,20 @@ const Contactpage = () => {
             />
             <label
               htmlFor="user_email"
-              className={`absolute left-2 -top-2 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
+              className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
       peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-mytheme
       peer-focus:-top-6 peer-focus:text-base 
-      ${errors.user_email ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black"}
+      ${errors.user_email ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
       peer-focus:border-2 peer-focus:border-b-0`}
             >
               Your email
             </label>
-            {errors.user_email && (<span className="text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-5" />{errors.user_email}</span>)}
+            {errors.user_email && (<span className="absolute -top-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_email}</span>)}
           </div>
 
           <button className="w-fit cursor-pointer ring hover:bg-black text-black hover:text-white text-sm p-2">Send</button>
-          {success && (<span className=" text-sm text-green-500 flex items-center justify-center gap-1"><RiThumbUpLine className="size-5" />Your message has been delivered.</span>)}
-          {error && (<span className=" text-sm text-red-500 flex items-center justify-center gap-1"><MdErrorOutline className="size-5" />Something went wrong. Please try again.</span>)}
+          {success && (<span className=" text-sm text-green-500 flex items-center justify-center gap-1"><RiThumbUpLine className="size-4" />Your message has been delivered.</span>)}
+          {error && (<span className=" text-sm text-red-500 flex items-center justify-center gap-1"><MdErrorOutline className="size-4" />Something went wrong. Please try again.</span>)}
         </form>
 
       </div>
