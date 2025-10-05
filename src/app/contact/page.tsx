@@ -31,7 +31,7 @@ const Contactpage = () => {
 
       const newErrors: { [key: string]: string } = {};
 
-      if (!formValues.user_message) { newErrors.user_message = "Please write your message to collaborate"; }
+      if (!formValues.user_message) { newErrors.user_message = "Please write your message"; }
       if (!formValues.user_email) { newErrors.user_email = "Please enter a valid email"; }
       if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
 
@@ -127,7 +127,7 @@ const Contactpage = () => {
       peer-focus:border-2 peer-focus:border-b-0`}>
               Your project requirements
             </label>
-            {errors.user_message && (<span className="absolute -top-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_message}</span>)}
+            {errors.user_message && (<span className="absolute -bottom-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_message}</span>)}
           </div>
 
           <div className="relative w-full">
@@ -150,7 +150,7 @@ const Contactpage = () => {
             >
               Your email
             </label>
-            {errors.user_email && (<span className="absolute -top-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_email}</span>)}
+            {errors.user_email && (<span className="absolute -bottom-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_email}</span>)}
           </div>
 
           <button className="w-fit cursor-pointer ring hover:bg-black text-black hover:text-white text-sm p-2">Send</button>

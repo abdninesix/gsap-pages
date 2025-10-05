@@ -80,11 +80,11 @@ body {
 
 }
 
-/* ::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
 }
 
 .scrollbar-none {
   scrollbar-width: none;
   -ms-overflow-style: none;
-} */
+}

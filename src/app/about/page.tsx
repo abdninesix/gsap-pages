@@ -51,7 +51,7 @@ const Aboutpage = () => {
                 const sticky = document.querySelector(".sticky-container");
                 gsap.from(".sticky-container", {
                     autoAlpha: 0,
-                    x: 100,
+                    y: 100,
                     ease: "expo.out",
                     scrollTrigger: {
                         trigger: ".sticky-container",
@@ -138,7 +138,7 @@ const Aboutpage = () => {
 
 
     return (
-        <div ref={containerRef} className="h-full  overflow-x-hidden">
+        <div ref={containerRef} className="h-full scrollbar-none overflow-x-clip">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
                 <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
