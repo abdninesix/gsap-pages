@@ -16,63 +16,64 @@ const Homepage = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
-    const tl = gsap.timeline();
 
-    tl.fromTo(
-      containerRef.current,
-      { y: "-200vh" },
-      { y: "0%", duration: 1, ease: "power2.out" }
-    );
+    const ctx = gsap.context(() => {
+      const tl = gsap.timeline();
 
-    if (nameRef.current) {
-      const split = new SplitText(nameRef.current, { type: "chars" });
+      /** --- SplitText Animation --- **/
+      if (nameRef.current) {
+        const split = new SplitText(nameRef.current, { type: "chars" });
 
-      tl
-        .fromTo(
+        tl.fromTo(
           ".intro-text",
           { y: -50, opacity: 0 },
           { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
           "+=0.25"
         )
-        .from(split.chars, {
-          y: 1000,
-          scale: 20,
-          opacity: 0,
-          stagger: 0.1,
-          duration: 0.5,
-          ease: "back.in",
-        }, "+=0.25"
-        )
-        .fromTo(
-          ".hero-image",
-          { x: -10, opacity: 0 },
-          { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
-          "+=0.25"
-        )
-        .fromTo(
-          ".hero-subtitle",
-          { y: -50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-          "+=0.25"
-        )
-        .fromTo(
-          ".hero-paragraph",
-          { y: -50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-          "+=0.25" // Start 0.1s after the previous animation begins
-        )
-        .fromTo(
-          ".button-block",
-          { y: -50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-          "+=0.25"
-        );
+          .from(
+            split.chars,
+            {
+              y: 1000,
+              scale: 20,
+              opacity: 0,
+              stagger: 0.1,
+              duration: 0.5,
+              ease: "back.in",
+            },
+            "+=0.25"
+          )
+          .fromTo(
+            ".hero-image",
+            { x: -10, opacity: 0 },
+            { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
+            "+=0.25"
+          )
+          .fromTo(
+            ".hero-subtitle",
+            { y: -50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+            "+=0.25"
+          )
+          .fromTo(
+            ".hero-paragraph",
+            { y: -50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+            "+=0.25"
+          )
+          .fromTo(
+            ".button-block",
+            { y: -50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+            "+=0.25"
+          );
 
-      // Cleanup
-      return () => {
-        split.revert();
-      };
-    }
+        // Cleanup SplitText safely
+        return () => split.revert();
+      }
+    }, containerRef);
+
+    // Global cleanup for context
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -101,8 +102,8 @@ const Homepage = () => {
           </div>
 
           {/* TEXT & BUTTON CONTAINER */}
-          <div className="h-auto lg:h-fit flex flex-col gap-6 justify-center text-center lg:text-left">
-            <div className="flex flex-col gap-6">
+          <div className="h-auto lg:h-fit flex flex-col gap-4 justify-center text-center lg:text-left">
+            <div className="flex flex-col gap-4">
               <span ref={nameRef} className="text-4xl md:text-6xl font-semibold">
                 meet&nbsp;<span className="text-mytheme">Abdullah</span>
               </span>
