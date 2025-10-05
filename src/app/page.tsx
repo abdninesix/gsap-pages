@@ -5,6 +5,9 @@ import Image from "next/image";
 import gsap from "gsap";
 import TransitionLink from "@/components/TransitionLink";
 import { SplitText } from "gsap/SplitText";
+import { RiNextjsFill } from "react-icons/ri";
+import { SiExpress, SiMongodb, SiPrisma } from "react-icons/si";
+import { FaNodeJs, FaReact } from "react-icons/fa";
 
 const Homepage = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -107,8 +110,8 @@ const Homepage = () => {
               <span ref={nameRef} className="text-4xl md:text-6xl font-semibold">
                 meet&nbsp;<span className="text-mytheme">Abdullah</span>
               </span>
-              <h2 className="hero-subtitle relative text-2xl md:text-4xl font-medium flex flex-wrap justify-center lg:justify-start">
-                <span>
+              <h2 className="hero-subtitle relative text-2xl md:text-4xl font-medium flex flex-col gap-4 justify-center lg:justify-start">
+                {/* <span>
                   <span className="text-green-700">M</span>
                   <span className="text-gray-500">E</span>
                   <span className="text-cyan-600">R</span>
@@ -119,8 +122,11 @@ const Homepage = () => {
                 <span>
                   NEXT.js
                 </span>
-                &nbsp;
-                <span>Developer</span>
+                &nbsp; */}
+                <span>Fullstack Developer</span>
+                <div className="flex justify-center lg:justify-start gap-4">
+                  <RiNextjsFill /><SiMongodb /><SiExpress /><FaReact /><FaNodeJs/><SiPrisma/>
+                </div>
               </h2>
               <p className="hero-paragraph md:text-md">
                 Crafting web experiences that leave a lasting impression. With MERN stack and Next.js, I build sleek, powerful fullstack apps that are as intuitive as they are robust.
