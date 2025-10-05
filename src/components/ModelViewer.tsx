@@ -35,6 +35,7 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
     // === RENDERER ===
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(mountRef.current.clientWidth, mountRef.current.clientHeight);
+    renderer.setClearColor(0x000000, 0);
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
 
@@ -74,7 +75,10 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
         scene.add(model);
 
         // Wait one frame to ensure everything is ready before GSAP setup
-        requestAnimationFrame(() => setupScrollAnimations(camera, controls));
+        requestAnimationFrame(() => {
+          setupScrollAnimations(camera, controls);
+          ScrollTrigger.refresh();
+        });
       },
       undefined,
       (error) => console.error("Error loading model:", error)
@@ -92,7 +96,8 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
     const handleKey = (e: KeyboardEvent) => {
       switch (e.key) {
         case "w": camera.position.z -= 0.1; break; case "s": camera.position.z += 0.1; break; case "a": camera.position.x -= 0.1; break; case "d": camera.position.x += 0.1; break; case "q": camera.position.y += 0.1; break; case "e": camera.position.y -= 0.1; break;
-      } console.log("Camera:", camera.position); console.log("Target:", controls.target);
+      }
+      console.log(`{pos: { x: ${camera.position.x.toFixed(6)}, y: ${camera.position.y.toFixed(6)}, z: ${camera.position.z.toFixed(6)} },target: { x: ${controls.target.x.toFixed(6)}, y: ${controls.target.y.toFixed(6)}, z: ${controls.target.z.toFixed(6)} },},`);
     }; window.addEventListener("keydown", handleKey);
 
     // === CLEANUP ===
@@ -110,47 +115,51 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
   const setupScrollAnimations = (camera: THREE.PerspectiveCamera, controls: OrbitControls) => {
     // ✨ Define your custom camera & target waypoints
     const path = [
-      { x: 1.1278363804432503, y: 0.062219999999999706, z: 1.7704968351071337, tx: -0.053409415490286695, ty: 0.013475638780949267, tz: -0.2485788186815239 },
-      { x: -1.3070981104421284, y: -0.30090297764114604, z: 0.700006851823189, tx: -0.053409415490286695, ty: 0.013475638780949267, tz: -0.2485788186815239 },
-      { x: 1.3038909263102063, y: 0.2032783325318378, z: 0.5438013442752397, tx: -0.053409415490286695, ty: 0.013475638780949267, tz: -0.2485788186815239 },
-      { x: -0.9544020834553013, y: 0.2823273682859265, z: 0.5546091680722824, tx: -0.053409415490286695, ty: 0.013475638780949267, tz: -0.2485788186815239 },
-      { x: -0.07356105104190391, y: -0.92883667199942, z: 1.1705511668472557, tx: -0.053409415490286695, ty: 0.013475638780949267, tz: -0.2485788186815239 },
+      { pos: { x: 1.260190, y: 0.469882, z: 1.291159 }, target: { x: -0.009238, y: -0.555765, z: -0.385440 }, },
+      { pos: { x: -1.419211, y: -0.546049, z: 0.599485 }, target: { x: -0.115417, y: -0.200768, z: -0.401538 }, },
+      { pos: { x: -0.319979, y: 0.131781, z: 0.741185 }, target: { x: -0.402811, y: 0.210506, z: -0.355563 }, },
+      { pos: { x: 0.739051, y: -0.367500, z: 0.837658 }, target: { x: -0.439885, y: -0.096625, z: -0.527762 }, },
+      { pos: { x: 1.196044, y: 0.140767, z: 0.602759 }, target: { x: 0.086448, y: 0.041419, z: -0.913315 }, },
     ];
 
-    // No initial camera position needed — GSAP takes over fully
-    gsap.set(camera.position, path[0]);
-    gsap.set(controls.target, {
-      x: path[0].tx,
-      y: path[0].ty,
-      z: path[0].tz,
-    });
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: mountRef.current?.parentElement || mountRef.current,
-        start: "top 80%",
-        end: "bottom+=1300 top",
-        scrub: 1,
-        invalidateOnRefresh: true,
-      },
-      defaults: { ease: "power2.inOut", duration: 0.4 },
-    });
+    const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
 
-    path.forEach((pos, i) => {
-      tl.to(
-        camera.position,
-        { x: pos.x, y: pos.y, z: pos.z },
-        i * 1.3 // smooth section timing
-      ).to(
-        controls.target,
-        {
-          x: pos.tx,
-          y: pos.ty,
-          z: pos.tz,
-          onUpdate: () => controls.update(),
+    if (headings.length < path.length) {
+      console.warn("Not enough headings for camera positions");
+    }
+
+    /// Initial camera + target
+    gsap.set(camera.position, path[0].pos);
+    gsap.set(controls.target, path[0].target);
+    controls.update();
+
+    // For each heading...
+    headings.forEach((heading, i) => {
+      if (!path[i + 1]) return;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: heading,
+          start: "top 80%",
+          end: "bottom 60%",
+          scrub: 1.2,
         },
-        i * 1.3
-      );
+      });
+
+      tl.to(camera.position, {
+        ...path[i + 1].pos,
+        ease: "power2.inOut",
+        duration: 1,
+        onUpdate: () => controls.update(),
+      });
+
+      tl.to(controls.target, {
+        ...path[i + 1].target,
+        ease: "power2.inOut",
+        duration: 1,
+        onUpdate: () => controls.update(),
+      }, "<");
     });
   };
 

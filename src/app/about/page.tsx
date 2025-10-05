@@ -2,12 +2,12 @@
 
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
-import { PiMouseScroll } from "react-icons/pi";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
 import ModelViewer from "@/components/ModelViewer";
+import { FaCaretDown } from "react-icons/fa6";
 
 const Line = () => {
     return (
@@ -142,7 +142,7 @@ const Aboutpage = () => {
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
                 <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
-                <PiMouseScroll className="scroll-icon animate-bounce size-8" />
+                <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
             <div className="flex gap-6">
@@ -156,7 +156,7 @@ const Aboutpage = () => {
                             <p>In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
                             <p>Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
                         </div>
-                        <PiMouseScroll className="scroll-icon animate-bounce size-8" />
+                        <FaCaretDown className="scroll-icon animate-bounce size-8" />
                     </div>
 
                     {/*SKILLS*/}
@@ -166,7 +166,7 @@ const Aboutpage = () => {
                             {skills.map((skill, index) => (
                                 <div key={index} className="p-2 text-sm bg-gray-800 dark:bg-gray-200 text-white dark:text-black">{skill}</div>))}
                         </div>
-                        <PiMouseScroll className="scroll-icon animate-bounce size-8" />
+                        <FaCaretDown className="scroll-icon animate-bounce size-8" />
                     </div>
 
                     {/*EXPERIENCE*/}
@@ -199,18 +199,14 @@ const Aboutpage = () => {
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
                         <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                        <div className="content-animate flex flex-wrap gap-4 mb-20">
-                            <div className="size-28 bg-gray-500">gray</div>
-                            <div className="size-28 bg-slate-500">slate</div>
-                            <div className="size-28 bg-zinc-500">zinc</div>
-                            <div className="size-28 bg-stone-500">stone</div>
-                            <div className="size-28 bg-neutral-500">neutral</div>
+                        <div className="content-animate flex flex-wrap gap-4 mb-82">
+                            Coming soon
                         </div>
                     </div>
                 </div>
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container w-1/2 h-[100vh] hidden lg:flex items-center justify-center sticky top-0">
+                <div className="sticky-container w-1/2 h-[100vh] hidden lg:flex sticky top-0">
                     <ModelViewer modelPath="/people.glb" />
                 </div>
 

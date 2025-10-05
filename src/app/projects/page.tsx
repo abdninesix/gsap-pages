@@ -3,12 +3,12 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import Card from "@/components/Card";
-import { PiMouseScroll } from "react-icons/pi";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { MdErrorOutline } from "react-icons/md";
 import TransitionLink from "@/components/TransitionLink";
 import { projects } from "@/utils/data";
+import { FaCaretDown } from "react-icons/fa";
 
 const Projectspage = () => {
 
@@ -74,7 +74,7 @@ const Projectspage = () => {
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
-        <PiMouseScroll className="scroll-icon animate-bounce size-8" />
+        <FaCaretDown className="scroll-icon animate-bounce size-8" />
       </div>
 
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
