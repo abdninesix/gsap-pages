@@ -48,6 +48,7 @@ const Aboutpage = () => {
             /** --- 2️⃣ SCROLLTRIGGERED ANIMATIONS --- **/
             const scrollAnimations = () => {
                 /** Sticky model viewer fade-in **/
+                const sticky = document.querySelector(".sticky-container");
                 gsap.from(".sticky-container", {
                     autoAlpha: 0,
                     x: 100,
@@ -78,8 +79,8 @@ const Aboutpage = () => {
                             ease: "none",
                             scrollTrigger: {
                                 trigger: lineContainer,
-                                start: "top 90%",
-                                end: "top 50%",
+                                start: "top 70%",
+                                end: "top 40%",
                                 scrub: true,
                             },
                         }
@@ -89,22 +90,20 @@ const Aboutpage = () => {
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: lineContainer,
-                            start: "top 90%",
+                            start: "top 70%",
                             toggleActions: "play none none reverse",
                         },
                     });
 
-                    tl.from(dot, { scale: 0, opacity: 0, duration: 0.4, ease: "bounce.out" })
-                        .from(card, { autoAlpha: 0, scale: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
+                    tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
+                        .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
                 });
 
                 /** Headings + content slide-in **/
                 const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
 
                 headings.forEach((heading) => {
-                    const content = heading.nextElementSibling?.classList.contains("content-animate")
-                        ? heading.nextElementSibling
-                        : null;
+                    const content = heading.parentElement?.querySelectorAll(".content-animate");
 
                     const tl = gsap.timeline({
                         scrollTrigger: {
@@ -115,7 +114,15 @@ const Aboutpage = () => {
                     });
 
                     tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
-                        .from(content, { x: -120, opacity: 0, ease: "elastic", duration: 1 }, "-=0.4");
+                    if (content && content.length > 0) {
+                        tl.from(content, {
+                            x: -120,
+                            opacity: 0,
+                            ease: "elastic",
+                            duration: 1,
+                            stagger: 0.15,
+                        }, "-=0.4");
+                    }
                 });
             };
 
@@ -143,7 +150,7 @@ const Aboutpage = () => {
                 {/*INFO CONTAINER*/}
                 <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-3/5">
                     {/*BIO*/}
-                    <div className="flex flex-col gap-8 justify-center">
+                    <div className="flex flex-col gap-12 justify-center">
                         <h1 className="heading-animate font-bold text-4xl">BIOGRAPHY</h1>
                         <div className="content-animate md:text-xl space-y-4">
                             <p>In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
@@ -191,8 +198,9 @@ const Aboutpage = () => {
 
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="heading-animate font-bold text-3xl">MORE INFO COMING SOON</h1>
+                        <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
                         <div className="content-animate flex flex-wrap gap-4 mb-20 size-screen">
+                            Coming soon
                         </div>
                     </div>
                 </div>
