@@ -91,8 +91,8 @@ const Projectspage = () => {
                         ease: "none",
                         scrollTrigger: {
                             trigger: lineContainer,
-                            start: "top 50%",
-                            end: "top 20%",
+                            start: "top 90%",
+                            end: "top 50%",
                             scrub: true,
                         },
                     });
@@ -101,8 +101,7 @@ const Projectspage = () => {
                     const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: lineContainer,
-                            start: "top 50%",
-                            end: "bottom 65%",
+                            start: "top 90%",
                             toggleActions: "play none none reverse",
                         },
                     });
@@ -171,7 +170,7 @@ const Projectspage = () => {
                                     <div key={index} className="flex justify-between h-fit timeline-card" >
                                         {isLeft ? (
                                             <>
-                                                <div className="w-5/12 relative"></div>
+                                                <div className="w-5/12 relative"/>
                                                 <Line />
                                                 <InfoCard {...exp} />
                                             </>
@@ -179,7 +178,7 @@ const Projectspage = () => {
                                             <>
                                                 <InfoCard {...exp} />
                                                 <Line />
-                                                <div className="w-5/12 relative"></div>
+                                                <div className="w-5/12 relative"/>
                                             </>
                                         )}
                                     </div>
@@ -190,8 +189,8 @@ const Projectspage = () => {
 
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="font-bold text-3xl">CERTIFICATION</h1>
-                        <div className="flex flex-wrap gap-4 mb-20 size-screen border">
+                        <h1 className="font-bold text-3xl">MORE INFO COMING SOON</h1>
+                        <div className="flex flex-wrap gap-4 mb-20 size-screen">
                         </div>
                     </div>
                 </div>
