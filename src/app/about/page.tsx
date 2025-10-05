@@ -199,8 +199,12 @@ const Aboutpage = () => {
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
                         <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                        <div className="content-animate flex flex-wrap gap-4 mb-20 size-screen">
-                            Coming soon
+                        <div className="content-animate flex flex-wrap gap-4 mb-20">
+                            <div className="bg-gray-500"/>
+                            <div className="bg-slate-500"/>
+                            <div className="bg-zinc-500"/>
+                            <div className="bg-stone-500"/>
+                            <div className="bg-neutral-500"/>
                         </div>
                     </div>
                 </div>
