@@ -26,6 +26,7 @@ const Aboutpage = () => {
     const titleRef = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
+        window.scrollTo(0, 0);
         gsap.registerPlugin(ScrollTrigger, SplitText);
 
         const ctx = gsap.context(() => {

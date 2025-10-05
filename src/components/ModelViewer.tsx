@@ -115,11 +115,11 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
   const setupScrollAnimations = (camera: THREE.PerspectiveCamera, controls: OrbitControls) => {
     // ✨ Define your custom camera & target waypoints
     const path = [
-      { pos: { x: 1.260190, y: 0.469882, z: 1.291159 }, target: { x: -0.009238, y: -0.555765, z: -0.385440 }, },
-      { pos: { x: -1.419211, y: -0.546049, z: 0.599485 }, target: { x: -0.115417, y: -0.200768, z: -0.401538 }, },
-      { pos: { x: -0.319979, y: 0.131781, z: 0.741185 }, target: { x: -0.402811, y: 0.210506, z: -0.355563 }, },
-      { pos: { x: 0.739051, y: -0.367500, z: 0.837658 }, target: { x: -0.439885, y: -0.096625, z: -0.527762 }, },
-      { pos: { x: 1.196044, y: 0.140767, z: 0.602759 }, target: { x: 0.086448, y: 0.041419, z: -0.913315 }, },
+      { pos: { x: -0.319979, y: 0.131781, z: 0.741185 }, target: { x: -0.402811, y: 0.210506, z: -0.355563 }, }, // Bitch
+      { pos: { x: 1.260190, y: 0.469882, z: 1.291159 }, target: { x: -0.009238, y: -0.555765, z: -0.385440 }, }, // Default
+      { pos: { x: -1.419211, y: -0.546049, z: 0.599485 }, target: { x: -0.115417, y: -0.200768, z: -0.401538 }, }, // Feminist
+      { pos: { x: 1.196044, y: 0.140767, z: 0.602759 }, target: { x: 0.086448, y: 0.041419, z: -0.913315 }, }, // Jewish
+      { pos: { x: 0.739051, y: -0.367500, z: 0.837658 }, target: { x: -0.439885, y: -0.096625, z: -0.527762 }, }, // Arabic
     ];
 
 
