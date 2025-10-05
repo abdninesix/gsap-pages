@@ -20,7 +20,7 @@ const Line = () => {
     );
 };
 
-const Projectspage = () => {
+const Aboutpage = () => {
 
     const containerRef = useRef<HTMLDivElement>(null);
     const titleRef = useRef<HTMLDivElement>(null);
@@ -61,12 +61,12 @@ const Projectspage = () => {
 
             const timeout = setTimeout(() => {
                 gsap.from(".sticky-container", {
-                    opacity: 0,
+                    autoAlpha: 0,
                     x: 100,
                     ease: "expo.out",
                     scrollTrigger: {
                         trigger: ".sticky-container",
-                        start: "top 80%",
+                        start: "top 70%",
                         end: "top center",
                         scrub: true,
                     },
@@ -122,6 +122,46 @@ const Projectspage = () => {
                 });
             }, 1000);
 
+            // --- HEADING + CONTENT SLIDE-IN ANIMATIONS (SEQUENTIAL) ---
+            const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
+
+            headings.forEach((heading) => {
+                const content = heading.nextElementSibling?.classList.contains("content-animate")
+                    ? heading.nextElementSibling
+                    : null;
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: "top 75%",
+                        toggleActions: "play none none none",
+                    },
+                });
+
+                // Animate heading first
+                tl.from(heading, {
+                    x: -1000,
+                    opacity: 0,
+                    ease: "elastic",
+                    duration: 1,
+                });
+
+                // Then animate content (if exists)
+                if (content) {
+                    tl.from(
+                        content,
+                        {
+                            x: -1000,
+                            opacity: 0,
+                            ease: "elastic",
+                            duration: 1,
+                            stagger: 0.15,
+                        },
+                        "-=0.25" // overlap for smooth flow
+                    );
+                }
+            });
+
             return () => clearTimeout(timeout); // Cleanup
         }, containerRef);
 
@@ -144,16 +184,18 @@ const Projectspage = () => {
                 <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-3/5">
                     {/*BIO*/}
                     <div className="flex flex-col gap-8 justify-center">
-                        <h1 className="font-bold text-4xl">BIOGRAPHY</h1>
-                        <p className="md:text-xl">In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
-                        <p className="md:text-xl">Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
+                        <h1 className="heading-animate font-bold text-4xl">BIOGRAPHY</h1>
+                        <div className="content-animate md:text-xl space-y-4">
+                            <p>In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
+                            <p>Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
+                        </div>
                         <PiMouseScroll className="scroll-icon animate-bounce size-8" />
                     </div>
 
                     {/*SKILLS*/}
                     <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="font-bold text-4xl">SKILLS</h1>
-                        <div className="flex flex-wrap gap-4">
+                        <h1 className="heading-animate font-bold text-4xl">SKILLS</h1>
+                        <div className="content-animate flex flex-wrap gap-4">
                             {skills.map((skill, index) => (
                                 <div key={index} className="p-2 text-sm bg-gray-800 dark:bg-gray-200 text-white dark:text-black">{skill}</div>))}
                         </div>
@@ -162,15 +204,15 @@ const Projectspage = () => {
 
                     {/*EXPERIENCE*/}
                     <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="font-bold text-4xl">MY JOURNEY</h1>
-                        <div className="">
+                        <h1 className="heading-animate font-bold text-4xl">MY JOURNEY</h1>
+                        <div>
                             {experiences.map((exp, index) => {
                                 const isLeft = index % 2 === 0; // alternate sides
                                 return (
                                     <div key={index} className="flex justify-between h-fit timeline-card" >
                                         {isLeft ? (
                                             <>
-                                                <div className="w-5/12 relative"/>
+                                                <div className="w-5/12 relative" />
                                                 <Line />
                                                 <InfoCard {...exp} />
                                             </>
@@ -178,7 +220,7 @@ const Projectspage = () => {
                                             <>
                                                 <InfoCard {...exp} />
                                                 <Line />
-                                                <div className="w-5/12 relative"/>
+                                                <div className="w-5/12 relative" />
                                             </>
                                         )}
                                     </div>
@@ -189,8 +231,8 @@ const Projectspage = () => {
 
                     {/*CERTIFICATIONS*/}
                     <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="font-bold text-3xl">MORE INFO COMING SOON</h1>
-                        <div className="flex flex-wrap gap-4 mb-20 size-screen">
+                        <h1 className="heading-animate font-bold text-3xl">MORE INFO COMING SOON</h1>
+                        <div className="content-animate flex flex-wrap gap-4 mb-20 size-screen">
                         </div>
                     </div>
                 </div>
@@ -205,4 +247,4 @@ const Projectspage = () => {
     )
 }
 
-export default Projectspage;
+export default Aboutpage;
