@@ -138,7 +138,7 @@ const Aboutpage = () => {
 
 
     return (
-        <div ref={containerRef} className="h-full scrollbar-none">
+        <div ref={containerRef} className="h-full  overflow-x-hidden">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
                 <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
