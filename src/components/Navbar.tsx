@@ -160,7 +160,7 @@ const Navbar = () => {
               <TransitionLink className="focus:underline" onComplete={() => setOpen(false)} href={link.url}>{link.title}</TransitionLink>
             </div>
           ))}
-          <div ref={socialsRef} className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit rounded-lg">
+          <div ref={socialsRef} className="absolute bottom-20 flex gap-4 justify-center md:justify-end w-fit">
             <Link className="hover:scale-105" target="_blank" href="https://github.com/abdninesix"><FaGithub className="size-8" /></Link>
             <Link className="hover:scale-105" target="_blank" href="https://www.linkedin.com/in/muhammad-abdullah-4065b7339/"><FaLinkedin className="size-8" /></Link>
           </div>
