@@ -12,7 +12,7 @@ const HaikeiBackground = () => {
             // Animate paths with a subtle morph / float effect
             gsap.to([path1Ref.current, path2Ref.current], {
                 y: 20,
-                duration: 6,
+                duration: 3,
                 repeat: -1,
                 yoyo: true,
                 ease: "sine.inOut",
@@ -26,7 +26,7 @@ const HaikeiBackground = () => {
     }, []);
 
     return (
-        <div className="absolute inset-0 -z-20 block dark:hidden overflow-hidden animate-fadeIn dark:animate-fadeOut">
+        <div className="absolute inset-0 -z-20 block dark:hidden overflow-hidden animate-fadeIn">
             <svg
                 id="visual"
                 viewBox="0 0 900 600"
