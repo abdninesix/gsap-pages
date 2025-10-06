@@ -139,13 +139,13 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
 
   return (
     <div style={{ width: "100%", height: "100vh" }}>
-      <Canvas camera={{ position: [0, 0, 2], fov: 60 }}>
+      <Canvas camera={{ position: [0, 0, 2], fov: 45 }} gl={{ powerPreference: "high-performance" }}>
         <ambientLight intensity={0.6} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <OrbitControls ref={controlsRef} enableDamping enableZoom />
         <ModelScene modelPath={modelPath} controlsRef={controlsRef} />
       </Canvas>
-    </div>
+    </div >
   );
 };
 
