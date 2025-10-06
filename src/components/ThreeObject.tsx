@@ -2,7 +2,8 @@
 
 import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, useGLTF } from "@react-three/drei";
-// import * as THREE from "three";
+import { OrbitControls as OrbitControlsImpl } from "three-stdlib";
+import * as THREE from "three";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -13,8 +14,13 @@ interface ModelViewerProps {
   modelPath: string;
 }
 
+interface ModelSceneProps {
+  modelPath: string;
+  controlsRef: React.RefObject<OrbitControlsImpl | null>;
+}
+
 // === Inner model + camera logic ===
-const ModelScene = ({ modelPath, controlsRef }: { modelPath: string; controlsRef: any }) => {
+const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
   const { scene } = useGLTF(modelPath);
   const { camera } = useThree();
 
@@ -48,7 +54,8 @@ const ModelScene = ({ modelPath, controlsRef }: { modelPath: string; controlsRef
 
     // === Initial camera setup ===
     gsap.set(camera.position, path[0].pos);
-    controls.target.set(...Object.values(path[0].target));
+    const { x, y, z } = path[0].target;
+    controls.target.set(x, y, z);
     controls.update();
 
     // === GSAP Scroll Animation ===
@@ -135,7 +142,7 @@ const ModelScene = ({ modelPath, controlsRef }: { modelPath: string; controlsRef
 
 // === Outer Canvas Container ===
 const ModelViewer = ({ modelPath }: ModelViewerProps) => {
-  const controlsRef = useRef<any>(null);
+  const controlsRef = useRef<OrbitControlsImpl | null>(null);
 
   return (
     <div style={{ width: "100%", height: "100vh" }}>
