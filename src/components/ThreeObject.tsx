@@ -42,8 +42,8 @@ const ModelScene = ({ modelPath, controlsRef }: { modelPath: string; controlsRef
       { pos: { x: -0.319979, y: 0.131781, z: 0.741185 }, target: { x: -0.402811, y: 0.210506, z: -0.355563 }, }, // Bitch
       { pos: { x: 1.260190, y: 0.469882, z: 1.291159 }, target: { x: -0.009238, y: -0.555765, z: -0.385440 }, }, // Default
       { pos: { x: -0.857991, y: -0.606311, z: 0.459502 }, target: { x: 0.052497, y: -0.365189, z: -0.239550 }, }, // Feminist
-      { pos: { x: 1.196044, y: 0.140767, z: 0.602759 }, target: { x: 0.086448, y: 0.041419, z: -0.913315 }, }, // Jewish
-      { pos: { x: 0.739051, y: -0.367500, z: 0.837658 }, target: { x: -0.439885, y: -0.096625, z: -0.527762 }, }, // Arabic
+      { pos: { x: 1.007686, y: -0.137042, z: 0.633024 }, target: { x: -0.063218, y: -0.429829, z: -0.767650 }, }, // Jewish
+      { pos: { x: -0.135575, y: -0.855350, z: 0.854895 }, target: { x: 0.575856, y: -0.335994, z: -0.742531 }, }, // Arabic
     ];
 
     // === Initial camera setup ===
@@ -60,7 +60,7 @@ const ModelScene = ({ modelPath, controlsRef }: { modelPath: string; controlsRef
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heading,
-          start: "top 80%",
+          start: "top 70%",
           end: "bottom 60%",
           scrub: 1.2,
         },

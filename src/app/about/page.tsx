@@ -6,7 +6,6 @@ import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
-import ModelViewer from "@/components/ModelViewer";
 import { FaCaretDown } from "react-icons/fa6";
 import ThreeObject from "@/components/ThreeObject";
 
@@ -59,7 +58,7 @@ const Aboutpage = () => {
                         trigger: ".sticky-container",
                         start: "top 70%",
                         end: "top center",
-                        scrub: true,
+                        toggleActions: "play none none reverse",
                     },
                 });
 
@@ -209,7 +208,6 @@ const Aboutpage = () => {
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="sticky-container w-1/2 h-[100vh] hidden lg:block sticky top-0">
-                    {/* <ModelViewer modelPath="/people.glb" /> */}
                     <ThreeObject modelPath="/people.glb" />
                 </div>
 
