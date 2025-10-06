@@ -146,72 +146,83 @@ const Aboutpage = () => {
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="flex gap-6">
+            <div className="relative min-h-[400vh] overflow-visible">
+
+                {/*STICKY CONTENT CONTAINER*/}
+                <div className="sticky-container hidden lg:block w-full h-screen sticky border top-0 z-20">
+                    <ThreeObject modelPath="/scifi_robot.glb" />
+                </div>
+
 
                 {/*INFO CONTAINER*/}
-                <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-1/2">
+                <div className="flex flex-col absolute top-0 gap-48 md:gap-56 lg:gap-36 xl:gap-64">
+
                     {/*BIO*/}
-                    <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="heading-animate font-bold text-4xl">BIOGRAPHY</h1>
-                        <div className="content-animate md:text-xl space-y-4">
-                            <p>In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
-                            <p>Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
+                    <div className="flex justify-start">
+                        <div className="flex flex-col gap-12 justify-center lg:w-3/5">
+                            <h1 className="heading-animate font-bold text-4xl">BIOGRAPHY</h1>
+                            <div className="content-animate md:text-xl space-y-4">
+                                <p>In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
+                                <p>Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
+                            </div>
+                            <FaCaretDown className="scroll-icon animate-bounce size-8" />
                         </div>
-                        <FaCaretDown className="scroll-icon animate-bounce size-8" />
                     </div>
 
                     {/*SKILLS*/}
-                    <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="heading-animate font-bold text-4xl">SKILLS</h1>
-                        <div className="content-animate flex flex-wrap gap-4">
-                            {skills.map((skill, index) => (
-                                <div key={index} className="p-2 text-sm bg-gray-800 dark:bg-gray-200 text-white dark:text-black">{skill}</div>))}
+                    <div className="flex justify-end">
+                        <div className="flex flex-col gap-12 justify-center lg:w-3/5">
+                            <h1 className="heading-animate font-bold text-4xl">SKILLS</h1>
+                            <div className="content-animate flex flex-wrap gap-4">
+                                {skills.map((skill, index) => (
+                                    <div key={index} className="p-2 text-sm bg-gray-800 dark:bg-gray-200 text-white dark:text-black">{skill}</div>))}
+                            </div>
+                            <FaCaretDown className="scroll-icon animate-bounce size-8" />
                         </div>
-                        <FaCaretDown className="scroll-icon animate-bounce size-8" />
                     </div>
 
                     {/*EXPERIENCE*/}
-                    <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="heading-animate font-bold text-4xl">MY JOURNEY</h1>
-                        <div>
-                            {experiences.map((exp, index) => {
-                                const isLeft = index % 2 === 0; // alternate sides
-                                return (
-                                    <div key={index} className="flex justify-between h-fit timeline-card" >
-                                        {isLeft ? (
-                                            <>
-                                                <div className="w-5/12 relative" />
-                                                <Line />
-                                                <InfoCard {...exp} />
-                                            </>
-                                        ) : (
-                                            <>
-                                                <InfoCard {...exp} />
-                                                <Line />
-                                                <div className="w-5/12 relative" />
-                                            </>
-                                        )}
-                                    </div>
-                                );
-                            })}
+                    <div className="flex justify-start">
+                        <div className="flex flex-col gap-12 justify-center lg:w-3/5">
+                            <h1 className="heading-animate font-bold text-4xl">MY JOURNEY</h1>
+                            <div>
+                                {experiences.map((exp, index) => {
+                                    const isLeft = index % 2 === 0; // alternate sides
+                                    return (
+                                        <div key={index} className="flex justify-between h-fit timeline-card" >
+                                            {isLeft ? (
+                                                <>
+                                                    <div className="w-5/12 relative" />
+                                                    <Line />
+                                                    <InfoCard {...exp} />
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <InfoCard {...exp} />
+                                                    <Line />
+                                                    <div className="w-5/12 relative" />
+                                                </>
+                                            )}
+                                        </div>
+                                    );
+                                })}
+                            </div>
                         </div>
                     </div>
 
                     {/*CERTIFICATIONS*/}
-                    <div className="flex flex-col gap-12 justify-center">
-                        <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                        <div className="content-animate flex flex-wrap gap-4 mb-82">
-                            Coming soon
+                    <div className="flex justify-end">
+                        <div className="flex flex-col gap-12 justify-center lg:w-3/5">
+                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                                Coming soon
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container w-1/2 h-[100vh] hidden lg:block sticky top-0">
-                    <ThreeObject modelPath="/people.glb" />
                 </div>
-
             </div>
+
         </div >
     )
 }
