@@ -149,7 +149,7 @@ const Aboutpage = () => {
             <div className="flex gap-6">
 
                 {/*INFO CONTAINER*/}
-                <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-3/5">
+                <div className="flex flex-col gap-48 md:gap-56 lg:gap-36 xl:gap-64 lg:w-1/2">
                     {/*BIO*/}
                     <div className="flex flex-col gap-12 justify-center">
                         <h1 className="heading-animate font-bold text-4xl">BIOGRAPHY</h1>
