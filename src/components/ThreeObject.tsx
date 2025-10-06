@@ -52,8 +52,8 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
 
     mixerRef.current = mixer;
 
-    // Store for GSAP triggers later
-    (window as any).modelActions = actions;
+    // ✅ Store for GSAP triggers later (type-safe)
+    (window as unknown as { modelActions?: Record<string, THREE.AnimationAction> }).modelActions = actions;
 
     return () => {
       mixer.stopAllAction();
@@ -108,18 +108,21 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
       });
 
       tl.to(
-        controls.target, {
-        ...path[i + 1].target,
-        ease: "power2.inOut",
-        duration: 1,
-        onUpdate: () => controls.update(),
-      },
+        controls.target,
+        {
+          ...path[i + 1].target,
+          ease: "power2.inOut",
+          duration: 1,
+          onUpdate: () => controls.update(),
+        },
         "<"
       );
     });
 
     // === Playing animations ===
-    const actions = (window as any).modelActions;
+    const actions =
+      (window as unknown as { modelActions?: Record<string, THREE.AnimationAction> })
+        .modelActions ?? {};
 
     const animationNames = ["Look_Wave", "Free_Fall", "Sitting", "Look_Wave"]; // Adjust order to match headings
 
@@ -134,7 +137,7 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
           scrub: 1.2,
           onEnter: () => {
             // Stop all and play the one for this section
-            Object.values(actions).forEach((a: any) => a.stop());
+            Object.values(actions).forEach((a) => a.stop());
             const action = actions[animationNames[i]];
             if (action) action.reset().play();
           },
@@ -186,7 +189,6 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
 
       controls.update();
 
-      // === Log current camera + target ===
       console.log(
         `{pos: { x: ${camera.position.x.toFixed(6)}, y: ${camera.position.y.toFixed(
           6
@@ -204,6 +206,7 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
       ScrollTrigger.getAll().forEach((st) => st.kill());
     };
   }, [camera, controlsRef, modelPath]);
+
 
   return <primitive object={scene} position={[0, 0, 0]} scale={1} />;
 };
