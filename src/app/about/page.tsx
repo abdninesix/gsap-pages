@@ -149,7 +149,7 @@ const Aboutpage = () => {
             <div className="relative min-h-[400vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container hidden lg:block w-full h-screen sticky border top-0 z-20">
+                <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-20">
                     <ThreeObject modelPath="/scifi_robot.glb" />
                 </div>
 

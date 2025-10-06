@@ -46,6 +46,8 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
         action.play();
       });
       mixerRef.current = mixer;
+
+      console.log("Animations:", animations)
     }
 
     return () => {
@@ -67,10 +69,10 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
 
     // === Camera Path ===
     const path = [
-      { pos: { x: 1.744382, y: -0.747511, z: 1.503786 }, target: { x: 0.144513, y: -1.387174, z: 0.789495 }, }, // Bitch
-      { pos: { x: 1.744382, y: -0.747511, z: 1.503786 }, target: { x: 0.144513, y: -1.387174, z: 0.789495 }, }, // Default
-      { pos: { x: -0.857991, y: -0.606311, z: 0.459502 }, target: { x: 0.052497, y: -0.365189, z: -0.239550 }, }, // Feminist
-      { pos: { x: 1.007686, y: -0.137042, z: 0.633024 }, target: { x: -0.063218, y: -0.429829, z: -0.767650 }, }, // Jewish
+      { pos: { x: 5.626929, y: 7.789044, z: 12.185563 }, target: { x: -2.687790, y: 2.285255, z: 3.691485 }, },
+      { pos: { x: 5.626929, y: 7.789044, z: 12.185563 }, target: { x: -2.687790, y: 2.285255, z: 3.691485 }, },
+      { pos: { x: -12.838685, y: 4.081952, z: -8.398277 }, target: { x: -1.425478, y: 1.189347, z: 6.149728 }, },
+      { pos: { x: 11.047242, y: -3.410749, z: 11.734040 }, target: { x: -0.264841, y: 0.520925, z: 6.153480 }, },
       { pos: { x: -0.135575, y: -0.855350, z: 0.854895 }, target: { x: 0.575856, y: -0.335994, z: -0.742531 }, }, // Arabic
     ];
 
