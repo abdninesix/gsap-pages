@@ -88,7 +88,6 @@ const Projectspage = () => {
               desc={project.desc}
               link={project.link}
               isOpen={openCard === index}
-              onToggle={() => setOpenCard(openCard === index ? null : index)}
             />
           </div>
         ))}

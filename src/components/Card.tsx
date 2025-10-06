@@ -14,10 +14,9 @@ interface CardProps {
     cat: string;
     link: string;
     isOpen: boolean;
-    onToggle: () => void;
 }
 
-const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProps) => {
+const Card = ({ image, alt, title, desc, cat, link, isOpen }: CardProps) => {
     const descRef = useRef<HTMLParagraphElement>(null);
     const isFirstRender = useRef(true);
 
@@ -74,7 +73,7 @@ const Card = ({ image, alt, title, desc, cat, link, isOpen, onToggle }: CardProp
                 </Link>
             </div>
             <p ref={descRef} className="text-sm text-gray-700 dark:text-gray-300 overflow-hidden">{desc}</p>
-            <button onClick={onToggle} className="w-fit text-xs hover:underline cursor-pointer">
+            <button className="w-fit text-xs hover:underline cursor-pointer">
                 {isOpen ? 'Hide' : 'Read more'}
             </button>
         </div>
