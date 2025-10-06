@@ -135,9 +135,6 @@ const Aboutpage = () => {
         return () => ctx.revert();
     }, []);
 
-
-
-
     return (
         <div ref={containerRef} className="h-full scrollbar-none overflow-x-clip">
 
@@ -146,7 +143,7 @@ const Aboutpage = () => {
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="relative min-h-[400vh] overflow-visible">
+            <div className="relative min-h-[50vh] border overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-20">
