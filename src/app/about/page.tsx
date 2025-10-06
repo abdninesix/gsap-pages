@@ -8,6 +8,7 @@ import { experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
 import ModelViewer from "@/components/ModelViewer";
 import { FaCaretDown } from "react-icons/fa6";
+import ThreeObject from "@/components/ThreeObject";
 
 const Line = () => {
     return (
@@ -207,8 +208,9 @@ const Aboutpage = () => {
                 </div>
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container w-1/2 h-[100vh] hidden lg:flex sticky top-0">
-                    <ModelViewer modelPath="/people.glb" />
+                <div className="sticky-container w-1/2 h-[100vh] hidden lg:block sticky top-0">
+                    {/* <ModelViewer modelPath="/people.glb" /> */}
+                    <ThreeObject modelPath="/people.glb" />
                 </div>
 
             </div>
