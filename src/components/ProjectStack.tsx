@@ -95,7 +95,7 @@ export default function ProjectStack({ images }: ProjectStackProps) {
     }, []);
 
     return (
-        <div ref={containerRef} className="relative grid gap-y-12 grid-cols-3 lg:grid-cols-4 items-start justify-center pl-2 pr-18 lg:pr-32">
+        <div ref={containerRef} className="relative grid gap-y-12 grid-cols-3 lg:grid-cols-4 items-start justify-center pr-20 lg:pr-32">
             {images.map((src, i) => (
                 <div
                     key={i}

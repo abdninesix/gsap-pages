@@ -44,8 +44,7 @@ const Homepage = () => {
                 stagger: 0.1,
                 duration: 0.5,
                 ease: "back.in",
-              },
-              "+=0.25"
+              },"+=0.25"
             )
             .fromTo(
               ".hero-image",

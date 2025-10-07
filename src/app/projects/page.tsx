@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { FaCaretDown } from "react-icons/fa";
 import ProjectStack from "@/components/ProjectStack";
-import { certifications, projects } from "@/utils/data";
+import { projects } from "@/utils/data";
 import { MdErrorOutline } from "react-icons/md";
 import TransitionLink from "@/components/TransitionLink";
 
@@ -24,18 +24,14 @@ const Projectspage = () => {
 
         if (titleRef.current) {
           const split = new SplitText(titleRef.current, { type: "chars, words" });
-          tl.from(
-            split.chars,
-            {
-              y: 1000,
-              scale: 20,
-              opacity: 0,
-              stagger: 0.1,
-              duration: 0.5,
-              ease: "back.in",
-            },
-            "+=0.25"
-          )
+          tl.from(split.chars, {
+            y: 1000,
+            scale: 20,
+            opacity: 0,
+            stagger: 0.1,
+            ease: "back.in",
+          }, "+=0.25")
+            .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
         }
       }, containerRef);
 
@@ -45,7 +41,7 @@ const Projectspage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="h-full scrollbar-none">
+    <div ref={containerRef} className="border scrollbar-none">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp;Work</span>
