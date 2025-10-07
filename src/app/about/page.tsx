@@ -4,10 +4,11 @@ import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { experiences, skills } from "@/utils/data";
+import { certifications, experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
 import { FaCaretDown } from "react-icons/fa6";
 import ThreeObject from "@/components/ThreeObject";
+import ImageStack from "@/components/ImageStack";
 
 const Line = () => {
     return (
@@ -139,7 +140,7 @@ const Aboutpage = () => {
         <div ref={containerRef} className="h-full scrollbar-none overflow-x-clip">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
-                <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
+                <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get&nbsp;to&nbsp;know&nbsp;me</span>
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
@@ -210,9 +211,9 @@ const Aboutpage = () => {
                     {/*CERTIFICATIONS*/}
                     <div className="flex justify-end">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
-                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <h1 className="heading-animate font-bold text-3xl">CERTIFICATIONS</h1>
                             <div className="content-animate flex flex-wrap gap-4 mb-82">
-                                Coming soon
+                                <ImageStack images={certifications} />
                             </div>
                         </div>
                     </div>

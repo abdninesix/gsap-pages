@@ -172,3 +172,10 @@ export const experiences = [
     date: "2020-2021",
   },
 ];
+
+export const certifications = [
+  "/certifications/udemy.jpg",
+  "/certifications/nextgen.jpg",
+  "/certifications/skillifyzone.jpg",
+  "/certifications/devhub.jpg",
+];

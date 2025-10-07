@@ -109,7 +109,7 @@ const Contactpage = () => {
       <div className="flex flex-col justify-center gap-6 lg:gap-16 lg:flex-row mt-12 lg:mt-28">
 
         <div className="w-full lg:w-1/2 flex lg:flex-col items-center justify-between lg:justify-center">
-          <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;<span>collaborate</span></span>
+          <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;collaborate</span>
           <div className="handshake"><FaHandshakeAngle className="size-16 lg:size-72" /></div>
         </div>
 
