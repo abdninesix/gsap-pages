@@ -147,7 +147,7 @@ const Aboutpage = () => {
             <div className="relative min-h-[500vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-20">
+                <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-10">
                     <ThreeObject modelPath="/scifi_robot.glb" />
                 </div>
 
@@ -212,7 +212,7 @@ const Aboutpage = () => {
                     <div className="flex justify-end">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
                             <h1 className="heading-animate font-bold text-3xl">CERTIFICATIONS</h1>
-                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                            <div className="content-animate flex flex-wrap gap-4 z-20">
                                 <ImageStack images={certifications} />
                             </div>
                         </div>
