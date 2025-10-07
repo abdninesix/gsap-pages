@@ -143,7 +143,7 @@ const Aboutpage = () => {
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="relative min-h-[500vh] overflow-visible">
+            <div className="relative min-h-[500vh] border overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-20">
@@ -157,7 +157,7 @@ const Aboutpage = () => {
                     {/*BIO*/}
                     <div className="flex justify-start">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
-                            <h1 className="heading-animate font-bold text-4xl">BIOGRAPHY</h1>
+                            <h1 className="heading-animate font-bold text-4xl">ABOUT</h1>
                             <div className="content-animate md:text-xl space-y-4">
                                 <p>In my journey as a tech enthusiast, I&apos;ve had the privilege of diving deep into various tools and technologies that shape our digital world. My experience spans across Visual Studio, where I&apos;ve honed my skills in developing robust software solutions, and Android Studio, which has enabled me to create engaging and user-friendly mobile applications. These platforms have been instrumental in my growth as a versatile developer, allowing me to bring innovative ideas to life and solve complex problems with ease.</p>
                                 <p>Beyond the realm of software development, I have explored the fascinating world of 3D design and manufacturing. Using CAD modeling, I&apos;ve developed intricate and detailed models that serve both artistic and practical purposes. My expertise in 3D printing has brought these designs into the physical world, offering tangible solutions and creative expressions. This blend of digital and physical creation has not only expanded my technical skill set but also fueled my passion for continuous learning of what technology can achieve.</p>
