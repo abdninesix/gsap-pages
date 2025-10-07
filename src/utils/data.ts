@@ -85,7 +85,6 @@ export const skills = [
     "HTML",
     "CSS3",
     "React.js (Vite)",
-    "Next.js",
 
     // UI/UX Libraries
     "Tailwind CSS",

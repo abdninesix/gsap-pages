@@ -214,26 +214,6 @@ const Aboutpage = () => {
                             <div className="content-animate flex flex-wrap gap-4 mb-82">
                                 Coming soon
                             </div>
-                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                            <div className="content-animate flex flex-wrap gap-4 mb-82">
-                                Coming soon
-                            </div>
-                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                            <div className="content-animate flex flex-wrap gap-4 mb-82">
-                                Coming soon
-                            </div>
-                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                            <div className="content-animate flex flex-wrap gap-4 mb-82">
-                                Coming soon
-                            </div>
-                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                            <div className="content-animate flex flex-wrap gap-4 mb-82">
-                                Coming soon
-                            </div>
-                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
-                            <div className="content-animate flex flex-wrap gap-4 mb-82">
-                                Coming soon
-                            </div>
                         </div>
                     </div>
 
