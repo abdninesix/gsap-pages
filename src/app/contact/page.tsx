@@ -58,45 +58,50 @@ const Contactpage = () => {
 
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
-    const tl = gsap.timeline();
 
-    tl.fromTo(
-      containerRef.current,
-      { y: "-200vh" },
-      { y: "0%", duration: 1, ease: "power2.out" }
-    );
+    const timeout = setTimeout(() => {
 
-    if (textRef.current) {
-      const split = new SplitText(textRef.current, { type: "chars" });
+      const tl = gsap.timeline();
 
-      tl
-        .from(split.chars, {
-          y: 1000,
-          scale: 20,
-          opacity: 0,
-          stagger: 0.1,
-          duration: 0.5,
-          ease: "back.in",
-        }, "+=0.25"
-        )
-        .fromTo(
-          ".handshake",
-          { y: -50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-          "+=0.25"
-        )
-        .fromTo(
-          formRef.current,
-          { opacity: 0, y: 50 },
-          { opacity: 1, y: 0, duration: 0.25, ease: "expo.in" },
-          "+=0.25"
-        );
+      tl.fromTo(
+        containerRef.current,
+        { y: "-200vh" },
+        { y: "0%", duration: 1, ease: "power2.out" }
+      );
 
-      // Cleanup function to revert the SplitText
-      return () => {
-        split.revert();
-      };
-    }
+      if (textRef.current) {
+        const split = new SplitText(textRef.current, { type: "chars" });
+
+        tl
+          .from(split.chars, {
+            y: 1000,
+            scale: 20,
+            opacity: 0,
+            stagger: 0.1,
+            duration: 0.5,
+            ease: "back.in",
+          }, "+=0.25"
+          )
+          .fromTo(
+            ".handshake",
+            { y: -50, opacity: 0 },
+            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+            "+=0.25"
+          )
+          .fromTo(
+            formRef.current,
+            { opacity: 0, y: 50 },
+            { opacity: 1, y: 0, duration: 0.25, ease: "expo.in" },
+            "+=0.25"
+          );
+
+        // Cleanup function to revert the SplitText
+        return () => {
+          split.revert();
+        };
+      }
+
+    }, 100);
   }, []);
 
   return (
