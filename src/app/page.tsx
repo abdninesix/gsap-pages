@@ -20,63 +20,68 @@ const Homepage = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
 
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline();
+    const timeout = setTimeout(() => {
 
-      /** --- SplitText Animation --- **/
-      if (nameRef.current) {
-        const split = new SplitText(nameRef.current, { type: "chars" });
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline();
 
-        tl.fromTo(
-          ".intro-text",
-          { y: -50, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-          "+=0.25"
-        )
-          .from(
-            split.chars,
-            {
-              y: 1000,
-              scale: 20,
-              opacity: 0,
-              stagger: 0.1,
-              duration: 0.5,
-              ease: "back.in",
-            },
-            "+=0.25"
-          )
-          .fromTo(
-            ".hero-image",
-            { x: -10, opacity: 0 },
-            { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
-            "+=0.25"
-          )
-          .fromTo(
-            ".hero-subtitle",
+        /** --- SplitText Animation --- **/
+        if (nameRef.current) {
+          const split = new SplitText(nameRef.current, { type: "chars" });
+
+          tl.fromTo(
+            ".intro-text",
             { y: -50, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
             "+=0.25"
           )
-          .fromTo(
-            ".hero-paragraph",
-            { y: -50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-            "+=0.25"
-          )
-          .fromTo(
-            ".button-block",
-            { y: -50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-            "+=0.25"
-          );
+            .from(
+              split.chars,
+              {
+                y: 1000,
+                scale: 20,
+                opacity: 0,
+                stagger: 0.1,
+                duration: 0.5,
+                ease: "back.in",
+              },
+              "+=0.25"
+            )
+            .fromTo(
+              ".hero-image",
+              { x: -10, opacity: 0 },
+              { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
+              "+=0.25"
+            )
+            .fromTo(
+              ".hero-subtitle",
+              { y: -50, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+              "+=0.25"
+            )
+            .fromTo(
+              ".hero-paragraph",
+              { y: -50, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+              "+=0.25"
+            )
+            .fromTo(
+              ".button-block",
+              { y: -50, opacity: 0 },
+              { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+              "+=0.25"
+            );
 
-        // Cleanup SplitText safely
-        return () => split.revert();
-      }
-    }, containerRef);
+          // Cleanup SplitText safely and global cleanup
+          return () => {
+            split.revert();
+            ctx.revert();
+          }
+        }
+      }, containerRef);
 
-    // Global cleanup for context
-    return () => ctx.revert();
+    }, 100)
+
   }, []);
 
   return (
@@ -111,21 +116,9 @@ const Homepage = () => {
                 meet&nbsp;<span className="text-mytheme">Abdullah</span>
               </span>
               <h2 className="hero-subtitle relative text-2xl md:text-4xl font-medium flex flex-col gap-4 justify-center lg:justify-start">
-                {/* <span>
-                  <span className="text-green-700">M</span>
-                  <span className="text-gray-500">E</span>
-                  <span className="text-cyan-600">R</span>
-                  <span className="text-green-500">N</span>
-                  <span>&nbsp;Stack</span>
-                </span>
-                &nbsp;+&nbsp;
-                <span>
-                  NEXT.js
-                </span>
-                &nbsp; */}
                 <span>Fullstack Developer</span>
                 <div className="flex justify-center lg:justify-start gap-4">
-                  <RiNextjsFill /><SiMongodb /><SiExpress /><FaReact /><FaNodeJs/><SiPrisma/>
+                  <RiNextjsFill /><SiMongodb /><SiExpress /><FaReact /><FaNodeJs /><SiPrisma />
                 </div>
               </h2>
               <p className="hero-paragraph md:text-md">

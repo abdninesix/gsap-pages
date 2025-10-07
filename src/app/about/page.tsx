@@ -143,7 +143,7 @@ const Aboutpage = () => {
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="relative min-h-[520vh] overflow-visible">
+            <div className="relative min-h-[500vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-20">
