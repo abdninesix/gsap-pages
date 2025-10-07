@@ -147,7 +147,7 @@ const Aboutpage = () => {
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-20">
-                    <ThreeObject modelPath="/scifi_robot.glb" />
+                    {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
                 </div>
 
 
@@ -210,6 +210,26 @@ const Aboutpage = () => {
                     {/*CERTIFICATIONS*/}
                     <div className="flex justify-end">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
+                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                                Coming soon
+                            </div>
+                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                                Coming soon
+                            </div>
+                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                                Coming soon
+                            </div>
+                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                                Coming soon
+                            </div>
+                            <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
+                            <div className="content-animate flex flex-wrap gap-4 mb-82">
+                                Coming soon
+                            </div>
                             <h1 className="heading-animate font-bold text-3xl">MORE INFO</h1>
                             <div className="content-animate flex flex-wrap gap-4 mb-82">
                                 Coming soon
