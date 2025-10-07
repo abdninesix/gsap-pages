@@ -76,7 +76,7 @@ const Projectspage = () => {
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp;work</span>
         <FaCaretDown className="scroll-icon animate-bounce size-8" />
       </div>
-
+{/* 
       <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {projects.flat().map((project, index) => (
           <div key={project.alt} className="project-card">
@@ -91,7 +91,7 @@ const Projectspage = () => {
             />
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="w-full mt-10 flex flex-col items-start">
         <div className="flex gap-2 items-center">
