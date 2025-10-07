@@ -207,7 +207,6 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
     };
   }, [camera, controlsRef, modelPath]);
 
-
   return <primitive object={scene} position={[0, 0, 0]} scale={1} />;
 };
 
