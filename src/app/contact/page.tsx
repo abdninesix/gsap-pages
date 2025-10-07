@@ -59,7 +59,7 @@ const Contactpage = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
 
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
 
       const tl = gsap.timeline();
 

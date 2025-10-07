@@ -73,7 +73,7 @@ const Projectspage = () => {
     <div ref={containerRef} className="h-full overflow-y-scroll overflow-x-clip scrollbar-none">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
-        <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp; work</span>
+        <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp;work</span>
         <FaCaretDown className="scroll-icon animate-bounce size-8" />
       </div>
 

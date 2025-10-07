@@ -20,7 +20,7 @@ const Homepage = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
 
-    const timeout = setTimeout(() => {
+    setTimeout(() => {
 
       const ctx = gsap.context(() => {
         const tl = gsap.timeline();
