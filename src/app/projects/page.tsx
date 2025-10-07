@@ -15,12 +15,6 @@ const Projectspage = () => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();
 
-      tl.fromTo(
-        containerRef.current,
-        { y: "-200vh" },
-        { y: "0%", duration: 1, ease: "power2.out" }
-      );
-
       if (titleRef.current) {
         const split = new SplitText(titleRef.current, { type: "chars, words" });
         tl.from(
