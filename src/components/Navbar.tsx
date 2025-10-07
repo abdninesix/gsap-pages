@@ -7,13 +7,7 @@ import { usePathname } from "next/navigation";
 import TransitionLink from "./TransitionLink";
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import ThemeButton from "./ThemeButton";
-
-const links = [
-  { url: "/", title: "Home" },
-  { url: "/about", title: "About" },
-  { url: "/projects", title: "Projects" },
-  { url: "/contact", title: "Contact" },
-];
+import { links } from "@/utils/data";
 
 const Navbar = () => {
   const pathName = usePathname();
