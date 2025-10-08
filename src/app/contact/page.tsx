@@ -25,14 +25,16 @@ const Contactpage = () => {
 
     if (formRef.current) {
       const formValues = {
-        user_message: (formRef.current.elements.namedItem("user_message") as HTMLTextAreaElement)?.value,
+        user_name: (formRef.current.elements.namedItem("user_name") as HTMLInputElement)?.value,
         user_email: (formRef.current.elements.namedItem("user_email") as HTMLInputElement)?.value,
+        user_message: (formRef.current.elements.namedItem("user_message") as HTMLTextAreaElement)?.value,
       };
 
       const newErrors: { [key: string]: string } = {};
 
-      if (!formValues.user_message) { newErrors.user_message = "Please write your message"; }
-      if (!formValues.user_email) { newErrors.user_email = "Please enter a valid email"; }
+      if (!formValues.user_email) { newErrors.user_email = "Please type in your name"; }
+      if (!formValues.user_email) { newErrors.user_email = "Please type in a valid email"; }
+      if (!formValues.user_message) { newErrors.user_message = "Please type your message"; }
       if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
 
       emailjs
@@ -115,6 +117,53 @@ const Contactpage = () => {
 
         <form onSubmit={sendEmail} ref={formRef} className="px-4 py-10 w-full lg:w-1/2 bg-mytheme/25 dark:bg-white/90 flex flex-col gap-10 justify-center transition-all">
           <div className="relative w-full">
+
+            <div className="relative w-full">
+              <input
+                id="user_name"
+                name="user_name"
+                type="text"
+                placeholder=" "
+                aria-invalid={!!errors.user_name}
+                className={`peer block w-full border-2 bg-white p-2 placeholder-transparent focus:outline-none text-black
+      ${errors.user_name ? "border-red-500 focus:border-red-600" : "border-mytheme focus:border-black"}`}
+              />
+              <label
+                htmlFor="user_name"
+                className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
+      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
+      peer-focus:-top-6 peer-focus:text-base 
+      ${errors.user_name ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
+      peer-focus:border-2 peer-focus:border-b-0`}
+              >
+                Your name
+              </label>
+              {errors.user_name && (<span className="absolute -bottom-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_email}</span>)}
+            </div>
+
+            <div className="relative w-full">
+              <input
+                id="user_email"
+                name="user_email"
+                type="text"
+                placeholder=" "
+                aria-invalid={!!errors.user_email}
+                className={`peer block w-full border-2 bg-white p-2 placeholder-transparent focus:outline-none text-black
+      ${errors.user_email ? "border-red-500 focus:border-red-600" : "border-mytheme focus:border-black"}`}
+              />
+              <label
+                htmlFor="user_email"
+                className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
+      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
+      peer-focus:-top-6 peer-focus:text-base 
+      ${errors.user_email ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
+      peer-focus:border-2 peer-focus:border-b-0`}
+              >
+                Your email
+              </label>
+              {errors.user_email && (<span className="absolute -bottom-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_email}</span>)}
+            </div>
+
             <textarea
               id="user_message"
               name="user_message"
@@ -133,29 +182,6 @@ const Contactpage = () => {
               Your project requirements
             </label>
             {errors.user_message && (<span className="absolute -bottom-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_message}</span>)}
-          </div>
-
-          <div className="relative w-full">
-            <input
-              id="user_email"
-              name="user_email"
-              type="text"
-              placeholder=" "
-              aria-invalid={!!errors.user_email}
-              className={`peer block w-full border-2 bg-white p-2 placeholder-transparent focus:outline-none text-black
-      ${errors.user_email ? "border-red-500 focus:border-red-600" : "border-mytheme focus:border-black"}`}
-            />
-            <label
-              htmlFor="user_email"
-              className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
-      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
-      peer-focus:-top-6 peer-focus:text-base 
-      ${errors.user_email ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
-      peer-focus:border-2 peer-focus:border-b-0`}
-            >
-              Your email
-            </label>
-            {errors.user_email && (<span className="absolute -bottom-6 right-0 text-sm text-red-500 flex items-center mt-1 gap-1"><MdErrorOutline className="size-4" />{errors.user_email}</span>)}
           </div>
 
           <button className="w-fit cursor-pointer ring hover:bg-black text-black hover:text-white text-sm p-2">Send</button>

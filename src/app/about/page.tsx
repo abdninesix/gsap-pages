@@ -135,7 +135,7 @@ const Aboutpage = () => {
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="hidden lg:block w-full h-screen sticky top-0 z-10">
-                    <ThreeObject modelPath="/scifi_robot.glb" />
+                    {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
                 </div>
 
 
