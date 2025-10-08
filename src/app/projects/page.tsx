@@ -60,7 +60,7 @@ const Projectspage = () => {
       </div>
 
       <div className="h-screen flex flex-col gap-5 items-center justify-center">
-        <h1 className="text-4xl md:text-6xl font-semibold">Want to get started with your project?</h1>
+        <h1 className="text-4xl md:text-6xl font-semibold">Want a project?</h1>
         <TransitionLink href="/contact" className="ring hover:bg-black dark:hover:bg-white dark:text-white text-black hover:text-white dark:hover:text-black p-2">Let&apos;s work</TransitionLink>
       </div>
 

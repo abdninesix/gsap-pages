@@ -110,7 +110,7 @@ export default function ImageStack({ images }: ImageStackProps) {
           "
                     onClick={(e) => handleClick(i, e)}
                     style={{
-                        transform: `rotate(10deg) scale(1)`,
+                        transform: `rotate(10deg)`,
                         zIndex: i + 1,
                     }}
                 >

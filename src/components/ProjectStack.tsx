@@ -98,7 +98,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
               ✕
             </button>
 
-            <h2 className="text-3xl font-bold mb-3">
+            <h2 className="text-3xl font-bold flex items-center mb-3">
               {projects[activeIndex].title}&nbsp;
               <span className="p-1 w-fit bg-black text-white dark:bg-white dark:text-black font-medium text-xs">
                 {projects[activeIndex].type}
