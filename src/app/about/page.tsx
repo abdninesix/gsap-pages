@@ -49,19 +49,6 @@ const Aboutpage = () => {
 
             /** --- 2️⃣ SCROLLTRIGGERED ANIMATIONS --- **/
             const scrollAnimations = () => {
-                /** Sticky model viewer fade-in **/
-                const sticky = document.querySelector(".sticky-container");
-                gsap.from(".sticky-container", {
-                    autoAlpha: 0,
-                    y: 100,
-                    ease: "expo.out",
-                    scrollTrigger: {
-                        trigger: ".sticky-container",
-                        start: "top 70%",
-                        end: "top center",
-                        toggleActions: "play none none reverse",
-                    },
-                });
 
                 /** Line growth + timeline card animations **/
                 const lines = gsap.utils.toArray<HTMLElement>(".line-container");
@@ -147,8 +134,8 @@ const Aboutpage = () => {
             <div className="relative min-h-[450vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container hidden lg:block w-full border h-screen sticky top-0 z-10">
-                    {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
+                <div className="hidden lg:block w-full border h-screen sticky top-0 z-10">
+                    <ThreeObject modelPath="/scifi_robot.glb" />
                 </div>
 
 

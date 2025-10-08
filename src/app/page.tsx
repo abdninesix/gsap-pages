@@ -20,18 +20,25 @@ const Homepage = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
 
-    setTimeout(() => {
+    const ctx = gsap.context(() => {
 
-      const ctx = gsap.context(() => {
+      gsap.set([
+        ".intro-text",
+        ".hero-image",
+        ".hero-subtitle",
+        ".hero-paragraph",
+        ".button-block"
+      ], { y: 50, opacity: 0 });
+
+      setTimeout(() => {
         const tl = gsap.timeline();
 
         /** --- SplitText Animation --- **/
         if (nameRef.current) {
           const split = new SplitText(nameRef.current, { type: "chars" });
 
-          tl.fromTo(
+          tl.to(
             ".intro-text",
-            { y: -50, opacity: 0 },
             { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
             "+=0.25"
           )
@@ -44,29 +51,25 @@ const Homepage = () => {
                 stagger: 0.1,
                 duration: 0.5,
                 ease: "back.in",
-              },"+=0.25"
+              }, "+=0.25"
             )
-            .fromTo(
+            .to(
               ".hero-image",
-              { x: -10, opacity: 0 },
-              { x: 0, opacity: 1, duration: 0.5, ease: "expo.in" },
+              { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
               "+=0.25"
             )
-            .fromTo(
+            .to(
               ".hero-subtitle",
-              { y: -50, opacity: 0 },
               { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
               "+=0.25"
             )
-            .fromTo(
+            .to(
               ".hero-paragraph",
-              { y: -50, opacity: 0 },
               { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
               "+=0.25"
             )
-            .fromTo(
+            .to(
               ".button-block",
-              { y: -50, opacity: 0 },
               { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
               "+=0.25"
             );
@@ -77,9 +80,10 @@ const Homepage = () => {
             ctx.revert();
           }
         }
-      }, containerRef);
 
-    }, 100)
+      }, 100)
+
+    }, containerRef);
 
   }, []);
 
