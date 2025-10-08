@@ -3,7 +3,7 @@
 import { useRef, useEffect } from "react";
 import gsap from "gsap";
 
-const HaikeiBackground = () => {
+const BackgroundHaikei = () => {
     const path1Ref = useRef<SVGPathElement | null>(null);
     const path2Ref = useRef<SVGPathElement | null>(null);
 
@@ -54,4 +54,4 @@ const HaikeiBackground = () => {
     );
 };
 
-export default HaikeiBackground;
+export default BackgroundHaikei;

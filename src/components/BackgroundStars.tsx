@@ -11,7 +11,7 @@ interface Star {
     fadeInDelay: number;
 }
 
-const Stars = ({ count }: { count: number }) => {
+const BackgroundStars = ({ count }: { count: number }) => {
     const [stars, setStars] = useState<Star[]>([]);
 
     useEffect(() => {
@@ -48,4 +48,4 @@ const Stars = ({ count }: { count: number }) => {
     );
 };
 
-export default Stars;
+export default BackgroundStars;
