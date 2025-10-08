@@ -109,7 +109,7 @@ const Contactpage = () => {
       <div className="flex flex-col justify-center gap-6 lg:gap-16 lg:flex-row mt-12 lg:mt-28">
 
         <div className="w-full lg:w-1/2 flex lg:flex-col items-center justify-between lg:justify-center">
-          <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s&nbsp;collaborate</span>
+          <span ref={textRef} className="text-4xl md:text-6xl font-semibold">Let&apos;s collaborate</span>
           <div className="handshake"><FaHandshakeAngle className="size-16 lg:size-72" /></div>
         </div>
 
@@ -126,7 +126,7 @@ const Contactpage = () => {
             <label
               htmlFor="user_message"
               className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all
-      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-mytheme
+      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
       peer-focus:-top-6 peer-focus:text-base 
       ${errors.user_message ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
       peer-focus:border-2 peer-focus:border-b-0`}>
@@ -148,7 +148,7 @@ const Contactpage = () => {
             <label
               htmlFor="user_email"
               className={`absolute left-2 -top-4 bg-white px-1 rounded-t-lg transition-all duration-200 ease-in-out
-      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-mytheme
+      peer-placeholder-shown:top-2 peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-400
       peer-focus:-top-6 peer-focus:text-base 
       ${errors.user_email ? "text-red-500 peer-focus:text-red-600" : "peer-focus:text-black text-black"}
       peer-focus:border-2 peer-focus:border-b-0`}

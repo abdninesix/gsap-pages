@@ -62,7 +62,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
           <div
             key={i}
             onClick={() => setActiveIndex(i)}
-            className="stack-img relative flex flex-col -mt-32 sm:-mr-10 md:-mt-12 shadow-[-4px_4px_0px_black] hover:rotate-6 hover:-translate-y-10 justify-center gap-2 bg-yellow-500/90 p-2 cursor-pointer duration-200"
+            className="relative flex flex-col -mt-32 sm:-mr-10 md:-mt-12 hover:rotate-6 hover:-translate-y-10 justify-center gap-2 bg-mytheme/80 p-2 cursor-pointer duration-200"
             style={{
               transform: `rotate(5deg)`,
               WebkitClipPath:

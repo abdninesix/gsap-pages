@@ -44,11 +44,11 @@ const Projectspage = () => {
     <div ref={containerRef} className="scrollbar-none">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
-        <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp;Work</span>
+        <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Stack of my work</span>
         <FaCaretDown className="scroll-icon animate-bounce size-8" />
       </div>
 
-      <div className="min-h-screen py-20">
+      <div className="min-h-screen py-40">
         <ProjectStack projects={projects} />
         <div className="w-full flex flex-col items-start mt-20">
           <div className="flex gap-2 items-center">

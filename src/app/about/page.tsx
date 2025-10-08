@@ -140,7 +140,7 @@ const Aboutpage = () => {
         <div ref={containerRef} className="h-full scrollbar-none overflow-x-clip">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
-                <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get&nbsp;to&nbsp;know&nbsp;me</span>
+                <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
