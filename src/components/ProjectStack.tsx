@@ -4,7 +4,6 @@ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
-import { RiLoader5Line } from "react-icons/ri";
 
 interface Project {
   src: string;
@@ -21,17 +20,6 @@ interface ProjectStackProps {
 export default function ProjectStack({ projects }: ProjectStackProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [imagesLoaded, setImagesLoaded] = useState(0);
-  const [isReady, setIsReady] = useState(false);
-
-  /** Track when all images are loaded */
-  const handleImageLoad = () => {
-    setImagesLoaded((prev) => {
-      const next = prev + 1;
-      if (next === projects.length) setIsReady(true);
-      return next;
-    });
-  };
 
   /** Close modal on outside click */
   useEffect(() => {
@@ -58,19 +46,10 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
       gsap.fromTo(
         modal,
         { scale: 0.5 },
-        { scale: 1, duration: 0.5, ease: "elastic" }
+        { scale: 1, duration: 0.8, ease: "elastic" }
       );
     }
   }, [activeIndex]);
-
-  /** Show loader while images load */
-  if (!isReady) {
-    return (
-      <div className="h-screen flex items-center justify-center text-2xl">
-        Projects are loading <RiLoader5Line className="animate-spin"/>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -99,7 +78,6 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
               width={800}
               height={450}
               priority
-              onLoad={handleImageLoad}
               className="h-auto w-full object-contain select-none"
             />
           </div>

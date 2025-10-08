@@ -53,7 +53,7 @@ const Projectspage = () => {
         <div className="w-full flex flex-col items-start mt-20">
           <div className="flex gap-2 items-center">
             <MdErrorOutline className="size-5" />
-            <p className="font-semibold">Work In Progress</p>
+            <p className="text-lg font-semibold">Work In Progress</p>
           </div>
           <p className="text-sm">Some features in my showcased projects are still under development and may not function as expected. I&apos;m actively working to improve them. Thank you for your understanding!</p>
         </div>
