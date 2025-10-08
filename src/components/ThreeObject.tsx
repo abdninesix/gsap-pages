@@ -215,15 +215,16 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
 
   return (
-    <div className="border h-[100vh">
+    <div className="border h-[80vh]">
       <Canvas camera={{ position: [0, 0, 2], fov: 30 }} gl={{ powerPreference: "high-performance" }}>
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <OrbitControls
           ref={controlsRef}
-          enableDamping={false}
-          enablePan={false} enableZoom={false}
-          enableRotate={false}
+          // enableDamping={false}
+          // enablePan={false}
+          // enableZoom={false}
+          // enableRotate={false}
         />
         <ModelScene modelPath={modelPath} controlsRef={controlsRef} />
       </Canvas>
