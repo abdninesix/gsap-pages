@@ -17,9 +17,9 @@ const Projectspage = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
 
-    setTimeout(() => {
+    const ctx = gsap.context(() => {
 
-      const ctx = gsap.context(() => {
+      setTimeout(() => {
         const tl = gsap.timeline();
 
         if (titleRef.current) {
@@ -33,22 +33,23 @@ const Projectspage = () => {
           }, "+=0.25")
             .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
         }
-      }, containerRef);
+      }, 100);
 
-      return () => ctx.revert(); // Cleanup
+    }, containerRef);
 
-    }, 100);
+    return () => ctx.revert(); // Cleanup
+
   }, []);
 
   return (
-    <div ref={containerRef} className="scrollbar-none">
+    <div ref={containerRef} className="overflow-x-clip">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Stack of my work</span>
         <FaCaretDown className="scroll-icon animate-bounce size-8" />
       </div>
 
-      <div className="min-h-screen py-40">
+      <div className="min-h-screen px-14 py-40">
         <ProjectStack projects={projects} />
         <div className="w-full flex flex-col items-start mt-20">
           <div className="flex gap-2 items-center">

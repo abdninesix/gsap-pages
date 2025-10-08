@@ -194,7 +194,7 @@ export const experiences = [
 
 export const certifications = [
   "/certifications/udemy.jpg",
+  "/certifications/devhub.jpg",
   "/certifications/nextgen.jpg",
   "/certifications/skillifyzone.jpg",
-  "/certifications/devhub.jpg",
 ];

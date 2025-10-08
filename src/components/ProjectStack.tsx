@@ -56,15 +56,14 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
       {/* Grid Layout */}
       <div
         ref={containerRef}
-        className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 items-start justify-center"
+        className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-start justify-center"
       >
         {projects.map((project, i) => (
           <div
             key={i}
             onClick={() => setActiveIndex(i)}
-            className="relative flex flex-col -mt-32 sm:-mr-10 md:-mt-12 hover:rotate-6 hover:-translate-y-10 justify-center gap-2 bg-mytheme/80 p-2 cursor-pointer duration-200"
+            className="relative flex flex-col -mt-32 md:-mt-12 sm:-mr-10 rotate-6 hover:rotate-12 hover:-translate-y-10 justify-center gap-2 bg-mytheme/80 p-2 cursor-pointer duration-200"
             style={{
-              transform: `rotate(5deg)`,
               WebkitClipPath:
                 "polygon(0% 8%, 10% 0%, 60% 0%, 70% 8%, 100% 8%, 100% 100%, 0% 100%)",
               clipPath:

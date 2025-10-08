@@ -8,7 +8,6 @@ import { certifications, experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
 import { FaCaretDown } from "react-icons/fa6";
 import ThreeObject from "@/components/ThreeObject";
-import ImageStack from "@/components/ImageStack";
 import Image from "next/image";
 
 const Line = () => {
@@ -33,86 +32,90 @@ const Aboutpage = () => {
 
         const ctx = gsap.context(() => {
 
-            /** --- 1️⃣ HERO INTRO ANIMATION --- **/
-            const introTl = gsap.timeline({ defaults: { ease: "expo.out", duration: 0.8 } });
+            setTimeout(() => {
 
-            if (titleRef.current) {
-                const split = new SplitText(titleRef.current, { type: "chars, words" });
-                introTl.from(split.chars, {
-                    y: 1000,
-                    scale: 20,
-                    opacity: 0,
-                    stagger: 0.1,
-                    ease: "back.in",
-                }, "+=0.25")
-                    .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
-            }
+                /** --- 1️⃣ HERO INTRO ANIMATION --- **/
+                const introTl = gsap.timeline({ defaults: { ease: "expo.out", duration: 0.8 } });
 
-            /** --- 2️⃣ SCROLLTRIGGERED ANIMATIONS --- **/
+                if (titleRef.current) {
+                    const split = new SplitText(titleRef.current, { type: "chars, words" });
+                    introTl.from(split.chars, {
+                        y: 1000,
+                        scale: 20,
+                        opacity: 0,
+                        stagger: 0.1,
+                        ease: "back.in",
+                    }, "+=0.25")
+                        .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
+                }
 
-            /** Line growth + timeline card animations **/
-            const lines = gsap.utils.toArray<HTMLElement>(".line-container");
+                /** --- 2️⃣ SCROLLTRIGGERED ANIMATIONS --- **/
 
-            lines.forEach((lineContainer) => {
-                const line = lineContainer.querySelector(".line");
-                const dot = lineContainer.querySelector(".line-dot");
-                const card = lineContainer.closest(".timeline-card");
-                if (!line || !dot || !card) return;
+                /** Line growth + timeline card animations **/
+                const lines = gsap.utils.toArray<HTMLElement>(".line-container");
 
-                // Line grow
-                gsap.fromTo(
-                    line,
-                    { scaleY: 0, transformOrigin: "top" },
-                    {
-                        scaleY: 1,
-                        ease: "none",
+                lines.forEach((lineContainer) => {
+                    const line = lineContainer.querySelector(".line");
+                    const dot = lineContainer.querySelector(".line-dot");
+                    const card = lineContainer.closest(".timeline-card");
+                    if (!line || !dot || !card) return;
+
+                    // Line grow
+                    gsap.fromTo(
+                        line,
+                        { scaleY: 0, transformOrigin: "top" },
+                        {
+                            scaleY: 1,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: lineContainer,
+                                start: "top 70%",
+                                end: "top 40%",
+                                scrub: true,
+                            },
+                        }
+                    );
+
+                    // Dot and card reveal
+                    const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: lineContainer,
                             start: "top 70%",
-                            end: "top 40%",
-                            scrub: true,
+                            toggleActions: "play none none reverse",
                         },
+                    });
+
+                    tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
+                        .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
+                });
+
+                /** Headings + content slide-in **/
+                const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
+
+                headings.forEach((heading) => {
+                    const content = heading.parentElement?.querySelectorAll(".content-animate");
+
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: heading,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse",
+                        },
+                    });
+
+                    tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
+                    if (content && content.length > 0) {
+                        tl.from(content, {
+                            x: -120,
+                            opacity: 0,
+                            ease: "elastic",
+                            duration: 1,
+                            stagger: 0.15,
+                        }, "-=0.4");
                     }
-                );
-
-                // Dot and card reveal
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: lineContainer,
-                        start: "top 70%",
-                        toggleActions: "play none none reverse",
-                    },
                 });
 
-                tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
-                    .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
-            });
-
-            /** Headings + content slide-in **/
-            const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
-
-            headings.forEach((heading) => {
-                const content = heading.parentElement?.querySelectorAll(".content-animate");
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse",
-                    },
-                });
-
-                tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
-                if (content && content.length > 0) {
-                    tl.from(content, {
-                        x: -120,
-                        opacity: 0,
-                        ease: "elastic",
-                        duration: 1,
-                        stagger: 0.15,
-                    }, "-=0.4");
-                }
-            });
+            }, 100);
 
         }, containerRef);
 
@@ -120,7 +123,7 @@ const Aboutpage = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="h-auto scrollbar-none overflow-x-clip">
+        <div ref={containerRef} className="h-auto overflow-x-clip">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
                 <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
@@ -195,18 +198,16 @@ const Aboutpage = () => {
                     <div className="flex justify-end">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
                             <h1 className="heading-animate font-bold text-3xl">CERTIFICATIONS</h1>
-                            <div className="content-animate z-20">
-                                <div className="relative grid grid-cols-1 md:grid-cols-3 xl:grid-cols-4 items-start justify-center">
-                                    {certifications.map((src, i) => (
-                                        <div
-                                            key={i}
-                                            className="stack-img relative -mr-40 rotate-6 flex flex-col  hover:rotate-6 hover:-translate-y-10 justify-center cursor-pointer duration-200"
-                                            style={{ zIndex: i + 1, }}
-                                        >
-                                            <Image src={src} alt={`Stack image ${i}`} width={800} height={450} priority className="h-auto w-full object-contain select-none" />
-                                        </div>
-                                    ))}
-                                </div>
+                            <div className="content-animate px-14 py-40 z-20 relative grid grid-cols-1 md:grid-cols-4 items-start justify-center">
+                                {certifications.map((src, i) => (
+                                    <div
+                                        key={i}
+                                        className="stack-img relative -mt-32 sm:-mr-10 rotate-6 flex flex-col hover:rotate-12 hover:-translate-y-10 justify-center cursor-pointer duration-200"
+                                        style={{ zIndex: i + 1, }}
+                                    >
+                                        <Image src={src} alt={`Stack image ${i}`} width={800} height={450} priority className="h-auto w-full object-contain select-none" />
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>
