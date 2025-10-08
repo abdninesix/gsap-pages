@@ -26,7 +26,7 @@ const HaikeiBackground = () => {
     }, []);
 
     return (
-        <div className="absolute inset-0 -z-20 block dark:hidden overflow-hidden animate-fadeIn">
+        <div className="absolute inset-0 -z-20 block dark:hidden overflow-hidden pointer-events-none animate-fadeIn">
             <svg
                 id="visual"
                 viewBox="0 0 900 600"

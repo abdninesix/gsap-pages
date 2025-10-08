@@ -49,7 +49,7 @@ const Projectspage = () => {
       </div>
 
       <div className="min-h-screen py-10">
-        <ProjectStack images={projects.map((p) => p.src)} />
+        <ProjectStack projects={projects} />
         <div className="w-full flex flex-col items-start mt-20">
           <div className="flex gap-2 items-center">
             <MdErrorOutline className="size-5" />

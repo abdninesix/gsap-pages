@@ -41,10 +41,10 @@ export default function RootLayout({
       <body
         className={` ${poppins.className} antialiased`}
       >
-        <div className="fixed inset-0">
+        {/* <div className="fixed inset-0">
           <HaikeiBackground />
           <Stars count={50} />
-        </div>
+        </div> */}
         <main className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl duration-400">
           <Navbar />
           <div className="h-[calc(100vh-4rem)]">{children}</div>

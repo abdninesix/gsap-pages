@@ -88,3 +88,20 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
+
+.hidden-info {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+}
+
+.show-info {
+  opacity: 1;
+  max-height: 200px;
+  overflow: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
