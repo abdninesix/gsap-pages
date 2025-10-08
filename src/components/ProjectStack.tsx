@@ -62,7 +62,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
           <div
             key={i}
             onClick={() => setActiveIndex(i)}
-            className="relative flex flex-col justify-center gap-2 bg-mytheme/90 p-2 rounded-xl cursor-pointer transition-transform duration-200 shadow-md"
+            className="stack-img relative flex flex-col -mt-32 sm:-mr-10 md:-mt-12 shadow-[-4px_4px_0px_black] hover:rotate-6 hover:-translate-y-10 justify-center gap-2 bg-yellow-500/90 p-2 cursor-pointer duration-200"
             style={{
               transform: `rotate(5deg)`,
               WebkitClipPath:
@@ -71,7 +71,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
                 "polygon(0% 8%, 10% 0%, 60% 0%, 70% 8%, 100% 8%, 100% 100%, 0% 100%)",
             }}
           >
-            <h2 className="text-2xl font-semibold mt-5">{project.title}</h2>
+            <h2 className="text-2xl font-semibold mt-6">{project.title}</h2>
             <Image
               src={project.src}
               alt={`Stack image ${i}`}
