@@ -144,10 +144,10 @@ const Aboutpage = () => {
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="relative min-h-[450vh] border overflow-visible">
+            <div className="relative min-h-[450vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-10">
+                <div className="sticky-container hidden lg:block w-full border h-screen sticky top-0 z-10">
                     {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
                 </div>
 
