@@ -41,7 +41,7 @@ const Projectspage = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="border scrollbar-none">
+    <div ref={containerRef} className="scrollbar-none">
 
       <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
         <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">My&nbsp;Work</span>

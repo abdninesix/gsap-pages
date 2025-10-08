@@ -95,23 +95,20 @@ export default function ProjectStack({ images }: ProjectStackProps) {
     }, []);
 
     return (
-        <div ref={containerRef} className="relative grid gap-y-12 grid-cols-3 lg:grid-cols-4 items-start justify-center pr-20 lg:pr-32">
+        <div ref={containerRef} className="relative grid md:gap-y-16 grid-cols-1 md:grid-cols-3 lg:grid-cols-4 items-start justify-center md:pr-32">
             {images.map((src, i) => (
                 <div
                     key={i}
-                    className="stack-img relative cursor-pointer w-48 sm:w-60 md:w-92 aspect-video transition-transform"
+                    className="stack-img relative cursor-pointer shadow w-full md:w-92 aspect-video transition-transform"
                     onClick={(e) => handleClick(i, e)}
-                    style={{
-                        transform: `rotate(10deg) scale(1)`,
-                        zIndex: i + 1,
-                    }}
-                >
+                    style={{ transform: `rotate(10deg) scale(1)`, zIndex: i + 1, }}
+                    >
                     <Image
                         src={src}
                         alt={`Stack image ${i}`}
                         fill
                         priority
-                        className="h-auto w-auto max-w-[80vw] max-h-[80vh] object-contain select-none"
+                        className="h-auto w-auto max-w-screen max-h-screen object-contain select-none"
                     />
                 </div>
             ))}
