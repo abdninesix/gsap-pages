@@ -137,14 +137,14 @@ const Aboutpage = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="h-full scrollbar-none overflow-x-clip">
+        <div ref={containerRef} className="h-auto scrollbar-none overflow-x-clip">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
                 <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="relative min-h-[500vh] overflow-visible">
+            <div className="relative min-h-[450vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-10">
@@ -212,7 +212,7 @@ const Aboutpage = () => {
                     <div className="flex justify-end">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
                             <h1 className="heading-animate font-bold text-3xl">CERTIFICATIONS</h1>
-                            <div className="content-animate flex flex-wrap gap-4 z-20">
+                            <div className="content-animate flex flex-wrap gap-4 py-40 z-20">
                                 <ImageStack images={certifications} />
                             </div>
                         </div>
