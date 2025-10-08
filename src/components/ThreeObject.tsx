@@ -215,7 +215,7 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
   const controlsRef = useRef<OrbitControlsImpl | null>(null);
 
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
+    <div className="border h-[100vh">
       <Canvas camera={{ position: [0, 0, 2], fov: 30 }} gl={{ powerPreference: "high-performance" }}>
         <ambientLight intensity={1} />
         <directionalLight position={[5, 5, 5]} intensity={1} />
