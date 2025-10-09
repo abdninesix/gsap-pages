@@ -64,7 +64,6 @@ const Contactpage = () => {
     const ctx = gsap.context(() => {
 
       gsap.set([
-        textRef.current,
         formRef.current,
         ".handshake",
       ], { y: 50, opacity: 0 });
@@ -72,12 +71,6 @@ const Contactpage = () => {
       setTimeout(() => {
 
         const tl = gsap.timeline();
-
-        tl.fromTo(
-          containerRef.current,
-          { y: "-200vh" },
-          { y: "0%", duration: 1, ease: "power2.out" }
-        );
 
         if (textRef.current) {
           const split = new SplitText(textRef.current, { type: "chars" });
