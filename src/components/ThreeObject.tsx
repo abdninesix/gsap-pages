@@ -94,9 +94,10 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heading,
-          start: "top 70%",
+          start: "top 60%",
           end: "bottom 60%",
           scrub: 1.2,
+          markers: true,
         },
       });
 
