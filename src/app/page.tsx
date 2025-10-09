@@ -40,7 +40,7 @@ const Homepage = () => {
           tl.to(
             ".intro-text",
             { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-            "+=0.25"
+            "+=0.9"
           )
             .from(
               split.chars,
@@ -81,7 +81,7 @@ const Homepage = () => {
           }
         }
 
-      }, 300)
+      }, 50)
 
     }, containerRef);
 

@@ -63,11 +63,6 @@ const Contactpage = () => {
 
     const ctx = gsap.context(() => {
 
-      gsap.set([
-        formRef.current,
-        ".handshake",
-      ], { y: 50, opacity: 0 });
-
       setTimeout(() => {
 
         const tl = gsap.timeline();
@@ -85,13 +80,15 @@ const Contactpage = () => {
               ease: "back.in",
             }, "+=0.25"
             )
-            .to(
+            .fromTo(
               ".handshake",
+              { y: -50, opacity: 0 },
               { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
               "+=0.25"
             )
-            .to(
+            .fromTo(
               formRef.current,
+              { opacity: 0, y: 50 },
               { opacity: 1, y: 0, duration: 0.25, ease: "expo.in" },
               "+=0.25"
             );
@@ -101,8 +98,7 @@ const Contactpage = () => {
             split.revert();
           };
         }
-
-      }, 300);
+      }, 50);
 
     }, containerRef);
 

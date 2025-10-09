@@ -33,7 +33,7 @@ const Projectspage = () => {
           }, "+=0.25")
             .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
         }
-      }, 300);
+      }, 50);
 
     }, containerRef);
 
