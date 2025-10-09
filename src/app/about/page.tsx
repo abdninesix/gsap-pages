@@ -33,6 +33,7 @@ const Aboutpage = () => {
         const ctx = gsap.context(() => {
 
             setTimeout(() => {
+
                 const tl = gsap.timeline();
 
                 if (titleRef.current) {
@@ -43,7 +44,7 @@ const Aboutpage = () => {
                         opacity: 0,
                         stagger: 0.1,
                         ease: "back.in",
-                    }, "+=0.25")
+                    }, "+=1")
                         .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
                 }
 
@@ -112,7 +113,7 @@ const Aboutpage = () => {
                         }, "-=0.4");
                     }
                 });
-            }, 300);
+            }, 50);
 
         }, containerRef);
 
@@ -131,7 +132,7 @@ const Aboutpage = () => {
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="hidden lg:block w-full h-screen sticky top-0 z-10">
-                    <ThreeObject modelPath="/scifi_robot.glb" />
+                    {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
                 </div>
 
 

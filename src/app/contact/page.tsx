@@ -68,7 +68,7 @@ const Contactpage = () => {
         const tl = gsap.timeline();
 
         if (textRef.current) {
-          const split = new SplitText(textRef.current, { type: "chars" });
+          const split = new SplitText(textRef.current, { type: "chars, words" });
 
           tl
             .from(split.chars, {
