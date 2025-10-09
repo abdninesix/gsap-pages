@@ -94,7 +94,7 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: heading,
-          start: "top 60%",
+          start: "top 80%",
           end: "top 40%",
           scrub: 1.2,
           markers: true,
@@ -222,9 +222,9 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <OrbitControls
           ref={controlsRef}
-        enablePan={false}
-        enableZoom={false}
-        enableRotate={false}
+        // enablePan={false}
+        // enableZoom={false}
+        // enableRotate={false}
         />
         <ModelScene modelPath={modelPath} controlsRef={controlsRef} />
       </Canvas>
