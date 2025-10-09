@@ -76,7 +76,7 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
       { pos: { x: 4.407232, y: 3.694332, z: 6.836674 }, target: { x: -0.185710, y: 0.720304, z: 2.246814 }, },
       { pos: { x: -5.648253, y: 1.031125, z: -4.984693 }, target: { x: 1.185256, y: -0.700784, z: 3.725735 }, },
       { pos: { x: 6.210263, y: 2.653112, z: 4.164157 }, target: { x: -0.391628, y: 0.191081, z: 1.395586 }, },
-      { pos: { x: -3.949448, y: 1.526291, z: 6.318589 }, target: { x: 1.404053, y: 0.707201, z: 0.330522 }, },
+      { pos: { x: -2.951039, y: 0.495057, z: 5.332916 }, target: { x: 1.409421, y: -0.172097, z: 0.455598 }, },
     ];
 
     // === Initial camera setup ===
@@ -221,10 +221,10 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <OrbitControls
           ref={controlsRef}
-          // enableDamping={false}
-          // enablePan={false}
-          // enableZoom={false}
-          // enableRotate={false}
+        // enableDamping={false}
+        // enablePan={false}
+        // enableZoom={false}
+        // enableRotate={false}
         />
         <ModelScene modelPath={modelPath} controlsRef={controlsRef} />
       </Canvas>
