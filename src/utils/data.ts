@@ -16,23 +16,23 @@ export const projects = [
   {
     src: "/projects/nexus.png",
     title: "Nexus Business",
-    desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
+    desc: "Nexus is a modern web platform built with React, Express, Socket.IO, WebRTC, Tailwind CSS, and TypeScript that connects entrepreneurs and investors in a seamless, interactive environment. The app enables users to collaborate in real time, arrange secure video call meetings, and finalize deals with integrated payment features, making business networking smarter, faster, and more personal.",
     type: "Fullstack",
-    link: "https://blog-by-abdullah.vercel.app/"
+    link: "https://nexus-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/trendy.png",
     title: "TrendyStore",
-    desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
+    desc: "TrendyStore is a sleek e-commerce platform built with Next.js, Tailwind CSS, and Zustand that showcases the latest trending fashion items. Users can easily browse stylish collections, explore trending looks, and add their favorite pieces to the cart with a smooth and responsive shopping experience.",
     type: "Frontend",
-    link: "https://blog-by-abdullah.vercel.app/"
+    link: "https://trendy-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/trendydash.png",
     title: "TrendyDashboard",
-    desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
+    desc: "TrendyStore Dashboard is an elegant admin panel built with Next.js, TypeScript, Tailwind CSS, and fully powered by shadcn/ui. It provides a modern, responsive interface for managing products, tracking sales, and analyzing trends — giving store owners complete control over their fashion business with efficiency and style.",
     type: "Frontend",
-    link: "https://blog-by-abdullah.vercel.app/"
+    link: "https://trendy-dashboard-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/hi.png",

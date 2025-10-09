@@ -64,6 +64,7 @@ const Contactpage = () => {
     const ctx = gsap.context(() => {
 
       gsap.set([
+        textRef.current,
         formRef.current,
         ".handshake",
       ], { y: 50, opacity: 0 });
