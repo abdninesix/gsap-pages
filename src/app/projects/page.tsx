@@ -49,7 +49,7 @@ const Projectspage = () => {
         <FaCaretDown className="scroll-icon animate-bounce size-8" />
       </div>
 
-      <div className="min-h-screen px-14 py-40">
+      <div className="min-h-screen px-4 sm:px-14 py-40">
         <ProjectStack projects={projects} />
         <div className="w-full flex flex-col items-start mt-20">
           <div className="flex gap-2 items-center">
