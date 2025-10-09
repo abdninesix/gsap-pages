@@ -8,6 +8,7 @@ import { certifications, experiences, skills } from "@/utils/data";
 import InfoCard from "@/components/InfoCard";
 import { FaCaretDown } from "react-icons/fa6";
 import ThreeObject from "@/components/ThreeObject";
+import Image from "next/image";
 
 const Line = () => {
     return (
@@ -31,104 +32,87 @@ const Aboutpage = () => {
 
         const ctx = gsap.context(() => {
 
-            /** --- 1️⃣ HERO INTRO ANIMATION --- **/
-            const introTl = gsap.timeline({ defaults: { ease: "expo.out", duration: 0.8 } });
+            setTimeout(() => {
+                const tl = gsap.timeline();
 
-            if (titleRef.current) {
-                const split = new SplitText(titleRef.current, { type: "chars, words" });
-                introTl.from(split.chars, {
-                    y: 1000,
-                    scale: 20,
-                    opacity: 0,
-                    stagger: 0.1,
-                    ease: "back.in",
-                }, "+=0.25")
-                    .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
-            }
+                if (titleRef.current) {
+                    const split = new SplitText(titleRef.current, { type: "chars, words" });
+                    tl.from(split.chars, {
+                        y: 1000,
+                        scale: 20,
+                        opacity: 0,
+                        stagger: 0.1,
+                        ease: "back.in",
+                    }, "+=0.25")
+                        .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
+                }
+            }, 100);
 
-            /** --- 2️⃣ SCROLLTRIGGERED ANIMATIONS --- **/
-            const scrollAnimations = () => {
-                /** Sticky model viewer fade-in **/
-                const sticky = document.querySelector(".sticky-container");
-                gsap.from(".sticky-container", {
-                    autoAlpha: 0,
-                    y: 100,
-                    ease: "expo.out",
+            /** --- SCROLLTRIGGERED ANIMATIONS --- **/
+
+            /** Line growth + timeline card animations **/
+            const lines = gsap.utils.toArray<HTMLElement>(".line-container");
+
+            lines.forEach((lineContainer) => {
+                const line = lineContainer.querySelector(".line");
+                const dot = lineContainer.querySelector(".line-dot");
+                const card = lineContainer.closest(".timeline-card");
+                if (!line || !dot || !card) return;
+
+                // Line grow
+                gsap.fromTo(
+                    line,
+                    { scaleY: 0, transformOrigin: "top" },
+                    {
+                        scaleY: 1,
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: lineContainer,
+                            start: "top 70%",
+                            end: "top 40%",
+                            scrub: true,
+                        },
+                    }
+                );
+
+                // Dot and card reveal
+                const tl = gsap.timeline({
                     scrollTrigger: {
-                        trigger: ".sticky-container",
+                        trigger: lineContainer,
                         start: "top 70%",
-                        end: "top center",
                         toggleActions: "play none none reverse",
                     },
                 });
 
-                /** Line growth + timeline card animations **/
-                const lines = gsap.utils.toArray<HTMLElement>(".line-container");
+                tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
+                    .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
+            });
 
-                lines.forEach((lineContainer) => {
-                    const line = lineContainer.querySelector(".line");
-                    const dot = lineContainer.querySelector(".line-dot");
-                    const card = lineContainer.closest(".timeline-card");
-                    if (!line || !dot || !card) return;
+            /** Headings + content slide-in **/
+            const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
 
-                    // Line grow
-                    gsap.fromTo(
-                        line,
-                        { scaleY: 0, transformOrigin: "top" },
-                        {
-                            scaleY: 1,
-                            ease: "none",
-                            scrollTrigger: {
-                                trigger: lineContainer,
-                                start: "top 70%",
-                                end: "top 40%",
-                                scrub: true,
-                            },
-                        }
-                    );
+            headings.forEach((heading) => {
+                const content = heading.parentElement?.querySelectorAll(".content-animate");
 
-                    // Dot and card reveal
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: lineContainer,
-                            start: "top 70%",
-                            toggleActions: "play none none reverse",
-                        },
-                    });
-
-                    tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
-                        .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: "top 85%",
+                        toggleActions: "play none none reverse",
+                    },
                 });
 
-                /** Headings + content slide-in **/
-                const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
-
-                headings.forEach((heading) => {
-                    const content = heading.parentElement?.querySelectorAll(".content-animate");
-
-                    const tl = gsap.timeline({
-                        scrollTrigger: {
-                            trigger: heading,
-                            start: "top 85%",
-                            toggleActions: "play none none reverse",
-                        },
-                    });
-
-                    tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
-                    if (content && content.length > 0) {
-                        tl.from(content, {
-                            x: -120,
-                            opacity: 0,
-                            ease: "elastic",
-                            duration: 1,
-                            stagger: 0.15,
-                        }, "-=0.4");
-                    }
-                });
-            };
-
-            // Run scroll animations slightly after intro
-            setTimeout(scrollAnimations, 800);
+                tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
+                if (content && content.length > 0) {
+                    tl.from(content, {
+                        x: -120,
+                        opacity: 0,
+                        ease: "elastic",
+                        duration: 1,
+                        stagger: 0.15,
+                    }, "-=0.4");
+                }
+            });
 
         }, containerRef);
 
@@ -136,17 +120,17 @@ const Aboutpage = () => {
     }, []);
 
     return (
-        <div ref={containerRef} className="h-full scrollbar-none overflow-x-clip">
+        <div ref={containerRef} className="h-auto overflow-x-clip">
 
             <div className="h-[calc(100vh-4rem)] flex flex-col items-center justify-center gap-4">
-                <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get&nbsp;to&nbsp;know&nbsp;me</span>
+                <span ref={titleRef} className="text-4xl md:text-6xl font-semibold">Get to know me</span>
                 <FaCaretDown className="scroll-icon animate-bounce size-8" />
             </div>
 
-            <div className="relative min-h-[500vh] overflow-visible">
+            <div className="relative h-[460vh] overflow-visible">
 
                 {/*STICKY CONTENT CONTAINER*/}
-                <div className="sticky-container hidden lg:block w-full h-screen sticky top-0 z-10">
+                <div className="hidden lg:block w-full h-screen sticky top-0 z-10">
                     {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
                 </div>
 
@@ -211,8 +195,16 @@ const Aboutpage = () => {
                     <div className="flex justify-end">
                         <div className="flex flex-col gap-12 justify-center lg:w-3/5">
                             <h1 className="heading-animate font-bold text-3xl">CERTIFICATIONS</h1>
-                            <div className="content-animate flex flex-wrap gap-4 z-20">
-                                Certificfaitons go here
+                            <div className="content-animate px-14 py-40 z-20 relative grid grid-cols-1 md:grid-cols-4 items-start justify-center">
+                                {certifications.map((src, i) => (
+                                    <div
+                                        key={i}
+                                        className="stack-img relative -mt-32 sm:-mr-10 rotate-6 flex flex-col hover:rotate-12 hover:-translate-y-10 justify-center cursor-pointer duration-200"
+                                        style={{ zIndex: i + 1, }}
+                                    >
+                                        <Image src={src} alt={`Stack image ${i}`} width={800} height={450} priority className="h-auto w-full object-contain select-none" />
+                                    </div>
+                                ))}
                             </div>
                         </div>
                     </div>

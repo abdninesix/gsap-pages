@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="scrollbar-none scrollbar-thumb-black dark:scrollbar-thumb-white scrollbar-track-transparent">
       <head>
         <script
           dangerouslySetInnerHTML={{
@@ -43,11 +43,9 @@ export default function RootLayout({
           <BackgroundHaikei />
           <BackgroundStars count={50} />
         </div>
-        <main className="scrollbar-thin scrollbar-thumb-mytheme scrollbar-track-transparent overflow-y-scroll">
-          <div className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl duration-400">
-            <Navbar />
-            <div className="h-[calc(100vh-4rem)]">{children}</div>
-          </div>
+        <main className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl duration-400">
+          <Navbar />
+          <div className="h-[calc(100vh-4rem)]">{children}</div>
         </main>
       </body>
     </html>
