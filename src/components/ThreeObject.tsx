@@ -221,10 +221,9 @@ const ModelViewer = ({ modelPath }: ModelViewerProps) => {
         <directionalLight position={[5, 5, 5]} intensity={1} />
         <OrbitControls
           ref={controlsRef}
-        // enableDamping={false}
-        // enablePan={false}
-        // enableZoom={false}
-        // enableRotate={false}
+        enablePan={false}
+        enableZoom={false}
+        enableRotate={false}
         />
         <ModelScene modelPath={modelPath} controlsRef={controlsRef} />
       </Canvas>
