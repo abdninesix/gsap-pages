@@ -95,7 +95,7 @@ const ModelScene = ({ modelPath, controlsRef }: ModelSceneProps) => {
         scrollTrigger: {
           trigger: heading,
           start: "top 60%",
-          end: "bottom 60%",
+          end: "top 40%",
           scrub: 1.2,
           markers: true,
         },
