@@ -4,6 +4,9 @@ import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import Image from "next/image";
 import Link from "next/link";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 interface Project {
   src: string;
@@ -45,11 +48,63 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
     if (modal) {
       gsap.fromTo(
         modal,
-        { scale: 0.5 },
-        { scale: 1, duration: 0.8, ease: "elastic" }
+        { y: 100, scale: 0.5 },
+        { y: 0, scale: 1, duration: 0.5, ease: "elastic.out" }
       );
     }
   }, [activeIndex]);
+
+  /** Animate cards on scroll with persistent random rotation */
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const cards = gsap.utils.toArray<HTMLDivElement>(".project-card");
+
+      cards.forEach((card, i) => {
+        const randomRotation = gsap.utils.random(-6, 6);
+        gsap.set(card, { rotate: randomRotation });
+
+        gsap.fromTo(card,
+          {
+            x: gsap.utils.random(-500, -600),
+            y: gsap.utils.random(150, 250),
+            rotate: gsap.utils.random(-360, 360),
+            opacity: 0,
+            scale: 0.2,
+          },
+          {
+            x: 0,
+            y: 0,
+            rotate: gsap.utils.random(-6, 6),
+            opacity: 1,
+            scale: 1,
+            duration: 0.1,
+            ease: "elastic.out",
+            scrollTrigger: {
+              trigger: card,
+              start: "top 70%",
+              toggleActions: "play none none reverse",
+            },
+            delay: i * 0.1,
+          }
+        );
+
+        // Hover animation
+        let hoverAnim = gsap.to(card, {
+          scale: 1.05,
+          rotate: randomRotation + gsap.utils.random(-2, 2),
+          y: -15,
+          ease: "power3.out",
+          duration: 0.1,
+          paused: true,
+        });
+
+        card.addEventListener("mouseenter", () => hoverAnim.play());
+        card.addEventListener("mouseleave", () => hoverAnim.reverse());
+      });
+    }, containerRef);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <>
@@ -62,7 +117,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
           <div
             key={i}
             onClick={() => setActiveIndex(i)}
-            className="relative flex flex-col -mt-32 md:-mt-12 sm:-mr-10 rotate-6 hover:rotate-12 hover:-translate-y-10 justify-center gap-2 bg-mytheme/80 p-2 cursor-pointer duration-200"
+            className="project-card relative flex flex-col -mt-32 md:-mt-12 sm:-mr-10 rotate-6 hover:rotate-12 hover:-translate-y-10 justify-center gap-2 bg-mytheme/80 p-2 cursor-pointer duration-200"
             style={{
               WebkitClipPath:
                 "polygon(0% 8%, 10% 0%, 60% 0%, 70% 8%, 100% 8%, 100% 100%, 0% 100%)",
