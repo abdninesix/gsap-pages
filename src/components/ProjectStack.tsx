@@ -89,7 +89,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
         );
 
         // Hover animation
-        let hoverAnim = gsap.to(card, {
+        const hoverAnim = gsap.to(card, {
           scale: 1.05,
           rotate: randomRotation + gsap.utils.random(-2, 2),
           y: -15,

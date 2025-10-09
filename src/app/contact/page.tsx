@@ -6,7 +6,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { FaHandshakeAngle } from "react-icons/fa6";
 import { MdErrorOutline } from "react-icons/md";
-import { RiThumbUpFill, RiThumbUpLine } from "react-icons/ri";
+import { RiThumbUpFill } from "react-icons/ri";
 
 const Contactpage = () => {
   const [success, setSuccess] = useState<boolean>(false);

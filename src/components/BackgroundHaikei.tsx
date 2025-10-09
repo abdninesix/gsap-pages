@@ -8,9 +8,13 @@ const BackgroundHaikei = () => {
     const path2Ref = useRef<SVGPathElement | null>(null);
 
     useEffect(() => {
-        if (path1Ref.current && path2Ref.current) {
+
+        const path1 = path1Ref.current;
+        const path2 = path2Ref.current;
+
+        if (path1 && path2) {
             // Animate paths with a subtle morph / float effect
-            gsap.to([path1Ref.current, path2Ref.current], {
+            gsap.to([path1, path2], {
                 y: 20,
                 duration: 3,
                 repeat: -1,
@@ -21,7 +25,7 @@ const BackgroundHaikei = () => {
         }
 
         return () => {
-            gsap.killTweensOf([path1Ref.current, path2Ref.current]);
+            gsap.killTweensOf([path1, path2]);
         };
     }, []);
 
