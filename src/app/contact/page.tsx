@@ -61,49 +61,58 @@ const Contactpage = () => {
   useLayoutEffect(() => {
     gsap.registerPlugin(SplitText);
 
-    setTimeout(() => {
+    const ctx = gsap.context(() => {
 
-      const tl = gsap.timeline();
+      gsap.set([
+        formRef.current,
+        ".handshake",
+      ], { y: 50, opacity: 0 });
 
-      tl.fromTo(
-        containerRef.current,
-        { y: "-200vh" },
-        { y: "0%", duration: 1, ease: "power2.out" }
-      );
+      setTimeout(() => {
 
-      if (textRef.current) {
-        const split = new SplitText(textRef.current, { type: "chars" });
+        const tl = gsap.timeline();
 
-        tl
-          .from(split.chars, {
-            y: 1000,
-            scale: 20,
-            opacity: 0,
-            stagger: 0.1,
-            duration: 0.5,
-            ease: "back.in",
-          }, "+=0.25"
-          )
-          .fromTo(
-            ".handshake",
-            { y: -50, opacity: 0 },
-            { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
-            "+=0.25"
-          )
-          .fromTo(
-            formRef.current,
-            { opacity: 0, y: 50 },
-            { opacity: 1, y: 0, duration: 0.25, ease: "expo.in" },
-            "+=0.25"
-          );
+        tl.fromTo(
+          containerRef.current,
+          { y: "-200vh" },
+          { y: "0%", duration: 1, ease: "power2.out" }
+        );
 
-        // Cleanup function to revert the SplitText
-        return () => {
-          split.revert();
-        };
-      }
+        if (textRef.current) {
+          const split = new SplitText(textRef.current, { type: "chars" });
 
-    }, 300);
+          tl
+            .from(split.chars, {
+              y: 1000,
+              scale: 20,
+              opacity: 0,
+              stagger: 0.1,
+              duration: 0.5,
+              ease: "back.in",
+            }, "+=0.25"
+            )
+            .to(
+              ".handshake",
+              { y: 0, opacity: 1, duration: 0.25, ease: "expo.in" },
+              "+=0.25"
+            )
+            .to(
+              formRef.current,
+              { opacity: 1, y: 0, duration: 0.25, ease: "expo.in" },
+              "+=0.25"
+            );
+
+          // Cleanup function to revert the SplitText
+          return () => {
+            split.revert();
+          };
+        }
+
+      }, 300);
+
+    }, containerRef);
+
+    return () => ctx.revert();
   }, []);
 
   return (
@@ -117,7 +126,7 @@ const Contactpage = () => {
 
         <form onSubmit={sendEmail} ref={formRef} className="relative px-4 py-10 w-full lg:w-1/2 bg-mytheme/25 dark:bg-white/90 flex flex-col gap-10 justify-center transition-all">
 
-           <div className="relative w-full">
+          <div className="relative w-full">
             <input
               id="user_name"
               name="user_name"

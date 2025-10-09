@@ -85,6 +85,8 @@ const Homepage = () => {
 
     }, containerRef);
 
+    return () => ctx.revert();
+
   }, []);
 
   return (

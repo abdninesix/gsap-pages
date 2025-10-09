@@ -8,35 +8,35 @@ export const links = [
 export const projects = [
   {
     src: "/projects/blog.png",
-    title: "Blog Platform",
+    title: "Blog",
     desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
     type: "FullStack",
     link: "https://blog-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/nexus.png",
-    title: "Blog Platform",
+    title: "Nexus Business",
     desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
-    type: "FullStack",
+    type: "Fullstack",
     link: "https://blog-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/trendy.png",
-    title: "Blog Platform",
+    title: "TrendyStore",
     desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
-    type: "FullStack",
+    type: "Frontend",
     link: "https://blog-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/trendydash.png",
-    title: "Blog Platform",
+    title: "TrendyDashboard",
     desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
-    type: "FullStack",
+    type: "Frontend",
     link: "https://blog-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/hi.png",
-    title: "Social Media Platform",
+    title: "SocialApp",
     desc: "An eye-catching, responsive social media frontend built with Next.js and styled with Tailwind CSS. It features dynamic feeds, interactive posts, and smooth navigation—designed for speed, style, and seamless user experience.",
     type: "Frontend",
     link: "https://social-media-by-abdullah.vercel.app/"
@@ -50,21 +50,21 @@ export const projects = [
   },
   {
     src: "/projects/shadcn.png",
-    title: "Shadcn/UI Dashboard",
+    title: "Shadcn/UI",
     desc: "A modern, fully responsive frontend dashboard built with Next.js 15 and Shadcn UI components. Focused purely on clean design, smooth user interactions, and modular, scalable component architecture.",
     type: "Frontend",
     link: "https://dashboard-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/ecommerce.png",
-    title: "E-Commerce Lite",
+    title: "Brand Shop",
     desc: "A modern, full-stack e-commerce platform built with Vite and Express.js. The application is fully responsive across devices and supports complete CRUD operations for users, product categories, and products. Designed for performance and scalability, it provides a seamless user experience and efficient backend management.",
     type: "FullStack",
     link: "https://ecommerce-beta-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/gsap.png",
-    title: "GSAP Animation",
+    title: "Game Website",
     desc: "A sleek and beautiful game website enhanced with smooth GSAP animations for interactive transitions and dynamic gameplay experiences. Designed for performance and visual appeal, every element is brought to life with fluid motion.",
     type: "Frontend",
     link: "https://gsap-based-by-abdullah.vercel.app/"
@@ -78,28 +78,28 @@ export const projects = [
   },
   {
     src: "/projects/todo.png",
-    title: "Minimal Task Manager",
+    title: "ToDo App",
     desc: "A simple yet beautifully designed todo app built with a clean and intuitive interface. Users can easily add, update, and delete tasks, helping them stay organized and focused. The app offers a smooth user experience with responsive design, making task management effortless on any device.",
     type: "FullStack",
     link: "https://todo-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/kashmir.png",
-    title: "Landing Page",
+    title: "Kashmir Travels",
     desc: "A beautifully crafted frontend for a Kashmir travel application built with Next.js and TypeScript. The design focuses on a smooth user experience with modern UI components, optimized performance, and responsive layout to help users explore scenic destinations across Kashmir.",
     type: "Frontend",
     link: "https://kashmir-travels.vercel.app/"
   },
   {
     src: "/projects/lazybot.png",
-    title: "A.I Powered LazyBot",
+    title: "A.I LazyBot",
     desc: "Gemini LazyBot is a lightweight, AI-powered, non-serious chatbot built with Vite, styled using Tailwind CSS, and backed by a Node.js server. It leverages Google Gemini AI to provide intelligent, conversational responses with a clean and responsive UI. Designed for quick setup and minimal overhead.",
     type: "FullStack",
     link: "https://lazy-bot-by-abdullah.vercel.app/"
   },
   {
     src: "/projects/calc.png",
-    title: "A.I Powered Calculator",
+    title: "A.I Anaylsis",
     desc: "This Python-based drawing calculator lets users sketch mathematical expressions directly on a canvas. It intelligently analyzes the drawing using AI, interprets the expression, calculates the result, and displays it with LaTeX-rendered clarity.",
     type: "FullStack",
     link: "https://ai-calculator-by-abdullah.vercel.app/"
