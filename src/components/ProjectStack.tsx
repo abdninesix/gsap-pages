@@ -145,12 +145,6 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
             className="project-modal relative bg-white dark:bg-neutral-900 p-4 max-w-4xl w-full max-h-[90vh] overflow-auto shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <button
-              onClick={() => setActiveIndex(null)}
-              className="absolute top-2 right-2 text-2xl cursor-pointer"
-            >
-              ✕
-            </button>
 
             <h2 className="text-3xl font-bold flex items-center mb-3">
               {projects[activeIndex].title}&nbsp;
