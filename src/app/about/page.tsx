@@ -112,7 +112,7 @@ const Aboutpage = () => {
                         }, "-=0.4");
                     }
                 });
-            }, 100);
+            }, 300);
 
         }, containerRef);
 

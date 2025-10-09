@@ -81,7 +81,7 @@ const Homepage = () => {
           }
         }
 
-      }, 100)
+      }, 300)
 
     }, containerRef);
 

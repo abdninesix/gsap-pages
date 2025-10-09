@@ -103,7 +103,7 @@ const Contactpage = () => {
         };
       }
 
-    }, 100);
+    }, 300);
   }, []);
 
   return (
