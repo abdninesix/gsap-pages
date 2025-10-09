@@ -46,73 +46,73 @@ const Aboutpage = () => {
                     }, "+=0.25")
                         .from(".scroll-icon", { y: -40, opacity: 0, duration: 0.5 }, "+=0.2");
                 }
-            }, 100);
 
-            /** --- SCROLLTRIGGERED ANIMATIONS --- **/
+                /** --- SCROLLTRIGGERED ANIMATIONS --- **/
 
-            /** Line growth + timeline card animations **/
-            const lines = gsap.utils.toArray<HTMLElement>(".line-container");
+                /** Line growth + timeline card animations **/
+                const lines = gsap.utils.toArray<HTMLElement>(".line-container");
 
-            lines.forEach((lineContainer) => {
-                const line = lineContainer.querySelector(".line");
-                const dot = lineContainer.querySelector(".line-dot");
-                const card = lineContainer.closest(".timeline-card");
-                if (!line || !dot || !card) return;
+                lines.forEach((lineContainer) => {
+                    const line = lineContainer.querySelector(".line");
+                    const dot = lineContainer.querySelector(".line-dot");
+                    const card = lineContainer.closest(".timeline-card");
+                    if (!line || !dot || !card) return;
 
-                // Line grow
-                gsap.fromTo(
-                    line,
-                    { scaleY: 0, transformOrigin: "top" },
-                    {
-                        scaleY: 1,
-                        ease: "none",
+                    // Line grow
+                    gsap.fromTo(
+                        line,
+                        { scaleY: 0, transformOrigin: "top" },
+                        {
+                            scaleY: 1,
+                            ease: "none",
+                            scrollTrigger: {
+                                trigger: lineContainer,
+                                start: "top 70%",
+                                end: "top 40%",
+                                scrub: true,
+                            },
+                        }
+                    );
+
+                    // Dot and card reveal
+                    const tl = gsap.timeline({
                         scrollTrigger: {
                             trigger: lineContainer,
                             start: "top 70%",
-                            end: "top 40%",
-                            scrub: true,
+                            toggleActions: "play none none reverse",
                         },
+                    });
+
+                    tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
+                        .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
+                });
+
+                /** Headings + content slide-in **/
+                const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
+
+                headings.forEach((heading) => {
+                    const content = heading.parentElement?.querySelectorAll(".content-animate");
+
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: heading,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse",
+                        },
+                    });
+
+                    tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
+                    if (content && content.length > 0) {
+                        tl.from(content, {
+                            x: -120,
+                            opacity: 0,
+                            ease: "elastic",
+                            duration: 1,
+                            stagger: 0.15,
+                        }, "-=0.4");
                     }
-                );
-
-                // Dot and card reveal
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: lineContainer,
-                        start: "top 70%",
-                        toggleActions: "play none none reverse",
-                    },
                 });
-
-                tl.from(dot, { scale: 0, duration: 0.4, ease: "bounce.out" })
-                    .from(card, { autoAlpha: 0, ease: "expo.out", duration: 0.5 }, "-=0.25");
-            });
-
-            /** Headings + content slide-in **/
-            const headings = gsap.utils.toArray<HTMLElement>(".heading-animate");
-
-            headings.forEach((heading) => {
-                const content = heading.parentElement?.querySelectorAll(".content-animate");
-
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: heading,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse",
-                    },
-                });
-
-                tl.from(heading, { x: -150, opacity: 0, ease: "elastic", duration: 1 })
-                if (content && content.length > 0) {
-                    tl.from(content, {
-                        x: -120,
-                        opacity: 0,
-                        ease: "elastic",
-                        duration: 1,
-                        stagger: 0.15,
-                    }, "-=0.4");
-                }
-            });
+            }, 100);
 
         }, containerRef);
 
@@ -131,7 +131,7 @@ const Aboutpage = () => {
 
                 {/*STICKY CONTENT CONTAINER*/}
                 <div className="hidden lg:block w-full h-screen sticky top-0 z-10">
-                    {/* <ThreeObject modelPath="/scifi_robot.glb" /> */}
+                    <ThreeObject modelPath="/scifi_robot.glb" />
                 </div>
 
 
