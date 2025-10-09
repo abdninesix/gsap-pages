@@ -147,7 +147,7 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
           >
             <button
               onClick={() => setActiveIndex(null)}
-              className="absolute top-2 right-2 text-2xl"
+              className="absolute top-2 right-2 text-2xl cursor-pointer"
             >
               ✕
             </button>
@@ -158,7 +158,6 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
                 {projects[activeIndex].type}
               </span>
             </h2>
-
 
             <div className="flex flex-col items-start gap-4">
               <Image
