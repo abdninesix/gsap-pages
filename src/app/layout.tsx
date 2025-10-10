@@ -1,17 +1,14 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
-import BackgroundHaikei from "@/components/BackgroundHaikei";
-import BackgroundStars from "@/components/BackgroundStars";
 
 const poppins = Poppins({
   weight: '400', subsets: ['latin'], display: 'swap',
 })
 
 export const metadata: Metadata = {
-  title: "Portfolio | Abdullah",
-  description: "Modernize your web applications with Abdullah.",
+  title: "New | GSAP",
+  description: "Modernize your web applications",
 };
 
 export default function RootLayout({
@@ -22,30 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className="scrollbar-none scrollbar-thumb-black dark:scrollbar-thumb-white scrollbar-track-transparent">
       <head>
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function() {
-                try {
-                  var theme = localStorage.getItem('theme');
-                  if (!theme) {
-                    theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-                  }
-                  document.documentElement.classList.add(theme);
-                } catch (e) {}
-              })();
-            `,
-          }}
-        />
       </head>
       <body className={` ${poppins.className} antialiased `}>
-        <div className="fixed inset-0 -z-10 pointer-events-none">
-          <BackgroundHaikei />
-          <BackgroundStars count={50} />
-        </div>
         <main className="mx-auto px-4 sm:px-0 sm:max-w-xl md:max-w-2xl lg:max-w-4xl xl:max-w-6xl 2xl:max-w-7xl duration-400">
-          <Navbar />
-          <div className="h-[calc(100vh-4rem)]">{children}</div>
+          {children}
         </main>
       </body>
     </html>
