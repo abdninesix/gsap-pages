@@ -14,13 +14,19 @@ interface Project {
   desc: string;
   type: string;
   link: string;
+  tech: string[];
+}
+
+interface TechIcons {
+  [key: string]: React.ReactNode;
 }
 
 interface ProjectStackProps {
   projects: Project[];
+  techIcons: TechIcons;
 }
 
-export default function ProjectStack({ projects }: ProjectStackProps) {
+export default function ProjectStack({ projects, techIcons }: ProjectStackProps) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -142,16 +148,22 @@ export default function ProjectStack({ projects }: ProjectStackProps) {
       {activeIndex !== null && (
         <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
           <div
-            className="project-modal relative bg-white dark:bg-neutral-900 p-4 max-w-4xl w-full max-h-[90vh] overflow-auto shadow-2xl"
+            className="project-modal relative bg-white space-y-4 dark:bg-neutral-900 p-4 max-w-4xl max-h-screen overflow-auto"
             onClick={(e) => e.stopPropagation()}
           >
 
-            <h2 className="text-3xl font-bold flex items-center mb-3">
+            <h2 className="text-3xl font-bold flex items-center">
               {projects[activeIndex].title}&nbsp;
               <span className="p-1 w-fit bg-black text-white dark:bg-white dark:text-black font-medium text-xs">
                 {projects[activeIndex].type}
               </span>
             </h2>
+
+            <div className="flex gap-4">
+              {projects[activeIndex].tech.map((t) => (
+                <span className="text-xl" key={t}>{techIcons[t]}</span>
+              ))}
+            </div>
 
             <div className="flex flex-col items-start gap-4">
               <Image

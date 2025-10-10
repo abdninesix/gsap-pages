@@ -5,7 +5,7 @@ import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { FaCaretDown } from "react-icons/fa";
 import ProjectStack from "@/components/ProjectStack";
-import { projects } from "@/utils/data";
+import { projects, techIcons } from "@/utils/data";
 import { MdErrorOutline } from "react-icons/md";
 import TransitionLink from "@/components/TransitionLink";
 
@@ -50,7 +50,7 @@ const Projectspage = () => {
       </div>
 
       <div className="min-h-screen px-4 sm:px-14 py-40">
-        <ProjectStack projects={projects} />
+        <ProjectStack projects={projects} techIcons={techIcons} />
         <div className="w-full flex flex-col items-start mt-20">
           <div className="flex gap-2 items-center">
             <MdErrorOutline className="size-5" />

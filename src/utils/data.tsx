@@ -1,3 +1,10 @@
+import { BsFillInfoSquareFill } from "react-icons/bs";
+import { FaPython, FaReact } from "react-icons/fa";
+import { IoLogoJavascript } from "react-icons/io";
+import { PiCloverFill } from "react-icons/pi";
+import { RiGeminiFill, RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { SiExpress, SiJavascript, SiMongodb, SiReactquery, SiShadcnui, SiSocketdotio, SiTypescript, SiWebrtc } from "react-icons/si";
+
 export const links = [
   { url: "/", title: "Home" },
   { url: "/about", title: "About" },
@@ -11,100 +18,132 @@ export const projects = [
     title: "Blog",
     desc: "A sleek and responsive fullstack blog website built with React, featuring a clean, modern UI. Users can read, create, and manage blog posts with smooth navigation and real-time updates. The site is optimized for performance and mobile-friendly, offering a seamless user experience across all devices.",
     type: "FullStack",
-    link: "https://blog-by-abdullah.vercel.app/"
+    link: "https://blog-by-abdullah.vercel.app/",
+    tech: ["reactjs", "expressjs", "tailwind", "mongodb", "javascript", "query", "imagekit",]
   },
   {
     src: "/projects/nexus.png",
     title: "Nexus Business",
     desc: "Nexus is a modern web platform built with React, Express, Socket.IO, WebRTC, Tailwind CSS, and TypeScript that connects entrepreneurs and investors in a seamless, interactive environment. The app enables users to collaborate in real time, arrange secure video call meetings, and finalize deals with integrated payment features, making business networking smarter, faster, and more personal.",
     type: "Fullstack",
-    link: "https://nexus-by-abdullah.vercel.app/"
+    link: "https://nexus-by-abdullah.vercel.app/",
+    tech: ["reactjs", "expressjs", "tailwind", "mongodb", "socketio", "webrtc", "typescript", "query", "imagekit",]
   },
   {
     src: "/projects/trendy.png",
     title: "TrendyStore",
     desc: "TrendyStore is a sleek e-commerce platform built with Next.js, Tailwind CSS, and Zustand that showcases the latest trending fashion items. Users can easily browse stylish collections, explore trending looks, and add their favorite pieces to the cart with a smooth and responsive shopping experience.",
     type: "Frontend",
-    link: "https://trendy-by-abdullah.vercel.app/"
+    link: "https://trendy-by-abdullah.vercel.app/",
+    tech: ["nextjs", "tailwind", "typescript",]
   },
   {
     src: "/projects/trendydash.png",
     title: "TrendyDashboard",
     desc: "TrendyStore Dashboard is an elegant admin panel built with Next.js, TypeScript, Tailwind CSS, and fully powered by shadcn/ui. It provides a modern, responsive interface for managing products, tracking sales, and analyzing trends — giving store owners complete control over their fashion business with efficiency and style.",
     type: "Frontend",
-    link: "https://trendy-dashboard-by-abdullah.vercel.app/"
+    link: "https://trendy-dashboard-by-abdullah.vercel.app/",
+    tech: ["nextjs", "tailwind", "typescript", "shadcn",]
   },
   {
     src: "/projects/hi.png",
     title: "SocialApp",
     desc: "An eye-catching, responsive social media frontend built with Next.js and styled with Tailwind CSS. It features dynamic feeds, interactive posts, and smooth navigation—designed for speed, style, and seamless user experience.",
     type: "Frontend",
-    link: "https://social-media-by-abdullah.vercel.app/"
+    link: "https://social-media-by-abdullah.vercel.app/",
+    tech: ["nextjs", "tailwind", "typescript", "imagekit",]
   },
   {
     src: "/projects/food.png",
     title: "NextGenBites",
     desc: "NextGenBites is a modern, responsive restaurant website built with React, Vite, and Tailwind CSS. It features a full-page hero section, dynamic routing with React Router, and clean component-based architecture. Pages include Home, About, Menu, and Contact. Featured menu items are highlighted using Lucide React icons, and the layout is optimized for all screen sizes with smooth transitions and a cohesive UI.",
     type: "Frontend",
-    link: "https://nextgenbites-by-abdullah.vercel.app/"
+    link: "https://nextgenbites-by-abdullah.vercel.app/",
+    tech: ["reactjs", "tailwind", "javascript",]
   },
   {
     src: "/projects/shadcn.png",
     title: "Shadcn/UI",
     desc: "A modern, fully responsive frontend dashboard built with Next.js 15 and Shadcn UI components. Focused purely on clean design, smooth user interactions, and modular, scalable component architecture.",
     type: "Frontend",
-    link: "https://dashboard-by-abdullah.vercel.app/"
+    link: "https://dashboard-by-abdullah.vercel.app/",
+    tech: ["nextjs", "tailwind", "typescript", "shadcn",]
   },
   {
     src: "/projects/ecommerce.png",
     title: "Brand Shop",
     desc: "A modern, full-stack e-commerce platform built with Vite and Express.js. The application is fully responsive across devices and supports complete CRUD operations for users, product categories, and products. Designed for performance and scalability, it provides a seamless user experience and efficient backend management.",
     type: "FullStack",
-    link: "https://ecommerce-beta-by-abdullah.vercel.app/"
+    link: "https://ecommerce-beta-by-abdullah.vercel.app/",
+    tech: ["reactjs", "expressjs", "tailwind", "mongodb", "javascript", "imagekit",]
   },
   {
     src: "/projects/gsap.png",
     title: "Game Website",
     desc: "A sleek and beautiful game website enhanced with smooth GSAP animations for interactive transitions and dynamic gameplay experiences. Designed for performance and visual appeal, every element is brought to life with fluid motion.",
     type: "Frontend",
-    link: "https://gsap-based-by-abdullah.vercel.app/"
+    link: "https://gsap-based-by-abdullah.vercel.app/",
+    tech: ["reactjs", "tailwind", "javascript", "gsap",]
   },
   {
     src: "/projects/threads.png",
     title: "Threads Clone",
     desc: "A fullstack Threads clone built with Next.js and Shadcn UI, featuring user authentication, post creation, threaded conversations, and a sleek, responsive interface. Designed with modern best practices for performance, scalability, and clean UI/UX.",
     type: "FullStack",
-    link: "https://threads-by-abdullah.vercel.app/"
+    link: "https://threads-by-abdullah.vercel.app/",
+    tech: ["nextjs", "tailwind", "typescript", "shadcn",]
   },
   {
     src: "/projects/todo.png",
     title: "ToDo App",
     desc: "A simple yet beautifully designed todo app built with a clean and intuitive interface. Users can easily add, update, and delete tasks, helping them stay organized and focused. The app offers a smooth user experience with responsive design, making task management effortless on any device.",
     type: "FullStack",
-    link: "https://todo-by-abdullah.vercel.app/"
+    link: "https://todo-by-abdullah.vercel.app/",
+    tech: ["reactjs", "expressjs", "tailwind", "mongodb", "javascript",]
   },
   {
     src: "/projects/kashmir.png",
     title: "Kashmir Travels",
     desc: "A beautifully crafted frontend for a Kashmir travel application built with Next.js and TypeScript. The design focuses on a smooth user experience with modern UI components, optimized performance, and responsive layout to help users explore scenic destinations across Kashmir.",
     type: "Frontend",
-    link: "https://kashmir-travels.vercel.app/"
+    link: "https://kashmir-travels.vercel.app/",
+    tech: ["reactjs", "tailwind", "javascript",]
   },
   {
     src: "/projects/lazybot.png",
     title: "A.I LazyBot",
     desc: "Gemini LazyBot is a lightweight, AI-powered, non-serious chatbot built with Vite, styled using Tailwind CSS, and backed by a Node.js server. It leverages Google Gemini AI to provide intelligent, conversational responses with a clean and responsive UI. Designed for quick setup and minimal overhead.",
     type: "FullStack",
-    link: "https://lazy-bot-by-abdullah.vercel.app/"
+    link: "https://lazy-bot-by-abdullah.vercel.app/",
+    tech: ["reactjs", "expressjs", "tailwind", "javascript", "gemini",]
   },
   {
     src: "/projects/calc.png",
     title: "A.I Anaylsis",
     desc: "This Python-based drawing calculator lets users sketch mathematical expressions directly on a canvas. It intelligently analyzes the drawing using AI, interprets the expression, calculates the result, and displays it with LaTeX-rendered clarity.",
     type: "FullStack",
-    link: "https://ai-calculator-by-abdullah.vercel.app/"
+    link: "https://ai-calculator-by-abdullah.vercel.app/",
+    tech: ["reactjs", "expressjs", "tailwind", "javascript", "python", "gemini",]
   },
 ];
+
+export const techIcons = {
+  reactjs: <FaReact title="React.js" />,
+  nextjs: <RiNextjsFill title="Next.js" />,
+  tailwind: <RiTailwindCssFill title="TailwindCSS" />,
+  javascript: <SiJavascript title="Javascript" />,
+  typescript: <SiTypescript title="Typescript" />,
+  python: <FaPython title="Python" />,
+  shadcn: <SiShadcnui title="Shadcn/UI" />,
+  expressjs: <SiExpress title="Express.js" />,
+  mongodb: <SiMongodb title="MongoDB" />,
+  socketio: <SiSocketdotio title="Socket.io" />,
+  gemini: <RiGeminiFill title="Gemini" />,
+  query: <SiReactquery title="React Query" />,
+  gsap: <PiCloverFill title="GSAP" />,
+  imagekit: < BsFillInfoSquareFill title="Imagekit.io" />,
+  webrtc: <SiWebrtc title="WebRTC" />,
+};
 
 export const skills = [
   // Frontend Stack
