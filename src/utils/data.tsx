@@ -1,6 +1,5 @@
 import { BsFillInfoSquareFill } from "react-icons/bs";
 import { FaPython, FaReact } from "react-icons/fa";
-import { IoLogoJavascript } from "react-icons/io";
 import { PiCloverFill } from "react-icons/pi";
 import { RiGeminiFill, RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
 import { SiExpress, SiJavascript, SiMongodb, SiReactquery, SiShadcnui, SiSocketdotio, SiTypescript, SiWebrtc } from "react-icons/si";
